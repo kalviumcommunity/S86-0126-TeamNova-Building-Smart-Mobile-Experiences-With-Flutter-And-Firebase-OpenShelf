@@ -141,6 +141,177 @@ lib/
 
 ---
 
+## Responsive Mobile Interfaces (Sprint #2 - Part 2)
+
+### Overview
+The ResponsiveHome screen demonstrates how to build adaptive, responsive layouts that work seamlessly on phones, tablets, and across different orientations.
+
+### Responsive Design Features
+
+#### 1. MediaQuery Implementation
+```dart
+// Get device dimensions and orientation
+final screenWidth = MediaQuery.of(context).size.width;
+final screenHeight = MediaQuery.of(context).size.height;
+final isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+final isTablet = screenWidth > 600;
+
+// Conditional layout switching
+if (isTablet) {
+  // Display 2-column layout for tablets
+  crossAxisCount = 2;
+} else {
+  // Display 1-column layout for phones
+  crossAxisCount = 1;
+}
+```
+
+#### 2. Adaptive Widget Sizing
+```dart
+// Dynamic padding based on device type
+padding: EdgeInsets.symmetric(
+  horizontal: isTablet ? 24.0 : 16.0,
+  vertical: isTablet ? 20.0 : 16.0,
+),
+
+// Dynamic font sizes
+fontSize: isTablet ? 24 : 20,
+```
+
+#### 3. Flexible Layout Widgets
+- **GridView**: Adapts column count based on screen size
+- **SingleChildScrollView**: Enables scrolling on small screens
+- **Row with Expanded**: Creates flexible side-by-side layouts
+- **AspectRatio**: Maintains proper proportions on all devices
+
+#### 4. Orientation-Aware Layouts
+```dart
+// Portrait layout: Single column with scrolling
+if (isPortrait) {
+  return _buildPortraitLayout(...);
+}
+
+// Landscape layout: Two-column with sidebar
+else {
+  return _buildLandscapeLayout(...);
+}
+```
+
+### File Structure
+```
+lib/screens/
+├── welcome_screen.dart       # Welcome screen with navigation
+└── responsive_home.dart      # Responsive layout demonstration
+```
+
+### Code Architecture
+
+#### Responsive Home Screen Structure
+- **AppBar**: Adaptive font sizes and actions
+- **Header Section**: Gradient background with responsive text
+- **Content Grid**: Dynamic 1-2 column layout based on screen width
+- **Feature Cards**: Responsive list items with adaptive padding
+- **Footer Section**: Full-width button and copyright info
+- **Bottom Navigation**: Visible on phones, hidden on tablets
+- **Drawers**: Phone drawer + tablet sidebar
+
+#### Key Responsive Methods
+1. `_buildPortraitLayout()` - Vertical scrolling for phones
+2. `_buildLandscapeLayout()` - Multi-column for tablets
+3. `_buildAppBar()` - Adaptive title and actions
+4. `_buildContentGrid()` - GridView with adaptive columns
+5. `_buildHeaderSection()` - Gradient header with responsive text
+
+### Testing Responsive Design
+
+#### Device Configurations Tested
+- **Mobile Portrait**: ~400x800 (Pixel 4/5)
+- **Mobile Landscape**: ~800x400
+- **Tablet Portrait**: ~1080x1440 (iPad)
+- **Tablet Landscape**: ~1440x1080
+
+#### How to Test
+```bash
+# Run on specific device
+flutter run -d <device-id>
+
+# Rotate device with 'r' (hot reload) and 'R' (hot restart)
+# Check different screen sizes using emulator resize options
+```
+
+### Responsive Design Challenges & Solutions
+
+#### Challenge 1: Content Overflow
+**Problem**: Text and widgets overflow on small screens
+**Solution**: Use `SingleChildScrollView`, `Expanded`, and dynamic font sizing
+```dart
+SingleChildScrollView(
+  child: Column(...),  // Content wraps naturally
+)
+```
+
+#### Challenge 2: Navigation Consistency
+**Problem**: Different UI patterns for phones vs tablets
+**Solution**: Conditionally show Bottom Navigation (phones) vs Drawers (tablets)
+```dart
+bottomNavigationBar: isTablet ? null : _buildBottomNav(),
+endDrawer: isTablet ? _buildTabletSidebar(...) : null,
+```
+
+#### Challenge 3: Grid Layout Adaptation
+**Problem**: 4-column grid doesn't fit on phones
+**Solution**: Use dynamic cross-axis count based on screen width
+```dart
+crossAxisCount: isTablet ? 2 : 1,
+```
+
+#### Challenge 4: Image & Asset Sizing
+**Problem**: Images appear too large/small across devices
+**Solution**: Use `AspectRatio`, `FittedBox`, and responsive containers
+```dart
+Container(
+  width: screenWidth * 0.8,  // 80% of screen width
+  height: screenWidth * 0.6,  // Maintain 4:3 aspect ratio
+)
+```
+
+### Real-World Impact
+
+#### User Experience Benefits
+1. **Accessibility**: Large buttons and text for easy interaction
+2. **Readability**: Appropriate font sizes prevent eye strain
+3. **Consistency**: Same app experience across all devices
+4. **Engagement**: Professional appearance on any screen size
+5. **Performance**: Efficient layouts reduce rendering overhead
+
+#### Business Benefits
+1. **Market Reach**: One app for phones and tablets
+2. **Maintenance**: Single codebase for multiple device types
+3. **User Retention**: Better UX leads to continued usage
+4. **App Store Optimization**: Support for multiple devices improves visibility
+
+### Best Practices Implemented
+
+✅ **Mobile-First Design**: Start with phone layout, enhance for tablets  
+✅ **Safe Areas**: Respect notches and rounded corners  
+✅ **Accessible Touch Targets**: Minimum 48dp button sizes  
+✅ **Readable Text**: Font sizes scale with screen size  
+✅ **Flexible Spacing**: Padding adapts to device type  
+✅ **Device-Specific Navigation**: Different patterns for phones vs tablets  
+✅ **Consistent Branding**: DeepPurple theme across all layouts  
+✅ **Performance**: Efficient rebuild logic with setState  
+
+### Future Responsive Enhancements
+
+- [ ] Implement LayoutBuilder for more fine-grained control
+- [ ] Add responsive images using conditional asset loading
+- [ ] Create custom responsive widgets for reusability
+- [ ] Implement adaptive text scaling based on user preferences
+- [ ] Add landscape-specific UX patterns
+- [ ] Support split-screen multitasking on tablets
+
+---
+
 ## Future Enhancements
 
 - Add navigation to multiple screens (Settings, Browse Resources, etc.)
@@ -149,6 +320,7 @@ lib/
 - Add search and filter functionality
 - Push notifications for resource updates
 - Social sharing capabilities
+- Advanced responsive patterns (web desktop support)
 
 ---
 
@@ -158,9 +330,12 @@ lib/
 - [Dart Language Tour](https://dart.dev/guides/language/language-tour)
 - [Flutter Widget Catalog](https://flutter.dev/docs/development/ui/widgets)
 - [Material Design](https://material.io/design)
+- [Responsive Design Guide](https://flutter.dev/docs/development/ui/layout)
+- [MediaQuery Reference](https://api.flutter.dev/flutter/widgets/MediaQuery-class.html)
 
 ---
 
 **Created**: January 22, 2026  
+**Updated**: January 22, 2026 (Added Responsive Design - Sprint #2 Part 2)  
 **Flutter Version**: 3.38.7  
 **Dart Version**: 3.0+
