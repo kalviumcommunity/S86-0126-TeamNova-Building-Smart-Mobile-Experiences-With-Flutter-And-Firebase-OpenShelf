@@ -98,6 +98,23 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
             ),
+            const SizedBox(height: 20),
+
+            // Navigate to Responsive Home
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.pushNamed(context, '/responsive');
+              },
+              icon: const Icon(Icons.arrow_forward),
+              label: const Text('View Responsive UI'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.deepPurple.shade700,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 12,
+                ),
+              ),
+            ),
           ],
         ),
       ),
