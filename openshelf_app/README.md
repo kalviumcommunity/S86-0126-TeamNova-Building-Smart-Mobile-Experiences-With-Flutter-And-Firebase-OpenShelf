@@ -121,7 +121,7 @@ lib/
 
 ### How This Structure Helps Build Complex UIs Later
 
-- **Modular Components**: By organizing code into screens and widgets, you can compose complex UIs from simple, reusable pieces.
+- **Modular Components**: By organizing code into screens and widgets, you can compose complex UIs from simple, reusable pieces..
 - **State Management**: Understanding `setState()` now prepares you for advanced state management solutions (Provider, Riverpod, Bloc) as your app grows.
 - **Data Flow**: Separating services from UI logic ensures data flows cleanly through your app, making it easier to integrate APIs and databases.
 - **Maintainability**: Clean folder structure makes onboarding new developers and refactoring code easier.
