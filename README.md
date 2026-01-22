@@ -1,1 +1,0 @@
-# S86-0126-TeamNova-Full-Stack-With-NextjsAnd-AWS-Azure-OpenShelf
