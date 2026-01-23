@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "190028955711",
+    "project_id": "openshelf-41bd9",
+    "storage_bucket": "openshelf-41bd9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190028955711:android:456f865c2ea3915b9db88a",
+        "android_client_info": {
+          "package_name": "com.example.openshelf_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkUHyHxQPh24SD9DYEBaEaAoXjEtM33PQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
