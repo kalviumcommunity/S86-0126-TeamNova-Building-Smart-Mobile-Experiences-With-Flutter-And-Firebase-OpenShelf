@@ -6,8 +6,10 @@ import 'screens/welcome_screen.dart';
 import 'screens/responsive_home.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
+import 'screens/demo_hub.dart';
 import 'screens/widget_tree_demo.dart';
 import 'screens/stateless_stateful_demo.dart';
+import 'screens/hot_reload_devtools_demo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,8 +37,10 @@ class MyApp extends StatelessWidget {
         '/responsive': (context) => const ResponsiveHome(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
+        '/demo-hub': (context) => const DemoHub(),
         '/widget-tree-demo': (context) => const WidgetTreeDemo(),
         '/stateless-stateful-demo': (context) => const StatelessStatefulDemo(),
+        '/hot-reload-devtools-demo': (context) => const HotReloadDevtoolsDemo(),
       },
     );
   }
