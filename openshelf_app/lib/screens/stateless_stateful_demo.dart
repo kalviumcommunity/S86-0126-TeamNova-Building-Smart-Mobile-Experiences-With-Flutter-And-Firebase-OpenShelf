@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:developer' as developer;
 
 /// ============================================================================
 /// STATELESS vs STATEFUL WIDGETS DEMONSTRATION
@@ -205,6 +206,10 @@ class _InteractiveCounterState extends State<InteractiveCounter> {
     setState(() {
       _count++;
       _isEven = _count % 2 == 0;
+      debugPrint(
+        '[InteractiveCounter] Incremented count to $_count | Is even: $_isEven',
+      );
+      developer.Timeline.finishSync();
     });
   }
 
@@ -212,6 +217,9 @@ class _InteractiveCounterState extends State<InteractiveCounter> {
     setState(() {
       _count--;
       _isEven = _count % 2 == 0;
+      debugPrint(
+        '[InteractiveCounter] Decremented count to $_count | Is even: $_isEven',
+      );
     });
   }
 
@@ -219,6 +227,7 @@ class _InteractiveCounterState extends State<InteractiveCounter> {
     setState(() {
       _count = 0;
       _isEven = true;
+      debugPrint('[InteractiveCounter] Reset counter to 0');
     });
   }
 
@@ -364,6 +373,9 @@ class _ThemerChangerState extends State<ThemeChanger> {
   void _toggleTheme() {
     setState(() {
       _isDarkBackground = !_isDarkBackground;
+      debugPrint(
+        '[ThemeChanger] Theme toggled to: ${_isDarkBackground ? 'DARK' : 'LIGHT'}',
+      );
     });
   }
 
@@ -472,6 +484,9 @@ class _VisibilityToggleState extends State<VisibilityToggle> {
   void _toggleVisibility() {
     setState(() {
       _isVisible = !_isVisible;
+      debugPrint(
+        '[VisibilityToggle] Content is now: ${_isVisible ? 'VISIBLE' : 'HIDDEN'}',
+      );
     });
   }
 
