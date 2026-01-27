@@ -41,18 +41,21 @@ lib/
 ### Naming Conventions
 
 #### Files
+
 - **Screen files**: Use snake_case (e.g., `welcome_screen.dart`, `user_profile_screen.dart`)
 - **Widget files**: Use snake_case (e.g., `custom_button.dart`, `product_card.dart`)
 - **Model files**: Use snake_case (e.g., `user_model.dart`, `product_model.dart`)
 - **Service files**: Use snake_case (e.g., `api_service.dart`, `firebase_service.dart`)
 
 #### Classes
+
 - **Screens**: Use PascalCase with "Screen" suffix (e.g., `WelcomeScreen`, `UserProfileScreen`)
 - **Widgets**: Use PascalCase (e.g., `CustomButton`, `ProductCard`)
 - **Models**: Use PascalCase (e.g., `User`, `Product`)
 - **Services**: Use PascalCase with "Service" suffix (e.g., `ApiService`, `FirebaseService`)
 
 #### Variables & Methods
+
 - Use camelCase (e.g., `userName`, `fetchUserData()`, `toggleGreeting()`)
 
 ---
@@ -60,6 +63,7 @@ lib/
 ## Setup Instructions
 
 ### Prerequisites
+
 - Dart SDK 3.0+ (comes with Flutter)
 - Flutter SDK 3.38+ (installed and configured)
 - Android Studio or VS Code with Flutter/Dart extensions
@@ -68,25 +72,31 @@ lib/
 ### Installation Steps
 
 1. **Clone or navigate to the project directory:**
+
    ```bash
    cd openshelf_app
    ```
 
 2. **Install dependencies:**
+
    ```bash
    flutter pub get
    ```
 
 3. **Verify Flutter installation:**
+
    ```bash
    flutter doctor
    ```
+
    Ensure all required components are installed.
 
 4. **Run the app:**
+
    ```bash
    flutter run
    ```
+
    This will launch the app on your connected device/emulator.
 
 5. **Hot Reload (during development):**
@@ -109,7 +119,7 @@ lib/
    - **Async/Await**: Useful for API calls and future operations.
    - **Build Methods**: Every widget must implement a `build()` method that returns a widget tree.
 
-4. **Layout Widgets**: 
+4. **Layout Widgets**:
    - `Scaffold`: Provides app structure (AppBar, body, floating action buttons)
    - `Column/Row`: For vertical/horizontal arrangement
    - `Center`: Centers child widgets
@@ -144,11 +154,13 @@ lib/
 ## Responsive Mobile Interfaces (Sprint #2 - Part 2)
 
 ### Overview
+
 The ResponsiveHome screen demonstrates how to build adaptive, responsive layouts that work seamlessly on phones, tablets, and across different orientations.
 
 ### Responsive Design Features
 
 #### 1. MediaQuery Implementation
+
 ```dart
 // Get device dimensions and orientation
 final screenWidth = MediaQuery.of(context).size.width;
@@ -167,6 +179,7 @@ if (isTablet) {
 ```
 
 #### 2. Adaptive Widget Sizing
+
 ```dart
 // Dynamic padding based on device type
 padding: EdgeInsets.symmetric(
@@ -179,12 +192,14 @@ fontSize: isTablet ? 24 : 20,
 ```
 
 #### 3. Flexible Layout Widgets
+
 - **GridView**: Adapts column count based on screen size
 - **SingleChildScrollView**: Enables scrolling on small screens
 - **Row with Expanded**: Creates flexible side-by-side layouts
 - **AspectRatio**: Maintains proper proportions on all devices
 
 #### 4. Orientation-Aware Layouts
+
 ```dart
 // Portrait layout: Single column with scrolling
 if (isPortrait) {
@@ -198,6 +213,7 @@ else {
 ```
 
 ### File Structure
+
 ```
 lib/screens/
 ├── welcome_screen.dart       # Welcome screen with navigation
@@ -207,6 +223,7 @@ lib/screens/
 ### Code Architecture
 
 #### Responsive Home Screen Structure
+
 - **AppBar**: Adaptive font sizes and actions
 - **Header Section**: Gradient background with responsive text
 - **Content Grid**: Dynamic 1-2 column layout based on screen width
@@ -216,6 +233,7 @@ lib/screens/
 - **Drawers**: Phone drawer + tablet sidebar
 
 #### Key Responsive Methods
+
 1. `_buildPortraitLayout()` - Vertical scrolling for phones
 2. `_buildLandscapeLayout()` - Multi-column for tablets
 3. `_buildAppBar()` - Adaptive title and actions
@@ -225,12 +243,14 @@ lib/screens/
 ### Testing Responsive Design
 
 #### Device Configurations Tested
+
 - **Mobile Portrait**: ~400x800 (Pixel 4/5)
 - **Mobile Landscape**: ~800x400
 - **Tablet Portrait**: ~1080x1440 (iPad)
 - **Tablet Landscape**: ~1440x1080
 
 #### How to Test
+
 ```bash
 # Run on specific device
 flutter run -d <device-id>
@@ -242,8 +262,10 @@ flutter run -d <device-id>
 ### Responsive Design Challenges & Solutions
 
 #### Challenge 1: Content Overflow
+
 **Problem**: Text and widgets overflow on small screens
 **Solution**: Use `SingleChildScrollView`, `Expanded`, and dynamic font sizing
+
 ```dart
 SingleChildScrollView(
   child: Column(...),  // Content wraps naturally
@@ -251,23 +273,29 @@ SingleChildScrollView(
 ```
 
 #### Challenge 2: Navigation Consistency
+
 **Problem**: Different UI patterns for phones vs tablets
 **Solution**: Conditionally show Bottom Navigation (phones) vs Drawers (tablets)
+
 ```dart
 bottomNavigationBar: isTablet ? null : _buildBottomNav(),
 endDrawer: isTablet ? _buildTabletSidebar(...) : null,
 ```
 
 #### Challenge 3: Grid Layout Adaptation
+
 **Problem**: 4-column grid doesn't fit on phones
 **Solution**: Use dynamic cross-axis count based on screen width
+
 ```dart
 crossAxisCount: isTablet ? 2 : 1,
 ```
 
 #### Challenge 4: Image & Asset Sizing
+
 **Problem**: Images appear too large/small across devices
 **Solution**: Use `AspectRatio`, `FittedBox`, and responsive containers
+
 ```dart
 Container(
   width: screenWidth * 0.8,  // 80% of screen width
@@ -278,6 +306,7 @@ Container(
 ### Real-World Impact
 
 #### User Experience Benefits
+
 1. **Accessibility**: Large buttons and text for easy interaction
 2. **Readability**: Appropriate font sizes prevent eye strain
 3. **Consistency**: Same app experience across all devices
@@ -285,6 +314,7 @@ Container(
 5. **Performance**: Efficient layouts reduce rendering overhead
 
 #### Business Benefits
+
 1. **Market Reach**: One app for phones and tablets
 2. **Maintenance**: Single codebase for multiple device types
 3. **User Retention**: Better UX leads to continued usage
@@ -299,7 +329,7 @@ Container(
 ✅ **Flexible Spacing**: Padding adapts to device type  
 ✅ **Device-Specific Navigation**: Different patterns for phones vs tablets  
 ✅ **Consistent Branding**: DeepPurple theme across all layouts  
-✅ **Performance**: Efficient rebuild logic with setState  
+✅ **Performance**: Efficient rebuild logic with setState
 
 ### Future Responsive Enhancements
 
@@ -309,6 +339,238 @@ Container(
 - [ ] Implement adaptive text scaling based on user preferences
 - [ ] Add landscape-specific UX patterns
 - [ ] Support split-screen multitasking on tablets
+
+---
+
+## Setup Verification
+
+### Flutter Environment Setup (Sprint #2 - Deliverable 1)
+
+This section documents the complete setup of the Flutter development environment including Flutter SDK installation, Android Studio configuration, and first emulator run.
+
+### Installation Steps Completed
+
+#### 1. Flutter SDK Installation
+
+**Platform**: Windows 11 Home Single Language 64-bit
+
+**Steps Followed**:
+
+1. Downloaded Flutter SDK 3.38.7 from [flutter.dev](https://flutter.dev)
+2. Extracted to `C:\flutter`
+3. Added Flutter to System PATH:
+   - Opened Environment Variables → System Variables
+   - Edited PATH variable
+   - Added `C:\flutter\bin`
+4. Verified installation with `flutter doctor`
+
+**Flutter Doctor Output** ✅:
+
+```
+[√] Flutter (Channel stable, 3.38.7, on Microsoft Windows [Version 10.0.26200.7623])
+    • Flutter version 3.38.7 on channel stable at C:\flutter
+    • Framework revision 3b62efc2a3 (13 days ago), 2026-01-13 13:47:42 -0800
+    • Engine revision 78fc3012e4
+    • Dart version 3.10.7
+    • DevTools version 2.51.1
+
+[√] Android toolchain - develop for Android devices (Android SDK version 36.1.0)
+    • Android SDK at C:\Android\Sdk
+    • Platform android-36, build-tools 36.1.0
+    • All Android licenses accepted ✓
+
+[√] Chrome - develop for the web
+    • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[√] Visual Studio - develop Windows apps
+    • Visual Studio Professional 2026 version 18.3.11415.281
+
+[√] Connected device (4 available)
+    • sdk gphone16k x86 64 (emulator-5554) - Android emulator
+    • Windows (desktop)
+    • Chrome (web)
+    • Edge (web)
+
+[√] Network resources
+    • All expected network resources are available
+
+• No issues found!
+```
+
+#### 2. Android Studio Setup
+
+**Version**: Android Studio (latest)
+
+**Components Installed**:
+
+- ✅ Android SDK (version 36.1.0)
+- ✅ Android SDK Platform-Tools
+- ✅ Android SDK Build-Tools 36.1.0
+- ✅ Android Virtual Device (AVD) Manager
+- ✅ Flutter plugin
+- ✅ Dart plugin
+
+**Java Environment**:
+
+- OpenJDK Runtime Environment (build 21.0.8)
+- Bundled with Android Studio
+
+#### 3. Android Emulator Configuration
+
+**Emulator Details**:
+
+- **Device**: sdk gphone16k x86 64
+- **Device ID**: emulator-5554
+- **Platform**: Android 16 (API 36)
+- **Architecture**: android-x64
+- **Emulator Version**: 36.3.10.0
+
+**Verification**:
+
+```bash
+$ flutter devices
+
+Found 4 connected devices:
+  sdk gphone16k x86 64 (mobile) • emulator-5554 • android-x64 • Android 16 (API 36)
+  Windows (desktop)             • windows       • windows-x64 • Microsoft Windows
+  Chrome (web)                  • chrome        • web-javascript • Google Chrome
+  Edge (web)                    • edge          • web-javascript • Microsoft Edge
+```
+
+#### 4. First Flutter App Run
+
+**Project**: OpenShelf Mobile App
+
+**Commands Executed**:
+
+```bash
+# Navigate to project
+cd openshelf_app
+
+# Get dependencies
+flutter pub get
+
+# Run on Android emulator
+flutter run -d emulator-5554
+
+# Also tested on Chrome for web development
+flutter run -d chrome
+```
+
+**App Successfully Launched** ✅:
+
+- Authentication screens (Login/Signup) with enhanced UI
+- Firebase integration configured
+- Responsive layouts tested
+- Hot reload functionality verified
+
+### Screenshots
+
+**Note**: Screenshots should be placed in a `screenshots/` folder in your project root.
+
+#### 1. Flutter Doctor Output
+
+![Flutter Doctor - All Checks Passed](screenshots/flutter_doctor_output.png)
+_All Flutter environment checks passed with no issues_
+
+#### 2. Android Emulator Running OpenShelf App
+
+![OpenShelf App on Android Emulator](screenshots/app_on_emulator.png)
+_Login screen with gradient UI running on Android 16 emulator_
+
+#### 3. Available Devices
+
+![Flutter Devices List](screenshots/flutter_devices.png)
+_All connected devices including Android emulator detected_
+
+#### 4. App Running on Chrome (Web)
+
+![OpenShelf App on Chrome Browser](screenshots/app_on_chrome.png)
+_Cross-platform capability - same app running on web_
+
+### Setup Reflection
+
+#### Challenges Faced
+
+1. **Developer Mode Requirement**:
+   - **Issue**: Initial error about symlink support requiring Developer Mode
+   - **Resolution**: Enabled Developer Mode in Windows Settings → For Developers
+   - **Learning**: Windows requires Developer Mode for Flutter to create symlinks needed by various plugins
+
+2. **Firebase Configuration**:
+   - **Issue**: Firebase credential errors during testing
+   - **Resolution**: Verified `google-services.json` placement and Firebase initialization
+   - **Learning**: Proper Firebase configuration requires correct placement of config files and initialization in `main.dart`
+
+3. **Emulator Performance**:
+   - **Issue**: Initial slow emulator startup
+   - **Resolution**: Increased RAM allocation in AVD settings, enabled hardware acceleration
+   - **Learning**: Android emulators need proper system resources for smooth performance
+
+4. **Package Dependencies**:
+   - **Issue**: Some Firebase packages had newer versions with incompatible constraints
+   - **Resolution**: Used compatible versions specified in `pubspec.yaml`
+   - **Learning**: Flutter's dependency resolution ensures compatibility across packages
+
+#### How This Setup Prepares for Mobile App Development
+
+1. **Multi-Platform Development**:
+   - Can now develop for Android, iOS, Web, and Desktop from a single codebase
+   - Testing on emulator allows rapid iteration without physical devices
+   - Web target enables quick previews and debugging
+
+2. **Professional Development Workflow**:
+   - Flutter Doctor ensures all dependencies are properly configured
+   - Hot reload enables instant feedback during development
+   - DevTools provides debugging and performance profiling capabilities
+
+3. **Firebase Integration Ready**:
+   - Firebase SDK properly configured for authentication and cloud services
+   - Can now implement user authentication, cloud storage, and real-time databases
+   - Ready for production-grade backend integration
+
+4. **Responsive Design Testing**:
+   - Emulator allows testing different screen sizes and orientations
+   - Can simulate various device configurations
+   - Ensures app works across phone and tablet form factors
+
+5. **Version Control & Collaboration**:
+   - Git integration in VS Code/Android Studio
+   - Ready for team collaboration through GitHub
+   - Pull request workflow enables code review and quality assurance
+
+#### Key Takeaways
+
+✅ **Complete Environment**: All required tools installed and verified  
+✅ **No Blockers**: Flutter doctor shows zero issues  
+✅ **Multiple Targets**: Can deploy to Android, Web, Windows, and more  
+✅ **Cloud-Ready**: Firebase integration configured and tested  
+✅ **Performance Optimized**: Emulator configured for smooth development  
+✅ **Professional Tools**: Using industry-standard IDEs and workflows
+
+### Development Environment Summary
+
+| Component      | Version/Details            | Status        |
+| -------------- | -------------------------- | ------------- |
+| Flutter SDK    | 3.38.7 (stable)            | ✅ Installed  |
+| Dart           | 3.10.7                     | ✅ Installed  |
+| Android Studio | Latest with Flutter plugin | ✅ Configured |
+| Android SDK    | 36.1.0 (API 36)            | ✅ Installed  |
+| Emulator       | sdk gphone16k x86 64       | ✅ Running    |
+| Chrome         | 138.0.7204.100             | ✅ Available  |
+| Visual Studio  | 2026 Professional          | ✅ Installed  |
+| Firebase       | Configured                 | ✅ Integrated |
+| Developer Mode | Enabled                    | ✅ Active     |
+
+### Next Steps
+
+With the development environment fully configured, the team is ready to:
+
+1. ✅ Build and test Flutter apps on multiple platforms
+2. ✅ Implement Firebase authentication and cloud features
+3. ✅ Create responsive, adaptive mobile interfaces
+4. ✅ Deploy to production environments
+5. ✅ Collaborate using Git workflows and pull requests
 
 ---
 
