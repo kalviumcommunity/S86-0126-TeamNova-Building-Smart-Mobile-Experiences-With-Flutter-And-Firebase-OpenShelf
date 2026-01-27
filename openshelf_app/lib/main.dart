@@ -6,6 +6,7 @@ import 'screens/welcome_screen.dart';
 import 'screens/responsive_home.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
+import 'screens/widget_tree_demo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/responsive': (context) => const ResponsiveHome(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
+        '/widget-tree-demo': (context) => const WidgetTreeDemo(),
       },
     );
   }
