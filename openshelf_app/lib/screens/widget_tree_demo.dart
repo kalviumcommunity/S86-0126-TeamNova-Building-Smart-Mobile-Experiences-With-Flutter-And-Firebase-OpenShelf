@@ -43,18 +43,18 @@ class WidgetTreeDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: Text('Widget Tree & Reactive UI Demo'),
+        title: const Text('Widget Tree & Reactive UI Demo'),
         centerTitle: true,
         elevation: 8,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               // ============================================================
               // COMPONENT 1: Profile Card - Demonstrates nested widgets
               //              and state changes affecting UI
