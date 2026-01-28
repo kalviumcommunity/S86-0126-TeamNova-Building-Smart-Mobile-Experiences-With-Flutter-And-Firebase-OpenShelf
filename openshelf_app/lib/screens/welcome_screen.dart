@@ -27,10 +27,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         backgroundColor: Colors.deepPurple,
         elevation: 0,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
             // Title
             Text(
               _isGreeting ? 'Welcome to OpenShelf!' : 'Hello There!',
@@ -100,6 +102,70 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
             const SizedBox(height: 20),
 
+            // Responsive Layout Button
+            SizedBox(
+              width: 280,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/responsive-layout');
+                },
+                icon: const Icon(Icons.dashboard, size: 22),
+                label: const Text(
+                  'Responsive Layout Dashboard',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.indigo[600],
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12,
+                    horizontal: 16,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  elevation: 4,
+                  shadowColor: Colors.indigo.withOpacity(0.4),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+
+            // Multi-Screen Navigation Demo Button
+            SizedBox(
+              width: 280,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/navigation-hub');
+                },
+                icon: const Icon(Icons.navigation, size: 22),
+                label: const Text(
+                  'Multi-Screen Navigation Demo',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red[500],
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12,
+                    horizontal: 16,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  elevation: 4,
+                  shadowColor: Colors.red.withOpacity(0.4),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+
             // Navigate to Responsive Home
             ElevatedButton.icon(
               onPressed: () {
@@ -116,6 +182,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
             ),
           ],
+        ),
         ),
       ),
     );
