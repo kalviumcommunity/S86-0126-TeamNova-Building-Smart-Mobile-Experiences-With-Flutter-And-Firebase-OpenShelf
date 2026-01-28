@@ -164,6 +164,38 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
             ),
+            const SizedBox(height: 12),
+
+            // Scrollable Views Button
+            SizedBox(
+              width: 280,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/scrollable-views');
+                },
+                icon: const Icon(Icons.list, size: 22),
+                label: const Text(
+                  'Scrollable Views - ListView & GridView',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.teal[600],
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 12,
+                    horizontal: 16,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  elevation: 4,
+                  shadowColor: Colors.teal.withOpacity(0.4),
+                ),
+              ),
+            ),
             const SizedBox(height: 20),
 
             // Navigate to Responsive Home
