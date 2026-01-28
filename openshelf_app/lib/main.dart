@@ -10,6 +10,10 @@ import 'screens/demo_hub.dart';
 import 'screens/widget_tree_demo.dart';
 import 'screens/stateless_stateful_demo.dart';
 import 'screens/hot_reload_devtools_demo.dart';
+import 'screens/navigation_hub.dart';
+import 'screens/home_screen.dart';
+import 'screens/profile_screen.dart';
+import 'screens/settings_about_screens.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,6 +45,11 @@ class MyApp extends StatelessWidget {
         '/widget-tree-demo': (context) => const WidgetTreeDemo(),
         '/stateless-stateful-demo': (context) => const StatelessStatefulDemo(),
         '/hot-reload-devtools-demo': (context) => const HotReloadDevtoolsDemo(),
+        '/navigation-hub': (context) => const NavigationHub(),
+        '/home': (context) => const HomeScreen(),
+        '/profile': (context) => const ProfileScreen(),
+        '/settings': (context) => const SettingsScreen(),
+        '/about': (context) => const AboutScreen(),
       },
     );
   }
