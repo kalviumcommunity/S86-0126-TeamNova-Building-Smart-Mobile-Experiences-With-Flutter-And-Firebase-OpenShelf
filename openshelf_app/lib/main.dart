@@ -15,6 +15,7 @@ import 'screens/home_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/settings_about_screens.dart';
 import 'screens/responsive_layout.dart';
+import 'screens/scrollable_views.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
         '/settings': (context) => const SettingsScreen(),
         '/about': (context) => const AboutScreen(),
         '/responsive-layout': (context) => ResponsiveLayout(),
+        '/scrollable-views': (context) => const ScrollableViews(),
       },
     );
   }
