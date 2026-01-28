@@ -363,6 +363,40 @@ class _LoginScreenState extends State<LoginScreen>
                     ),
                     const SizedBox(height: 32),
 
+                    // Responsive Layout Dashboard Button
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/responsive-layout');
+                        },
+                        icon: const Icon(Icons.dashboard, size: 22),
+                        label: const Text(
+                          'Responsive Layout Dashboard',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 0.3,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.indigo[600],
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 14,
+                            horizontal: 16,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          elevation: 4,
+                          shadowColor: Colors.indigo.withOpacity(0.4),
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 16),
+
                     // Multi-Screen Navigation Demo Button
                     SizedBox(
                       width: double.infinity,
