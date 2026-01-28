@@ -363,6 +363,40 @@ class _LoginScreenState extends State<LoginScreen>
                     ),
                     const SizedBox(height: 32),
 
+                    // Multi-Screen Navigation Demo Button
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/navigation-hub');
+                        },
+                        icon: const Icon(Icons.navigation, size: 22),
+                        label: const Text(
+                          'Multi-Screen Navigation Demo',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            letterSpacing: 0.3,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red[500],
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 14,
+                            horizontal: 16,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          elevation: 4,
+                          shadowColor: Colors.red.withOpacity(0.4),
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 32),
+
                     // Demo Navigation Section
                     Container(
                       padding: const EdgeInsets.all(20),
