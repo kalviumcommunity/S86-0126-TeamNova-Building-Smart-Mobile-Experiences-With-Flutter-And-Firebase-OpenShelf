@@ -144,6 +144,20 @@ class _DemoHubState extends State<DemoHub> {
                 onTap: () => Navigator.pushNamed(context, '/scrollable-views'),
               ),
 
+              const SizedBox(height: 16),
+
+              // Demo Card 4: User Input Form
+              _buildDemoCard(
+                index: 3,
+                title: '📝 User Input & Forms',
+                subtitle: 'TextFields, Validation & Form State',
+                description:
+                    'Learn to handle user input with TextFields, implement form validation, and manage form state. Master input widgets and user feedback.',
+                icon: Icons.edit_document,
+                color: Colors.orange,
+                onTap: () => Navigator.pushNamed(context, '/user-input-form'),
+              ),
+
               const SizedBox(height: 32),
 
               // ================================================================
@@ -200,7 +214,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Demo Screens',
-                      value: '3',
+                      value: '4',
                       icon: Icons.widgets,
                       color: Colors.blue,
                     ),
@@ -209,7 +223,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Components',
-                      value: '10+',
+                      value: '15+',
                       icon: Icons.layers,
                       color: Colors.purple,
                     ),
@@ -218,7 +232,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Features',
-                      value: '20+',
+                      value: '25+',
                       icon: Icons.star,
                       color: Colors.amber,
                     ),
