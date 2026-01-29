@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 /// This screen demonstrates comprehensive state management in Flutter:
 /// 1. StatefulWidget vs StatelessWidget concepts
 /// 2. Using setState() for reactive UI updates
-/// 3. Managing multiple state variables
+/// 3. Managing multiple state variables.
 /// 4. Conditional rendering based on state
 /// 5. Performance considerations with state updates
 ///

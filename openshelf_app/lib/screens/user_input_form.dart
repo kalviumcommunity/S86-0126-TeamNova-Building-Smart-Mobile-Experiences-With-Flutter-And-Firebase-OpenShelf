@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 /// 2. Form validation with GlobalKey<FormState>
 /// 3. TextEditingController for input management
 /// 4. Input decoration and styling
-/// 5. Error handling and user feedback
+/// 5. Error handling and user feedback.
 /// 6. SnackBar notifications
 ///
 /// Learning Objectives:
