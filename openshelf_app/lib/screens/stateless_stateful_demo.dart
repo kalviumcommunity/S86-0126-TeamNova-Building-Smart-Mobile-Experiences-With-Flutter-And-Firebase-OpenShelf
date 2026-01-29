@@ -8,7 +8,7 @@ import 'dart:developer' as developer;
 /// This screen demonstrates the differences between StatelessWidget and
 /// StatefulWidget through interactive examples.
 ///
-/// WIDGET HIERARCHY:
+/// WIDGET HIERARCHY:::
 ///
 /// Scaffold
 /// ├─ AppBar

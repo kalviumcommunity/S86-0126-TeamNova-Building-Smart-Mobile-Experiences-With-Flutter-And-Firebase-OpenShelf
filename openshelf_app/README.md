@@ -172,7 +172,7 @@ lib/
 - **State Management**: Understanding `setState()` now prepares you for advanced state management solutions (Provider, Riverpod, Bloc) as your app grows.
 - **Data Flow**: Separating services from UI logic ensures data flows cleanly through your app, making it easier to integrate APIs and databases.
 - **Maintainability**: Clean folder structure makes onboarding new developers and refactoring code easier.
-- **Scalability**: This architecture supports adding authentication, real-time databases, and complex user interactions without restructuring.
+- **Scalability**: This architecture supports adding authentication, real-time databases, and complex user interactions without restructuring..
 
 ---
 
