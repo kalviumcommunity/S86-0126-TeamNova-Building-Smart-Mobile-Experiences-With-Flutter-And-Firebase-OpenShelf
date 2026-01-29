@@ -158,6 +158,20 @@ class _DemoHubState extends State<DemoHub> {
                 onTap: () => Navigator.pushNamed(context, '/user-input-form'),
               ),
 
+              const SizedBox(height: 16),
+
+              // Demo Card 5: State Management with setState
+              _buildDemoCard(
+                index: 4,
+                title: '⚡ State Management',
+                subtitle: 'setState() & Stateful Logic',
+                description:
+                    'Master local state management with setState(). Learn how to build reactive UIs that respond to user interactions and data changes.',
+                icon: Icons.settings_suggest,
+                color: Colors.green,
+                onTap: () => Navigator.pushNamed(context, '/state-management-demo'),
+              ),
+
               const SizedBox(height: 32),
 
               // ================================================================
@@ -214,7 +228,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Demo Screens',
-                      value: '4',
+                      value: '5',
                       icon: Icons.widgets,
                       color: Colors.blue,
                     ),
@@ -223,7 +237,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Components',
-                      value: '15+',
+                      value: '20+',
                       icon: Icons.layers,
                       color: Colors.purple,
                     ),
@@ -232,7 +246,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Features',
-                      value: '25+',
+                      value: '30+',
                       icon: Icons.star,
                       color: Colors.amber,
                     ),
