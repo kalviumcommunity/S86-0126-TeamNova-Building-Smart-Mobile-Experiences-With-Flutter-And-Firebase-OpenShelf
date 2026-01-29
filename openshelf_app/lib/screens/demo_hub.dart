@@ -51,10 +51,7 @@ class _DemoHubState extends State<DemoHub> {
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
-                    colors: [
-                      Colors.deepPurple[300]!,
-                      Colors.deepPurple[600]!,
-                    ],
+                    colors: [Colors.deepPurple[300]!, Colors.deepPurple[600]!],
                   ),
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
@@ -67,11 +64,7 @@ class _DemoHubState extends State<DemoHub> {
                 ),
                 child: Column(
                   children: [
-                    const Icon(
-                      Icons.dashboard,
-                      size: 48,
-                      color: Colors.white,
-                    ),
+                    const Icon(Icons.dashboard, size: 48, color: Colors.white),
                     const SizedBox(height: 12),
                     const Text(
                       'Flutter Developer Tools Hub',
@@ -133,7 +126,22 @@ class _DemoHubState extends State<DemoHub> {
                     'Understand the difference between StatelessWidget (immutable) and StatefulWidget (mutable). See real examples of each type in action.',
                 icon: Icons.compare_arrows,
                 color: Colors.purple,
-                onTap: () => _navigateToDemo(context, const StatelessStatefulDemo()),
+                onTap: () =>
+                    _navigateToDemo(context, const StatelessStatefulDemo()),
+              ),
+
+              const SizedBox(height: 16),
+
+              // Demo Card 3: Scrollable Views
+              _buildDemoCard(
+                index: 2,
+                title: '📜 Scrollable Views',
+                subtitle: 'ListView & GridView Demonstrations',
+                description:
+                    'Master scrollable layouts with ListView and GridView. Learn how to build efficient, dynamic lists and grids for displaying large datasets.',
+                icon: Icons.view_list,
+                color: Colors.teal,
+                onTap: () => Navigator.pushNamed(context, '/scrollable-views'),
               ),
 
               const SizedBox(height: 32),
@@ -153,11 +161,7 @@ class _DemoHubState extends State<DemoHub> {
                   children: [
                     Row(
                       children: [
-                        Icon(
-                          Icons.info,
-                          color: Colors.amber[700],
-                          size: 24,
-                        ),
+                        Icon(Icons.info, color: Colors.amber[700], size: 24),
                         const SizedBox(width: 12),
                         Text(
                           'Testing Guidelines',
@@ -196,7 +200,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Demo Screens',
-                      value: '2',
+                      value: '3',
                       icon: Icons.widgets,
                       color: Colors.blue,
                     ),
@@ -205,7 +209,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Components',
-                      value: '7+',
+                      value: '10+',
                       icon: Icons.layers,
                       color: Colors.purple,
                     ),
@@ -214,7 +218,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Features',
-                      value: '15+',
+                      value: '20+',
                       icon: Icons.star,
                       color: Colors.amber,
                     ),
@@ -247,22 +251,26 @@ class _DemoHubState extends State<DemoHub> {
                     const SizedBox(height: 12),
                     _buildNoteItem(
                       title: 'Hot Reload Usage',
-                      description: 'Press "r" after code changes to see updates instantly',
+                      description:
+                          'Press "r" after code changes to see updates instantly',
                     ),
                     const SizedBox(height: 8),
                     _buildNoteItem(
                       title: 'Debug Output',
-                      description: 'Check terminal for debugPrint() messages when interacting',
+                      description:
+                          'Check terminal for debugPrint() messages when interacting',
                     ),
                     const SizedBox(height: 8),
                     _buildNoteItem(
                       title: 'DevTools',
-                      description: 'Open DevTools (Ctrl+Shift+P → DevTools) to inspect widgets',
+                      description:
+                          'Open DevTools (Ctrl+Shift+P → DevTools) to inspect widgets',
                     ),
                     const SizedBox(height: 8),
                     _buildNoteItem(
                       title: 'Performance',
-                      description: 'Use DevTools Performance tab to monitor frame rates',
+                      description:
+                          'Use DevTools Performance tab to monitor frame rates',
                     ),
                   ],
                 ),
@@ -277,7 +285,8 @@ class _DemoHubState extends State<DemoHub> {
                 children: [
                   Expanded(
                     child: ElevatedButton.icon(
-                      onPressed: () => _navigateToDemo(context, const WidgetTreeDemo()),
+                      onPressed: () =>
+                          _navigateToDemo(context, const WidgetTreeDemo()),
                       icon: const Icon(Icons.account_tree),
                       label: const Text('Widget Tree Demo'),
                       style: ElevatedButton.styleFrom(
@@ -290,7 +299,10 @@ class _DemoHubState extends State<DemoHub> {
                   const SizedBox(width: 12),
                   Expanded(
                     child: ElevatedButton.icon(
-                      onPressed: () => _navigateToDemo(context, const StatelessStatefulDemo()),
+                      onPressed: () => _navigateToDemo(
+                        context,
+                        const StatelessStatefulDemo(),
+                      ),
                       icon: const Icon(Icons.compare_arrows),
                       label: const Text('Widgets Demo'),
                       style: ElevatedButton.styleFrom(
@@ -327,10 +339,7 @@ class _DemoHubState extends State<DemoHub> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: color.withValues(alpha: 0.3),
-            width: 2,
-          ),
+          border: Border.all(color: color.withValues(alpha: 0.3), width: 2),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.05),
@@ -357,11 +366,7 @@ class _DemoHubState extends State<DemoHub> {
                           color: color.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        child: Icon(
-                          icon,
-                          color: color,
-                          size: 28,
-                        ),
+                        child: Icon(icon, color: color, size: 28),
                       ),
                       const SizedBox(width: 16),
                       Expanded(
@@ -387,11 +392,7 @@ class _DemoHubState extends State<DemoHub> {
                           ],
                         ),
                       ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: color,
-                        size: 18,
-                      ),
+                      Icon(Icons.arrow_forward_ios, color: color, size: 18),
                     ],
                   ),
                   const SizedBox(height: 12),
@@ -424,10 +425,7 @@ class _DemoHubState extends State<DemoHub> {
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          color: color.withValues(alpha: 0.3),
-          width: 1,
-        ),
+        border: Border.all(color: color.withValues(alpha: 0.3), width: 1),
       ),
       child: Column(
         children: [
@@ -444,10 +442,7 @@ class _DemoHubState extends State<DemoHub> {
           const SizedBox(height: 4),
           Text(
             label,
-            style: TextStyle(
-              fontSize: 11,
-              color: Colors.grey[700],
-            ),
+            style: TextStyle(fontSize: 11, color: Colors.grey[700]),
             textAlign: TextAlign.center,
           ),
         ],
@@ -456,10 +451,7 @@ class _DemoHubState extends State<DemoHub> {
   }
 
   /// Build developer note item
-  Widget _buildNoteItem({
-    required String title,
-    required String description,
-  }) {
+  Widget _buildNoteItem({required String title, required String description}) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -488,10 +480,7 @@ class _DemoHubState extends State<DemoHub> {
               const SizedBox(height: 2),
               Text(
                 description,
-                style: TextStyle(
-                  fontSize: 11,
-                  color: Colors.grey[600],
-                ),
+                style: TextStyle(fontSize: 11, color: Colors.grey[600]),
               ),
             ],
           ),
@@ -502,8 +491,6 @@ class _DemoHubState extends State<DemoHub> {
 
   /// Navigate to demo screen
   void _navigateToDemo(BuildContext context, Widget screen) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => screen),
-    );
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => screen));
   }
 }
