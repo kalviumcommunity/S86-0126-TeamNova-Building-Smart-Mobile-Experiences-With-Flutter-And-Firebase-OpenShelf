@@ -48,6 +48,7 @@ flutter run
 ```
 
 **Test on Mobile Emulator:**
+
 1. Run on Pixel 4 or similar
 2. Navigate to `/responsive-design-demo`
 3. Verify device info shows mobile metrics
@@ -58,6 +59,7 @@ flutter run
 8. Check 2-column stats
 
 **Test on Tablet Emulator:**
+
 1. Run on Nexus 9 or iPad
 2. Navigate to `/responsive-design-demo`
 3. Verify device info shows tablet metrics
@@ -68,6 +70,7 @@ flutter run
 8. Check 4-column stats
 
 **Test Orientation Changes:**
+
 1. Rotate device (Ctrl+Left/Right Arrow)
 2. Verify layouts adapt smoothly
 3. No overflow errors
@@ -120,11 +123,13 @@ Follow the guide: `openshelf_app/screenshots/RESPONSIVE_DESIGN_SCREENSHOT_GUIDE.
    - Shows: Two navigation patterns
 
 **How to Capture:**
+
 - **Android Emulator:** Camera icon or keyboard shortcut
 - **iOS Simulator:** Cmd + S
 - **Physical Device:** Power + Volume Down (Android) or Side + Volume Up (iOS)
 
 **Create Folder:**
+
 ```
 openshelf_app/screenshots/responsive-design/
 ```
@@ -138,16 +143,19 @@ openshelf_app/screenshots/responsive-design/
 **Script to Follow:**
 
 **Intro (15 seconds):**
+
 - "Hi, demonstrating responsive design in OpenShelf using MediaQuery and LayoutBuilder"
 - Show app on mobile device
 
 **Demo Screen (30 seconds):**
+
 - Navigate to `/responsive-design-demo`
 - Scroll through sections
 - "Here's device information, responsive containers, and adaptive layouts"
 - Rotate device: "Notice layout changes from Column to Row"
 
 **Dashboard (30 seconds):**
+
 - Navigate to `/responsive-dashboard`
 - "Real-world dashboard with adaptive navigation"
 - Show bottom navigation on mobile
@@ -155,21 +163,25 @@ openshelf_app/screenshots/responsive-design/
 - "On tablet: side navigation rail and 4-column grid"
 
 **Comparison (15 seconds):**
+
 - Quick switch between mobile and tablet views
 - "Same code adapts automatically"
 - Highlight: navigation, grid columns, layout differences
 
 **Conclusion (10 seconds):**
+
 - "MediaQuery and LayoutBuilder enable one codebase for any device"
 - "Improves UX and development efficiency"
 
 **Recording Tools:**
+
 - **Loom** (recommended) - Free, easy sharing
 - **Windows:** Win + G (Game Bar)
 - **Mac:** QuickTime Screen Recording
 - **OBS Studio** (advanced)
 
 **Upload To:**
+
 - Google Drive (set to "Anyone with the link" + Viewer)
 - Loom (automatic sharing link)
 - YouTube (unlisted)
@@ -179,6 +191,7 @@ openshelf_app/screenshots/responsive-design/
 ### Step 4: Create Pull Request (10 minutes)
 
 1. **Commit Your Work:**
+
    ```bash
    git checkout -b responsive-design
    git add .
@@ -192,7 +205,7 @@ openshelf_app/screenshots/responsive-design/
    - Created comprehensive documentation and screenshot guide
    - Demonstrated Column vs Row layouts and 2/3/4 column grids
    - Navigation adapts: bottom bar (mobile) vs side rail (tablet)"
-   
+
    git push -u origin responsive-design
    ```
 
@@ -261,16 +274,16 @@ S86-0126-TeamNova-Building-Smart-Mobile-Experiences-With-Flutter-And-Firebase-Op
 
 ## 🎯 Key Achievements
 
-| Feature | Target | Achieved | Status |
-|---------|--------|----------|--------|
-| Responsive Screens | 2+ | 2 | ✅ 100% |
-| MediaQuery Usage | Required | Yes | ✅ |
-| LayoutBuilder Usage | Required | Yes | ✅ |
-| Breakpoints | 1+ | 2 (600px, 900px) | ✅ 200% |
-| Adaptive Navigation | Bonus | Yes | ✅ |
-| Responsive Grid | Required | Yes (2/3/4 cols) | ✅ |
-| Documentation | README | 3 docs | ✅ 300% |
-| Code Quality | High | Production-ready | ✅ |
+| Feature             | Target   | Achieved         | Status  |
+| ------------------- | -------- | ---------------- | ------- |
+| Responsive Screens  | 2+       | 2                | ✅ 100% |
+| MediaQuery Usage    | Required | Yes              | ✅      |
+| LayoutBuilder Usage | Required | Yes              | ✅      |
+| Breakpoints         | 1+       | 2 (600px, 900px) | ✅ 200% |
+| Adaptive Navigation | Bonus    | Yes              | ✅      |
+| Responsive Grid     | Required | Yes (2/3/4 cols) | ✅      |
+| Documentation       | README   | 3 docs           | ✅ 300% |
+| Code Quality        | High     | Production-ready | ✅      |
 
 ---
 
@@ -300,9 +313,11 @@ All documentation is complete and ready:
 ## 🔗 Important Links
 
 ### GitHub Repository:
+
 https://github.com/kalviumcommunity/S86-0126-TeamNova-Building-Smart-Mobile-Experiences-With-Flutter-And-Firebase-OpenShelf
 
 ### Routes to Test:
+
 - `/responsive-design-demo` - Educational demo
 - `/responsive-dashboard` - Real-world implementation
 
@@ -311,12 +326,14 @@ https://github.com/kalviumcommunity/S86-0126-TeamNova-Building-Smart-Mobile-Expe
 ## 💡 Quick Testing Guide
 
 ### Mobile Emulator (Pixel 4):
+
 ```bash
 flutter emulators  # List available
 flutter run -d <mobile-device-id>
 ```
 
 **What to verify:**
+
 - Width < 600px (check device info)
 - Column layout (vertical stacking)
 - 2-column grid
@@ -324,11 +341,13 @@ flutter run -d <mobile-device-id>
 - Smaller font sizes
 
 ### Tablet Emulator (Nexus 9/iPad):
+
 ```bash
 flutter run -d <tablet-device-id>
 ```
 
 **What to verify:**
+
 - Width ≥ 600px (check device info)
 - Row layout (horizontal arrangement)
 - 4-column grid (or 3 if 600-900px)
@@ -336,6 +355,7 @@ flutter run -d <tablet-device-id>
 - Larger font sizes
 
 ### Rotation Testing:
+
 - Press: Ctrl + Left/Right Arrow (emulator)
 - Verify: No overflow errors
 - Check: Layout adapts smoothly
@@ -345,7 +365,9 @@ flutter run -d <tablet-device-id>
 ## ❓ Common Issues & Solutions
 
 ### Issue: "Route not found"
+
 **Solution:**
+
 ```dart
 // Check main.dart has:
 '/responsive-design-demo': (context) => const ResponsiveDesignDemo(),
@@ -353,7 +375,9 @@ flutter run -d <tablet-device-id>
 ```
 
 ### Issue: "Import not found"
+
 **Solution:**
+
 ```bash
 flutter clean
 flutter pub get
@@ -361,12 +385,16 @@ flutter run
 ```
 
 ### Issue: Screenshots too large
+
 **Solution:**
+
 - Use compression tools (TinyPNG, Squoosh)
 - Target < 2MB per image
 
 ### Issue: Video file too large
+
 **Solution:**
+
 - Use 720p instead of 1080p
 - Compress with HandBrake
 - Upload to Loom (auto compression)
@@ -376,6 +404,7 @@ flutter run
 ## 🎓 What You've Learned
 
 ### Technical Concepts:
+
 ✅ MediaQuery for device information
 ✅ LayoutBuilder for constraint-based layouts
 ✅ Responsive sizing with percentages
@@ -386,6 +415,7 @@ flutter run
 ✅ Orientation handling
 
 ### Flutter Skills:
+
 ✅ MediaQuery.of(context)
 ✅ LayoutBuilder widget
 ✅ BoxConstraints
@@ -406,6 +436,7 @@ You have everything you need:
 ✅ **Guides:** Step-by-step instructions
 
 **What's left:**
+
 1. Capture 7 screenshots (20 min)
 2. Record video demo (15 min)
 3. Create PR with description (10 min)
@@ -417,6 +448,7 @@ You have everything you need:
 ## 🎉 Congratulations!
 
 You've successfully implemented professional-level responsive design with:
+
 - ✅ 2 comprehensive responsive screens
 - ✅ MediaQuery and LayoutBuilder mastery
 - ✅ Adaptive navigation and layouts
