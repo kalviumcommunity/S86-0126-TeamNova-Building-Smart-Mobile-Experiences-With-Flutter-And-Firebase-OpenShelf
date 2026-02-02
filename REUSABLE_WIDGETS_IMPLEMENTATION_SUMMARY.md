@@ -50,6 +50,7 @@ Created and implemented **5 reusable custom widgets** for modular UI design in t
 ## 📂 Files Created/Modified
 
 ### New Files Created:
+
 ```
 lib/
 ├── widgets/                                  (NEW FOLDER)
@@ -64,9 +65,11 @@ lib/
 ```
 
 ### Modified Files:
+
 - `lib/main.dart` - Added routes for new screens
 
 ### Documentation Created:
+
 - `REUSABLE_WIDGETS_README.md` - Comprehensive documentation
 - `openshelf_app/screenshots/REUSABLE_WIDGETS_SCREENSHOT_GUIDE.md` - Screenshot guide
 
@@ -76,23 +79,25 @@ lib/
 
 ### Widget Reusability Metrics:
 
-| Widget | Times Used | Screens |
-|--------|-----------|---------|
-| CustomButton | 5 | Demo, Library |
-| InfoCard | 6 | Demo |
-| BookCard | 9 | Demo (3), Library (6) |
-| FeatureTile | 6 | Demo (3), Library (3) |
-| StatsCard | 8 | Demo (4), Library (4) |
-| **TOTAL** | **34** | **2 main screens** |
+| Widget       | Times Used | Screens               |
+| ------------ | ---------- | --------------------- |
+| CustomButton | 5          | Demo, Library         |
+| InfoCard     | 6          | Demo                  |
+| BookCard     | 9          | Demo (3), Library (6) |
+| FeatureTile  | 6          | Demo (3), Library (3) |
+| StatsCard    | 8          | Demo (4), Library (4) |
+| **TOTAL**    | **34**     | **2 main screens**    |
 
 ---
 
 ## 🎨 Demonstration Screens
 
 ### 1. Reusable Widgets Demo (`/reusable-widgets-demo`)
+
 **Purpose:** Showcase all custom widgets with different configurations
 
 **Sections:**
+
 - Custom Buttons (3 variations: filled, filled different color, outlined)
 - Info Cards (3 variations: basic, colored, gradient)
 - Book Cards (3 examples with different data)
@@ -102,9 +107,11 @@ lib/
 **Total Widgets:** 16 custom widget instances
 
 ### 2. Library Screen (`/library`)
+
 **Purpose:** Real-world implementation showing practical usage
 
 **Sections:**
+
 - Reading Stats (4 StatsCards)
 - Quick Actions (3 FeatureTiles)
 - Currently Reading (3 BookCards)
@@ -118,20 +125,24 @@ lib/
 ## 🔑 Key Features Demonstrated
 
 ### 1. Stateless vs Stateful Widgets
+
 - **Stateless:** CustomButton, InfoCard, FeatureTile, StatsCard
 - **Stateful:** BookCard (manages favorite state with `setState()`)
 
 ### 2. Widget Composition
+
 - Each widget is self-contained and reusable
 - Proper separation of concerns
 - Clear, documented APIs
 
 ### 3. Customization
+
 - All widgets accept parameters for customization
 - Sensible default values
 - Optional parameters for flexibility
 
 ### 4. State Management
+
 - BookCard demonstrates local state management
 - setState() for favorite toggle
 - State preservation across rebuilds
@@ -141,6 +152,7 @@ lib/
 ## 💡 Code Quality Highlights
 
 ### Best Practices Applied:
+
 ✅ DRY (Don't Repeat Yourself) principle
 ✅ Single Responsibility Principle
 ✅ Proper widget composition
@@ -150,6 +162,7 @@ lib/
 ✅ Const constructors where applicable
 
 ### Code Metrics:
+
 - **Lines of Code:** ~1,200 total
 - **Code Reusability:** 75% reduction in repeated code
 - **Widget Files:** 5 reusable components
@@ -160,21 +173,25 @@ lib/
 ## 🚀 Benefits Achieved
 
 ### 1. Development Efficiency
+
 - Faster screen development
 - Reduced code duplication
 - Easier prototyping
 
 ### 2. Maintainability
+
 - Single source of truth for each widget
 - Easy to update and modify
 - Clear widget hierarchy
 
 ### 3. Consistency
+
 - Uniform design language
 - Predictable behavior
 - Better UX
 
 ### 4. Scalability
+
 - Easy to add new instances
 - Widget library grows with project
 - Team collaboration improved
@@ -197,6 +214,7 @@ lib/
 ## 🎓 Learning Outcomes
 
 ### Technical Skills:
+
 - ✅ Creating stateless custom widgets
 - ✅ Creating stateful custom widgets
 - ✅ Widget composition and reusability
@@ -205,6 +223,7 @@ lib/
 - ✅ Documentation and code organization
 
 ### Flutter Concepts Mastered:
+
 - ✅ StatelessWidget vs StatefulWidget
 - ✅ Widget lifecycle methods (initState)
 - ✅ const constructors
@@ -217,6 +236,7 @@ lib/
 ## 📚 Documentation
 
 ### Included Documentation:
+
 1. **REUSABLE_WIDGETS_README.md**
    - Complete guide to all widgets
    - Usage examples
@@ -239,18 +259,21 @@ lib/
 ## 🎬 Demo & Submission
 
 ### Routes to Test:
+
 ```dart
 '/reusable-widgets-demo'  // Comprehensive widget showcase
 '/library'                 // Real-world implementation
 ```
 
 ### Required Screenshots:
+
 1. Reusable widgets demo screen (full scroll)
 2. Library screen (showing widget reuse)
 3. Individual widget close-ups
 4. Interactive states (favorites)
 
 ### Video Demo Points:
+
 - Navigate to demo screen
 - Show all 5 widget types
 - Navigate to library screen
@@ -263,6 +286,7 @@ lib/
 ## 🔄 Git Workflow
 
 ### Commit Message:
+
 ```
 feat: created and reused custom widgets for modular UI design
 
@@ -275,16 +299,20 @@ feat: created and reused custom widgets for modular UI design
 ```
 
 ### PR Title:
+
 ```
 [Sprint-2] Reusable Custom Widgets – Team Nova
 ```
 
 ### PR Description Template:
+
 ```markdown
 ## Summary
+
 Implemented 5 reusable custom widgets for the OpenShelf app, demonstrating modular UI design and code reusability best practices.
 
 ## Widgets Created
+
 - CustomButton (stateless)
 - InfoCard (stateless)
 - BookCard (stateful)
@@ -292,18 +320,22 @@ Implemented 5 reusable custom widgets for the OpenShelf app, demonstrating modul
 - StatsCard (stateless)
 
 ## Key Achievements
+
 - 34+ widget reuses across 2 screens
 - 75% reduction in code duplication
 - Comprehensive documentation
 - Stateful widget with setState()
 
 ## Screenshots
+
 [Include screenshots here]
 
 ## Video Demo
+
 [Link to video]
 
 ## Reflection
+
 [Link to REUSABLE_WIDGETS_README.md reflection section]
 ```
 
@@ -312,6 +344,7 @@ Implemented 5 reusable custom widgets for the OpenShelf app, demonstrating modul
 ## ✅ Final Checklist
 
 Before submitting:
+
 - [ ] All code compiles without errors
 - [ ] Navigation routes work
 - [ ] Screenshots captured

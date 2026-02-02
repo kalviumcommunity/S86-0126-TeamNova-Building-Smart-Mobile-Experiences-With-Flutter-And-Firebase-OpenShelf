@@ -20,6 +20,8 @@ import 'screens/user_input_form.dart';
 import 'screens/state_management_demo.dart';
 import 'screens/reusable_widgets_demo.dart';
 import 'screens/library_screen.dart';
+import 'screens/responsive_design_demo.dart';
+import 'screens/responsive_dashboard.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -60,6 +62,8 @@ class MyApp extends StatelessWidget {
         '/state-management-demo': (context) => const StateManagementDemo(),
         '/reusable-widgets-demo': (context) => const ReusableWidgetsDemo(),
         '/library': (context) => const LibraryScreen(),
+        '/responsive-design-demo': (context) => const ResponsiveDesignDemo(),
+        '/responsive-dashboard': (context) => const ResponsiveDashboard(),
       },
     );
   }
