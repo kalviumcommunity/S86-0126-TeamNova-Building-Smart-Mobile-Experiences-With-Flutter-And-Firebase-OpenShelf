@@ -23,6 +23,8 @@ import 'screens/library_screen.dart';
 import 'screens/responsive_design_demo.dart';
 import 'screens/responsive_dashboard.dart';
 import 'screens/asset_demo_screen.dart';
+import 'screens/animations_demo_screen.dart';
+import 'screens/page_transitions_demo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,6 +68,8 @@ class MyApp extends StatelessWidget {
         '/responsive-design-demo': (context) => const ResponsiveDesignDemo(),
         '/responsive-dashboard': (context) => const ResponsiveDashboard(),
         '/asset-demo': (context) => const AssetDemoScreen(),
+        '/animations-demo': (context) => const AnimationsDemoScreen(),
+        '/page-transitions': (context) => const PageTransitionsDemo(),
       },
     );
   }
