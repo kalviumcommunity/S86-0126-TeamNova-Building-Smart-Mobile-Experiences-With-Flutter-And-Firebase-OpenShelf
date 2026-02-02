@@ -350,7 +350,7 @@ class _BookCardState extends State<BookCard> {
                 child: const Icon(Icons.book, size: 40, color: Colors.grey),
               ),
               const SizedBox(width: 12),
-              
+
               // Book Info
               Expanded(
                 child: Column(
@@ -391,7 +391,7 @@ class _BookCardState extends State<BookCard> {
                   ],
                 ),
               ),
-              
+
               // Favorite Button
               IconButton(
                 icon: Icon(
@@ -451,7 +451,7 @@ class FeatureTile extends StatelessWidget {
     this.onTap,
     this.badgeCount,
   });
-  
+
   // ... (full implementation in the file)
 }
 ```
@@ -497,7 +497,7 @@ class StatsCard extends StatelessWidget {
     this.trend,
     this.isTrendPositive = true,
   });
-  
+
   // ... (full implementation in the file)
 }
 ```
@@ -522,6 +522,7 @@ StatsCard(
 ### Demo Screen: `reusable_widgets_demo.dart`
 
 This screen showcases all custom widgets in one place:
+
 - **3 instances** of CustomButton (different colors and styles)
 - **3 instances** of InfoCard (with and without gradients)
 - **3 instances** of BookCard (different books)
@@ -533,6 +534,7 @@ This screen showcases all custom widgets in one place:
 ### Library Screen: `library_screen.dart`
 
 A practical implementation showing real-world usage:
+
 - **4 instances** of StatsCard (reading statistics)
 - **6 instances** of BookCard (currently reading + recommended)
 - **3 instances** of FeatureTile (quick actions)
@@ -545,26 +547,31 @@ A practical implementation showing real-world usage:
 ## 📊 Benefits of Reusable Widgets
 
 ### 1. **Code Reduction**
+
 - Before: ~200 lines per screen with repeated code
 - After: ~50 lines per widget + minimal usage code
 - **Savings:** ~75% code reduction for repeated UI elements
 
 ### 2. **Consistency**
+
 - All buttons have the same styling and behavior
 - All cards follow the same design language
 - Easy to maintain design system
 
 ### 3. **Maintainability**
+
 - Update one widget file affects all instances
 - Centralized styling and behavior
 - Easier debugging and testing
 
 ### 4. **Development Speed**
+
 - Faster implementation of new screens
 - Reduced time for UI development
 - Focus on functionality rather than styling
 
 ### 5. **Team Collaboration**
+
 - Clear component library for team members
 - Standardized widgets across the project
 - Better code reviews and quality
@@ -611,15 +618,19 @@ CustomButton(
 ## 📱 Screenshots
 
 ### Reusable Widgets Demo Screen
+
 ![Demo Screen showing all custom widgets](screenshots/reusable_widgets_demo.png)
 
 ### Library Screen
+
 ![Library screen using custom widgets multiple times](screenshots/library_screen.png)
 
 ### Custom Button Variations
+
 ![Different button styles and colors](screenshots/custom_buttons.png)
 
 ### Book Cards
+
 ![Book cards with favorite functionality](screenshots/book_cards.png)
 
 ---
@@ -640,7 +651,7 @@ Reusable widgets significantly improve development efficiency in several ways:
 
 ### What challenges did you face while designing modular components?
 
-1. **Balancing Flexibility and Simplicity:** 
+1. **Balancing Flexibility and Simplicity:**
    - Challenge: Making widgets flexible enough to handle different use cases while keeping them simple to use.
    - Solution: Used optional parameters with sensible defaults (e.g., `color = Colors.teal`, `isOutlined = false`).
 
@@ -699,16 +710,19 @@ Reusable widgets significantly improve development efficiency in several ways:
 ## 📝 Running the Demo
 
 1. Navigate to the app:
+
    ```bash
    cd openshelf_app
    ```
 
 2. Get dependencies:
+
    ```bash
    flutter pub get
    ```
 
 3. Run the app:
+
    ```bash
    flutter run
    ```

@@ -3,6 +3,7 @@
 ## 🚀 Quick Start
 
 ### Running the Demo
+
 ```bash
 cd openshelf_app
 flutter pub get
@@ -10,6 +11,7 @@ flutter run
 ```
 
 ### Navigate to Demo Screens
+
 ```dart
 // In your app
 Navigator.pushNamed(context, '/reusable-widgets-demo');
@@ -21,6 +23,7 @@ Navigator.pushNamed(context, '/library');
 ## 📦 Widget Import Guide
 
 ### Import a Widget
+
 ```dart
 import '../widgets/custom_button.dart';
 import '../widgets/info_card.dart';
@@ -34,6 +37,7 @@ import '../widgets/stats_card.dart';
 ## 🎨 Widget Quick Examples
 
 ### CustomButton
+
 ```dart
 // Filled button
 CustomButton(
@@ -54,6 +58,7 @@ CustomButton(
 ```
 
 ### InfoCard
+
 ```dart
 // Basic card
 InfoCard(
@@ -76,6 +81,7 @@ InfoCard(
 ```
 
 ### BookCard (Stateful)
+
 ```dart
 BookCard(
   title: 'The Great Gatsby',
@@ -87,6 +93,7 @@ BookCard(
 ```
 
 ### FeatureTile
+
 ```dart
 FeatureTile(
   title: 'Notifications',
@@ -99,6 +106,7 @@ FeatureTile(
 ```
 
 ### StatsCard
+
 ```dart
 StatsCard(
   label: 'Books Read',
@@ -114,16 +122,17 @@ StatsCard(
 
 ## 📱 Routes
 
-| Route | Screen | Purpose |
-|-------|--------|---------|
-| `/reusable-widgets-demo` | ReusableWidgetsDemo | Showcase all widgets |
-| `/library` | LibraryScreen | Real-world implementation |
+| Route                    | Screen              | Purpose                   |
+| ------------------------ | ------------------- | ------------------------- |
+| `/reusable-widgets-demo` | ReusableWidgetsDemo | Showcase all widgets      |
+| `/library`               | LibraryScreen       | Real-world implementation |
 
 ---
 
 ## 🎯 Common Use Cases
 
 ### Navigation Button
+
 ```dart
 CustomButton(
   label: 'Go to Profile',
@@ -133,6 +142,7 @@ CustomButton(
 ```
 
 ### List of Books
+
 ```dart
 ListView(
   children: [
@@ -144,6 +154,7 @@ ListView(
 ```
 
 ### Stats Dashboard
+
 ```dart
 Row(
   children: [
@@ -158,16 +169,19 @@ Row(
 ## 🛠️ Customization Tips
 
 ### Colors
+
 - Use consistent color scheme
 - Pass colors as parameters
 - Examples: `Colors.teal`, `Colors.blue[600]`
 
 ### Icons
+
 - Material Icons: `Icons.add`, `Icons.person`
 - Size controlled by widget
 - Color controlled by parameters
 
 ### Spacing
+
 - Use `SizedBox(height: 12)` between widgets
 - Cards have built-in margins
 - Consistent padding throughout
@@ -177,17 +191,20 @@ Row(
 ## ✅ Best Practices
 
 1. **Always use const** when possible
+
    ```dart
    const CustomButton(label: 'Click', onPressed: myFunction)
    ```
 
 2. **Provide defaults** for optional parameters
+
    ```dart
    this.color = Colors.teal,
    this.isOutlined = false,
    ```
 
 3. **Use descriptive names** for widgets
+
    ```dart
    BookCard  // ✅ Clear purpose
    Card1     // ❌ Unclear
@@ -206,18 +223,21 @@ Row(
 ## 🐛 Troubleshooting
 
 ### Widget not found
+
 ```
 Error: Cannot find widget
 Solution: Check import path '../widgets/custom_button.dart'
 ```
 
 ### Required parameter missing
+
 ```
 Error: The parameter 'label' is required
 Solution: Add all required parameters
 ```
 
 ### Route not found
+
 ```
 Error: Could not find route
 Solution: Add route to main.dart routes

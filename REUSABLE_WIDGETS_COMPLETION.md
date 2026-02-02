@@ -47,6 +47,7 @@ flutter run
 ```
 
 Navigate to the demo screens to verify everything works:
+
 - `/reusable-widgets-demo` - See all widgets
 - `/library` - See real-world usage
 
@@ -55,6 +56,7 @@ Navigate to the demo screens to verify everything works:
 Follow the guide: `openshelf_app/screenshots/REUSABLE_WIDGETS_SCREENSHOT_GUIDE.md`
 
 Required screenshots:
+
 1. **Reusable widgets demo screen** (full scroll)
    - Filename: `screenshots/reusable-widgets/reusable_widgets_demo.png`
 
@@ -77,6 +79,7 @@ Required screenshots:
    - Filename: `screenshots/reusable-widgets/feature_tiles.png`
 
 **How to capture:**
+
 - Android: Power + Volume Down
 - iOS: Side Button + Volume Up
 - Emulator: Use the camera icon
@@ -96,12 +99,14 @@ Required screenshots:
 5. **Conclusion (15s):** "5 widgets, 34+ uses, 75% code reduction"
 
 **Tools to use:**
+
 - **Loom** (recommended) - Free, easy sharing
 - **Windows:** Win + G (Game Bar)
 - **Mac:** QuickTime Screen Recording
 - **OBS Studio** (advanced)
 
 **Upload to:**
+
 - Google Drive (set to "Anyone with the link")
 - Loom
 - YouTube (unlisted)
@@ -180,14 +185,14 @@ S86-0126-TeamNova-Building-Smart-Mobile-Experiences-With-Flutter-And-Firebase-Op
 
 ## 🎯 Key Achievements
 
-| Metric | Target | Achieved | Status |
-|--------|--------|----------|--------|
-| Custom Widgets | 3+ | 5 | ✅ 167% |
-| Widget Reuses | 10+ | 34+ | ✅ 340% |
-| Screens | 2+ | 2 | ✅ 100% |
-| Stateful Widgets | 1+ | 1 | ✅ 100% |
-| Documentation | 1 README | 4 docs | ✅ 400% |
-| Code Reduction | 50%+ | 75% | ✅ 150% |
+| Metric           | Target   | Achieved | Status  |
+| ---------------- | -------- | -------- | ------- |
+| Custom Widgets   | 3+       | 5        | ✅ 167% |
+| Widget Reuses    | 10+      | 34+      | ✅ 340% |
+| Screens          | 2+       | 2        | ✅ 100% |
+| Stateful Widgets | 1+       | 1        | ✅ 100% |
+| Documentation    | 1 README | 4 docs   | ✅ 400% |
+| Code Reduction   | 50%+     | 75%      | ✅ 150% |
 
 ---
 
@@ -221,12 +226,15 @@ All documentation is complete and ready:
 ## 🔗 Important Links
 
 ### GitHub Repository:
+
 https://github.com/kalviumcommunity/S86-0126-TeamNova-Building-Smart-Mobile-Experiences-With-Flutter-And-Firebase-OpenShelf
 
 ### Branch:
+
 `reusable-custom-widgets`
 
 ### Create PR Link:
+
 https://github.com/kalviumcommunity/S86-0126-TeamNova-Building-Smart-Mobile-Experiences-With-Flutter-And-Firebase-OpenShelf/pull/new/reusable-custom-widgets
 
 ---
@@ -234,18 +242,21 @@ https://github.com/kalviumcommunity/S86-0126-TeamNova-Building-Smart-Mobile-Expe
 ## 💡 Tips for Success
 
 ### Screenshots:
+
 - Use a clean emulator/device
 - Capture full screen
 - Show different widget states
 - Make sure text is readable
 
 ### Video:
+
 - Keep it under 2 minutes
 - Show, don't just tell
 - Demonstrate interactions
 - Speak clearly and concisely
 
 ### PR:
+
 - Use the provided PR description template
 - Add all screenshots
 - Include video link
@@ -256,6 +267,7 @@ https://github.com/kalviumcommunity/S86-0126-TeamNova-Building-Smart-Mobile-Expe
 ## 🎓 What You've Learned
 
 ### Technical Skills:
+
 ✅ Creating stateless custom widgets
 ✅ Creating stateful custom widgets
 ✅ Widget composition
@@ -264,6 +276,7 @@ https://github.com/kalviumcommunity/S86-0126-TeamNova-Building-Smart-Mobile-Expe
 ✅ Code reusability and DRY principles
 
 ### Flutter Concepts:
+
 ✅ StatelessWidget vs StatefulWidget
 ✅ Widget lifecycle (initState)
 ✅ Const constructors
@@ -277,6 +290,7 @@ https://github.com/kalviumcommunity/S86-0126-TeamNova-Building-Smart-Mobile-Expe
 ### Common Issues:
 
 **App won't run:**
+
 ```bash
 flutter clean
 flutter pub get
@@ -284,15 +298,18 @@ flutter run
 ```
 
 **Can't find demo screen:**
+
 - Check routes in `lib/main.dart`
 - Routes: `/reusable-widgets-demo` and `/library`
 
 **Screenshots not clear:**
+
 - Use emulator instead of physical device
 - Ensure good lighting
 - Use highest quality settings
 
 **Video too large:**
+
 - Use 720p instead of 1080p
 - Compress with HandBrake
 - Upload to Loom (automatic compression)
@@ -309,6 +326,7 @@ You have everything you need:
 ✅ **Guides:** Step-by-step instructions provided
 
 **What's left:**
+
 1. Capture 7 screenshots (15 min)
 2. Record video demo (10 min)
 3. Create PR with description (5 min)
@@ -321,6 +339,7 @@ You have everything you need:
 ## 🎉 Congratulations!
 
 You've successfully implemented a complete, production-ready feature with:
+
 - 5 reusable custom widgets
 - 34+ widget instances
 - 2 demonstration screens
