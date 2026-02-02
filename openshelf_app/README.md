@@ -889,7 +889,7 @@ _Cross-platform capability - same app running on web_
 ✅ **Multiple Targets**: Can deploy to Android, Web, Windows, and more  
 ✅ **Cloud-Ready**: Firebase integration configured and tested  
 ✅ **Performance Optimized**: Emulator configured for smooth development  
-✅ **Professional Tools**: Using industry-standard IDEs and workflows
+✅ **Professional Tools**: Using industry-standard IDEs and workflows .
 
 ### Development Environment Summary
 
@@ -944,3 +944,58 @@ With the development environment fully configured, the team is ready to:
 **Updated**: January 22, 2026 (Added Responsive Design - Sprint #2 Part 2)  
 **Flutter Version**: 3.38.7  
 **Dart Version**: 3.0+
+
+
+
+## Firebase Integration – Flutter App (Learning Unit)
+Overview
+
+This Learning Unit focuses on integrating Firebase with a Flutter application. Firebase acts as the backend backbone for the app and enables services such as authentication, real-time databases, cloud storage, analytics, and push notifications. After completing this setup, the Flutter application is successfully connected to Firebase and is ready for advanced backend features in future lessons.
+
+### What is Firebase?
+
+Firebase is a cloud-based Backend-as-a-Service (BaaS) platform provided by Google. It offers ready-to-use backend services including user authentication, Cloud Firestore for real-time NoSQL data storage, Cloud Storage for managing files, Analytics for tracking app usage, and Cloud Messaging for push notifications.
+
+### Firebase Project Setup
+
+The Firebase setup process started by creating a new project in the Firebase Console. Google Analytics was enabled optionally during project creation. After initialization, the Firebase dashboard was available to manage app integrations and backend services.
+
+### Flutter App Registration (Android)
+
+The Flutter application was registered as an Android app in the Firebase Console using the package name com.example.openshelf_app. After registration, the Firebase configuration file named google-services.json was downloaded and placed inside the android/app directory of the Flutter project.
+
+### Firebase SDK Integration
+
+Firebase SDKs were integrated into the Flutter project by adding the required dependencies for firebase_core, firebase_auth, and cloud_firestore. These dependencies were installed using the Flutter package manager, allowing the app to access Firebase services.
+
+### Android Configuration
+
+Firebase was connected to the Android build by adding the Google Services plugin to the project-level Gradle file and applying the plugin in the app-level Gradle file. This configuration allows Firebase services to communicate correctly with the Android application.
+
+### Firebase Initialization
+
+Firebase was initialized before the application startup by ensuring the Flutter bindings were initialized and calling Firebase.initializeApp(). This step is essential to make Firebase services available throughout the entire app lifecycle.
+
+### Verification
+
+The Firebase integration was verified by running the application on an Android emulator. The app launched successfully without any crashes or Firebase-related errors. The registered Android app appeared in the Firebase Console, confirming that Firebase was connected successfully.
+
+### Common Issues and Fixes
+
+During the setup, issues such as incorrect placement of the google-services.json file, missing Firebase initialization, and package name mismatches were encountered. These were resolved by placing the configuration file in the correct directory, initializing Firebase before runApp(), and ensuring the Firebase package name matched the Gradle application ID.
+
+### Reflection
+
+The most important step in the Firebase integration process was registering the app with the correct Android package name and placing the configuration file in the proper directory. This Learning Unit highlighted that Firebase setup is a one-time configuration and that initialization order is critical in Flutter applications.
+
+### How This Helps Future Development
+
+With Firebase successfully integrated, the application is now prepared for implementing user authentication, real-time data storage, cloud services, push notifications, and other scalable backend features.
+
+### Conclusion
+
+The Flutter application is successfully connected to Firebase and verified using an Android emulator. This Learning Unit is completed, and the project is ready for future Firebase-based enhancements.
+
+Status: Completed
+Platform Tested: Android Emulator
+Flutter Version: 3.38.7
