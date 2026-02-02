@@ -22,6 +22,7 @@ import 'screens/reusable_widgets_demo.dart';
 import 'screens/library_screen.dart';
 import 'screens/responsive_design_demo.dart';
 import 'screens/responsive_dashboard.dart';
+import 'screens/asset_demo_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -64,6 +65,7 @@ class MyApp extends StatelessWidget {
         '/library': (context) => const LibraryScreen(),
         '/responsive-design-demo': (context) => const ResponsiveDesignDemo(),
         '/responsive-dashboard': (context) => const ResponsiveDashboard(),
+        '/asset-demo': (context) => const AssetDemoScreen(),
       },
     );
   }

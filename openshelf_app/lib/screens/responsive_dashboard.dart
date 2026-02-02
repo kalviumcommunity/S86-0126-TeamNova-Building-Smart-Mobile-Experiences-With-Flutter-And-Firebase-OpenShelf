@@ -40,10 +40,7 @@ class _ResponsiveDashboardState extends State<ResponsiveDashboard> {
             foregroundColor: Colors.white,
             elevation: 0,
             actions: [
-              IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () {},
-              ),
+              IconButton(icon: const Icon(Icons.search), onPressed: () {}),
               IconButton(
                 icon: const Icon(Icons.notifications_outlined),
                 onPressed: () {},
@@ -83,9 +80,7 @@ class _ResponsiveDashboardState extends State<ResponsiveDashboard> {
                 ),
 
               // Main content
-              Expanded(
-                child: _buildDashboardContent(context, isLargeScreen),
-              ),
+              Expanded(child: _buildDashboardContent(context, isLargeScreen)),
             ],
           ),
           // Bottom navigation for small screens
@@ -123,7 +118,7 @@ class _ResponsiveDashboardState extends State<ResponsiveDashboard> {
 
   Widget _buildDashboardContent(BuildContext context, bool isLargeScreen) {
     final screenWidth = MediaQuery.of(context).size.width;
-    
+
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.all(isLargeScreen ? 24 : 16),
@@ -221,10 +216,7 @@ class _ResponsiveDashboardState extends State<ResponsiveDashboard> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text('See All'),
-                ),
+                TextButton(onPressed: () {}, child: const Text('See All')),
               ],
             ),
             const SizedBox(height: 16),
@@ -313,17 +305,20 @@ class _ResponsiveDashboardState extends State<ResponsiveDashboard> {
     );
   }
 
-  Widget _buildStatCard(String title, String value, IconData icon, Color color, String subtitle) {
+  Widget _buildStatCard(
+    String title,
+    String value,
+    IconData icon,
+    Color color,
+    String subtitle,
+  ) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            color.withOpacity(0.7),
-            color,
-          ],
+          colors: [color.withOpacity(0.7), color],
         ),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
@@ -430,7 +425,9 @@ class _ResponsiveDashboardState extends State<ResponsiveDashboard> {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.grey[300],
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(12),
+                ),
               ),
               child: const Center(
                 child: Icon(Icons.book, size: 48, color: Colors.grey),
@@ -461,10 +458,7 @@ class _ResponsiveDashboardState extends State<ResponsiveDashboard> {
                       const SizedBox(height: 4),
                       Text(
                         authors[index % authors.length],
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[600],
-                        ),
+                        style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -493,11 +487,7 @@ class _ResponsiveDashboardState extends State<ResponsiveDashboard> {
       'Project Hail Mary',
     ];
 
-    final authors = [
-      'Matt Haig',
-      'James Clear',
-      'Andy Weir',
-    ];
+    final authors = ['Matt Haig', 'James Clear', 'Andy Weir'];
 
     return Container(
       height: 120,
@@ -543,10 +533,7 @@ class _ResponsiveDashboardState extends State<ResponsiveDashboard> {
                 const SizedBox(height: 4),
                 Text(
                   authors[index],
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey[600],
-                  ),
+                  style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                 ),
                 const SizedBox(height: 8),
                 Row(
@@ -555,16 +542,16 @@ class _ResponsiveDashboardState extends State<ResponsiveDashboard> {
                     SizedBox(width: 4),
                     Text('4.5', style: TextStyle(fontSize: 14)),
                     Spacer(),
-                    Text('67% complete', style: TextStyle(fontSize: 12, color: Colors.teal)),
+                    Text(
+                      '67% complete',
+                      style: TextStyle(fontSize: 12, color: Colors.teal),
+                    ),
                   ],
                 ),
               ],
             ),
           ),
-          IconButton(
-            icon: const Icon(Icons.favorite_border),
-            onPressed: () {},
-          ),
+          IconButton(icon: const Icon(Icons.favorite_border), onPressed: () {}),
         ],
       ),
     );

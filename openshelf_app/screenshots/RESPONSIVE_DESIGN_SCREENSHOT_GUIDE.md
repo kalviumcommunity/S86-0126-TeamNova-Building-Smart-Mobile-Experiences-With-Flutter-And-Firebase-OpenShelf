@@ -9,11 +9,13 @@ This guide will help you capture all necessary screenshots to showcase your resp
 ## 📱 Screenshot Requirements
 
 ### 1. Responsive Design Demo - Mobile Portrait
+
 **Route:** `/responsive-design-demo`
 **Device:** Pixel 4 or similar (Mobile)
 **Orientation:** Portrait
 
 **What to capture:**
+
 - Device information section showing mobile metrics
 - Responsive containers (80%, 60%, 40%)
 - Mobile layout cards (Column arrangement)
@@ -23,6 +25,7 @@ This guide will help you capture all necessary screenshots to showcase your resp
 **Filename:** `screenshots/responsive-design/demo_mobile_portrait.png`
 
 **How to capture:**
+
 1. Run app on mobile emulator
 2. Navigate to `/responsive-design-demo`
 3. Scroll to show all sections
@@ -31,11 +34,13 @@ This guide will help you capture all necessary screenshots to showcase your resp
 ---
 
 ### 2. Responsive Design Demo - Tablet Landscape
+
 **Route:** `/responsive-design-demo`
 **Device:** Nexus 9 or iPad (Tablet)
 **Orientation:** Landscape
 
 **What to capture:**
+
 - Device information showing tablet metrics
 - Tablet layout cards (Row arrangement)
 - 4-column grid
@@ -44,6 +49,7 @@ This guide will help you capture all necessary screenshots to showcase your resp
 **Filename:** `screenshots/responsive-design/demo_tablet_landscape.png`
 
 **How to capture:**
+
 1. Run app on tablet emulator
 2. Navigate to `/responsive-design-demo`
 3. Rotate to landscape (Ctrl+Left/Right Arrow)
@@ -52,10 +58,12 @@ This guide will help you capture all necessary screenshots to showcase your resp
 ---
 
 ### 3. Dashboard - Mobile View
+
 **Route:** `/responsive-dashboard`
 **Device:** Mobile (Portrait)
 
 **What to capture:**
+
 - Bottom navigation bar
 - 2-column stats grid
 - Vertical book list
@@ -66,10 +74,12 @@ This guide will help you capture all necessary screenshots to showcase your resp
 ---
 
 ### 4. Dashboard - Tablet View
+
 **Route:** `/responsive-dashboard`
 **Device:** Tablet (Landscape)
 
 **What to capture:**
+
 - Side navigation rail
 - 4-column stats grid
 - Horizontal book scrolling
@@ -80,9 +90,11 @@ This guide will help you capture all necessary screenshots to showcase your resp
 ---
 
 ### 5. Grid Comparison (Side-by-Side)
+
 **Purpose:** Show 2-column vs 4-column grid
 
 **What to capture:**
+
 - Screenshot of mobile grid (2 columns)
 - Screenshot of tablet grid (4 columns)
 - Combine into single comparison image
@@ -94,9 +106,11 @@ This guide will help you capture all necessary screenshots to showcase your resp
 ---
 
 ### 6. Adaptive Layout Comparison
+
 **Purpose:** Show Column vs Row layout
 
 **What to capture:**
+
 - Mobile: Column layout (vertical stacking)
 - Tablet: Row layout (horizontal arrangement)
 
@@ -105,9 +119,11 @@ This guide will help you capture all necessary screenshots to showcase your resp
 ---
 
 ### 7. Navigation Comparison
+
 **Purpose:** Show bottom bar vs side rail
 
 **What to capture:**
+
 - Mobile: Bottom navigation bar
 - Tablet: Side navigation rail
 
@@ -122,10 +138,12 @@ This guide will help you capture all necessary screenshots to showcase your resp
 ### Script to Follow:
 
 **Intro (15 seconds):**
+
 - "Hi, I'm demonstrating responsive design in OpenShelf using MediaQuery and LayoutBuilder"
 - Show app on mobile device
 
 **Demo Screen Tour (30 seconds):**
+
 - Navigate to `/responsive-design-demo`
 - Scroll through sections
 - Explain: "This shows device info, responsive containers, and adaptive layouts"
@@ -133,6 +151,7 @@ This guide will help you capture all necessary screenshots to showcase your resp
 - "Notice how the layout adapts from Column to Row"
 
 **Dashboard Demo (30 seconds):**
+
 - Navigate to `/responsive-dashboard`
 - "This is a real-world dashboard implementation"
 - Show bottom navigation on mobile
@@ -141,11 +160,13 @@ This guide will help you capture all necessary screenshots to showcase your resp
 - Demonstrate scrolling and interaction
 
 **Comparison (15 seconds):**
+
 - Split screen or quick switch between mobile and tablet
 - "The same code adapts to different screen sizes"
 - Point out key differences: navigation, grid columns, layout
 
 **Conclusion (10 seconds):**
+
 - "Using MediaQuery and LayoutBuilder, we create one codebase that works perfectly on any device"
 - "This improves user experience and development efficiency"
 
@@ -154,6 +175,7 @@ This guide will help you capture all necessary screenshots to showcase your resp
 ## 📱 How to Capture Screenshots
 
 ### Android Emulator:
+
 1. Start emulator
 2. Run: `flutter run`
 3. Navigate to desired screen
@@ -162,6 +184,7 @@ This guide will help you capture all necessary screenshots to showcase your resp
 6. Find screenshot in: `~/Pictures/` or emulator's screenshots folder
 
 ### iOS Simulator:
+
 1. Start simulator
 2. Run: `flutter run`
 3. Navigate to desired screen
@@ -171,10 +194,12 @@ This guide will help you capture all necessary screenshots to showcase your resp
 ### Physical Device:
 
 **Android:**
+
 - Press: `Power + Volume Down` simultaneously
 - Find in Gallery or Screenshots folder
 
 **iOS:**
+
 - iPhone X and later: `Side Button + Volume Up`
 - iPhone 8 and earlier: `Home + Power`
 - Find in Photos app
@@ -225,12 +250,14 @@ openshelf_app/
    - Download: https://obsproject.com/
 
 ### Video Format:
+
 - **Format:** MP4 (most compatible)
 - **Resolution:** 1080p preferred, 720p minimum
 - **Duration:** 1-2 minutes
 - **Audio:** Optional but recommended (explain features)
 
 ### Upload Options:
+
 1. **Google Drive** (Ensure "Anyone with the link" + View access)
 2. **Loom** (Generates shareable link automatically)
 3. **YouTube** (Upload as Unlisted)
@@ -242,18 +269,22 @@ openshelf_app/
 ### Emulator Devices to Test:
 
 **Small Phone:**
+
 - Pixel 4 (411 x 869 dp)
 - iPhone 13 Mini (375 x 812 dp)
 
 **Large Phone:**
+
 - Pixel 6 Pro (412 x 915 dp)
 - iPhone 13 Pro Max (428 x 926 dp)
 
 **Small Tablet:**
+
 - Nexus 9 (768 x 1024 dp)
 - iPad (9th gen) (810 x 1080 dp)
 
 **Large Tablet:**
+
 - Pixel Tablet (840 x 1340 dp)
 - iPad Pro 12.9" (1024 x 1366 dp)
 
@@ -276,7 +307,7 @@ flutter run -d <device-id>
 Before submission, verify you have:
 
 - [ ] Demo screen - Mobile portrait
-- [ ] Demo screen - Tablet landscape  
+- [ ] Demo screen - Tablet landscape
 - [ ] Dashboard - Mobile view
 - [ ] Dashboard - Tablet view
 - [ ] Grid comparison (2 vs 4 columns)
@@ -292,21 +323,25 @@ Before submission, verify you have:
 ## 💡 Tips for Great Screenshots
 
 ### 1. Clean Display
+
 - Remove debug banner: `debugShowCheckedModeBanner: false` in MaterialApp
 - Use clean emulator (no notifications)
 - Ensure good contrast and readability
 
 ### 2. Highlight Key Features
+
 - Capture before/after of layout changes
 - Show actual device info (width, height)
 - Include both orientations
 
 ### 3. Consistency
+
 - Use same emulator for all mobile screenshots
 - Use same tablet for all tablet screenshots
 - Maintain consistent lighting/quality
 
 ### 4. Show Interactions
+
 - Include screenshots of animations/transitions (optional)
 - Capture grid reflow in action
 - Show navigation adaptation
@@ -328,6 +363,7 @@ Before submission, verify you have:
    - Preview (Mac - simple layout)
 
 ### Layout Template:
+
 ```
 ┌─────────────────────────┐
 │  Mobile (2 cols)        │
@@ -350,15 +386,19 @@ Update your README with markdown image links:
 
 ```markdown
 ### Mobile View
+
 ![Mobile View](screenshots/responsive-design/demo_mobile_portrait.png)
 
 ### Tablet View
+
 ![Tablet View](screenshots/responsive-design/demo_tablet_landscape.png)
 
 ### Dashboard Mobile
+
 ![Dashboard Mobile](screenshots/responsive-design/dashboard_mobile.png)
 
 ### Dashboard Tablet
+
 ![Dashboard Tablet](screenshots/responsive-design/dashboard_tablet.png)
 ```
 
@@ -388,6 +428,7 @@ If using Google Drive for video:
 ✅ **Complete Coverage:** All major features documented
 
 ❌ **Avoid:**
+
 - Blurry or low-resolution images
 - Debug banners or overlays
 - Screenshots that don't show responsive changes
@@ -398,11 +439,13 @@ If using Google Drive for video:
 ## 📊 Screenshot Size Guidelines
 
 ### Recommended Dimensions:
+
 - **Mobile:** 1080 x 2340 px (or actual device resolution)
 - **Tablet:** 1600 x 2560 px (or actual device resolution)
 - **File Size:** < 2MB per image (compress if needed)
 
 ### Compression Tools:
+
 - TinyPNG: https://tinypng.com/
 - ImageOptim (Mac): https://imageoptim.com/
 - Squoosh (Web): https://squoosh.app/

@@ -9,10 +9,12 @@ This PR implements **responsive design** in the OpenShelf application using **Me
 ## 🎯 What Was Built
 
 ### 1. Responsive Design Demo Screen
+
 **File:** `lib/screens/responsive_design_demo.dart`  
 **Route:** `/responsive-design-demo`
 
 An educational screen demonstrating all responsive design concepts:
+
 - **Device Information Display** - Real-time screen metrics using MediaQuery
 - **Responsive Containers** - Percentage-based sizing (80%, 60%, 40%)
 - **Adaptive Layouts** - Column (mobile) vs Row (tablet) using LayoutBuilder
@@ -20,10 +22,12 @@ An educational screen demonstrating all responsive design concepts:
 - **Adaptive Typography** - Font sizes that scale with device
 
 ### 2. Responsive Dashboard Screen
+
 **File:** `lib/screens/responsive_dashboard.dart`  
 **Route:** `/responsive-dashboard`
 
 A real-world implementation showcasing:
+
 - **Adaptive Navigation** - Bottom bar (mobile) vs Side rail (tablet)
 - **Responsive Stats Grid** - 2/3/4 column layout
 - **Adaptive Book Display** - Vertical list (mobile) vs Horizontal scroll (tablet)
@@ -35,12 +39,14 @@ A real-world implementation showcasing:
 ## 📂 Files Added/Modified
 
 ### New Files:
+
 - `lib/screens/responsive_design_demo.dart` (450 lines)
 - `lib/screens/responsive_dashboard.dart` (420 lines)
 - `RESPONSIVE_DESIGN_README.md` (800 lines) - Comprehensive documentation
 - `openshelf_app/screenshots/RESPONSIVE_DESIGN_SCREENSHOT_GUIDE.md` (400 lines)
 
 ### Modified Files:
+
 - `lib/main.dart` - Added routes for responsive screens
 
 ---
@@ -48,6 +54,7 @@ A real-world implementation showcasing:
 ## 🔧 Technical Implementation
 
 ### MediaQuery Usage:
+
 ```dart
 // Access device information
 final mediaQuery = MediaQuery.of(context);
@@ -72,6 +79,7 @@ Text(
 ```
 
 ### LayoutBuilder Usage:
+
 ```dart
 LayoutBuilder(
   builder: (context, constraints) {
@@ -87,42 +95,49 @@ LayoutBuilder(
 ```
 
 ### Breakpoint Strategy:
-| Breakpoint | Width | Layout |
-|------------|-------|--------|
-| Mobile | < 600px | Column, 2 cols, bottom nav |
-| Tablet | 600-900px | Mixed, 3 cols, side rail |
-| Desktop | ≥ 900px | Row, 4 cols, side rail |
+
+| Breakpoint | Width     | Layout                     |
+| ---------- | --------- | -------------------------- |
+| Mobile     | < 600px   | Column, 2 cols, bottom nav |
+| Tablet     | 600-900px | Mixed, 3 cols, side rail   |
+| Desktop    | ≥ 900px   | Row, 4 cols, side rail     |
 
 ---
 
 ## 🎨 Key Features
 
 ### 1. **Device-Aware Layouts**
+
 ✅ Different widget trees for mobile vs tablet
 ✅ Automatic layout switching at 600px breakpoint
 ✅ Optimized use of available screen space
 
 ### 2. **Adaptive Navigation**
+
 ✅ Bottom navigation bar on mobile (easier thumb access)
 ✅ Side navigation rail on tablet (better use of horizontal space)
 ✅ Smooth transition between navigation patterns
 
 ### 3. **Responsive Grids**
+
 ✅ 2 columns on mobile (< 600px)
 ✅ 3 columns on small tablets (600-900px)
 ✅ 4 columns on large tablets/desktop (≥ 900px)
 
 ### 4. **Context-Aware Typography**
+
 ✅ Font sizes scale with screen width
 ✅ Improved readability on all devices
 ✅ Consistent visual hierarchy
 
 ### 5. **Percentage-Based Sizing**
+
 ✅ Elements sized relative to screen dimensions
 ✅ No hardcoded pixel values
 ✅ Scales perfectly across all screen sizes
 
 ### 6. **Orientation Handling**
+
 ✅ Layouts adapt to portrait and landscape
 ✅ No overflow errors when rotating
 ✅ Smooth transitions between orientations
@@ -132,51 +147,58 @@ LayoutBuilder(
 ## 📱 Screenshots
 
 ### Responsive Design Demo - Mobile View
+
 ![Demo Mobile Portrait](screenshots/responsive-design/demo_mobile_portrait.png)
 
-*Shows device information, responsive containers (80%, 60%, 40%), mobile Column layout, and 2-column grid*
+_Shows device information, responsive containers (80%, 60%, 40%), mobile Column layout, and 2-column grid_
 
 ---
 
 ### Responsive Design Demo - Tablet View
+
 ![Demo Tablet Landscape](screenshots/responsive-design/demo_tablet_landscape.png)
 
-*Shows tablet metrics, Row layout with side-by-side cards, and 4-column grid*
+_Shows tablet metrics, Row layout with side-by-side cards, and 4-column grid_
 
 ---
 
 ### Dashboard - Mobile View
+
 ![Dashboard Mobile](screenshots/responsive-design/dashboard_mobile.png)
 
-*2-column stats grid, bottom navigation bar, vertical book list*
+_2-column stats grid, bottom navigation bar, vertical book list_
 
 ---
 
 ### Dashboard - Tablet View
+
 ![Dashboard Tablet](screenshots/responsive-design/dashboard_tablet.png)
 
-*4-column stats grid, side navigation rail, horizontal book scrolling*
+_4-column stats grid, side navigation rail, horizontal book scrolling_
 
 ---
 
 ### Grid Comparison (2 vs 4 columns)
+
 ![Grid Comparison](screenshots/responsive-design/grid_comparison.png)
 
-*Side-by-side comparison showing how grid adapts from 2 columns (mobile) to 4 columns (tablet)*
+_Side-by-side comparison showing how grid adapts from 2 columns (mobile) to 4 columns (tablet)_
 
 ---
 
 ### Adaptive Layout Comparison
+
 ![Layout Comparison](screenshots/responsive-design/layout_comparison.png)
 
-*Column layout (mobile) vs Row layout (tablet)*
+_Column layout (mobile) vs Row layout (tablet)_
 
 ---
 
 ### Navigation Comparison
+
 ![Navigation Comparison](screenshots/responsive-design/navigation_comparison.png)
 
-*Bottom navigation bar (mobile) vs Side navigation rail (tablet)*
+_Bottom navigation bar (mobile) vs Side navigation rail (tablet)_
 
 ---
 
@@ -187,6 +209,7 @@ LayoutBuilder(
 **Duration:** 1-2 minutes
 
 **Demo Content:**
+
 - Introduction to responsive design in OpenShelf
 - Tour of responsive design demo screen
 - Device information and responsive containers
@@ -224,12 +247,14 @@ Responsiveness is critical for several key reasons:
 ### How does LayoutBuilder differ from MediaQuery?
 
 **MediaQuery:**
+
 - **Scope:** Provides device-level information (entire screen)
 - **Data:** Screen dimensions, orientation, pixel density, text scale
 - **Use Case:** App-wide decisions based on device characteristics
 - **Example:** `MediaQuery.of(context).size.width` = full screen width
 
 **LayoutBuilder:**
+
 - **Scope:** Provides widget-level information (available space for that widget)
 - **Data:** BoxConstraints (maxWidth, maxHeight, minWidth, minHeight)
 - **Use Case:** Component-level decisions based on allocated space
@@ -254,11 +279,13 @@ Responsiveness is critical for several key reasons:
    - LayoutBuilder: Rebuilds on parent constraint changes
 
 **When to Use:**
+
 - **MediaQuery:** App-wide decisions (navigation pattern, overall layout strategy)
 - **LayoutBuilder:** Component-level decisions (grid columns, card layouts)
 - **Both Together:** Maximum flexibility (as in our implementation)
 
 **Example from Our Code:**
+
 ```dart
 // MediaQuery for app-level decisions
 final screenWidth = MediaQuery.of(context).size.width;
@@ -276,6 +303,7 @@ return LayoutBuilder(
 ### How could your team use these tools to scale the app design efficiently?
 
 **1. Reusable Responsive Components:**
+
 ```dart
 // Create library of responsive widgets
 class ResponsiveCard extends StatelessWidget {
@@ -283,8 +311,8 @@ class ResponsiveCard extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Card(
-          child: constraints.maxWidth < 300 
-              ? CompactLayout() 
+          child: constraints.maxWidth < 300
+              ? CompactLayout()
               : ExpandedLayout(),
         );
       },
@@ -294,18 +322,20 @@ class ResponsiveCard extends StatelessWidget {
 ```
 
 **2. Consistent Breakpoint System:**
+
 ```dart
 // lib/constants/breakpoints.dart
 class Breakpoints {
   static const mobile = 600;
   static const tablet = 900;
-  
+
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < mobile;
 }
 ```
 
 **3. Responsive Design System:**
+
 ```dart
 // lib/theme/responsive_theme.dart
 class AppSpacing {
@@ -317,6 +347,7 @@ class AppSpacing {
 ```
 
 **4. Development Workflow:**
+
 - **Design Once, Deploy Everywhere:** Build responsive from the start
 - **Test Multiple Sizes:** Minimum 2 device sizes (phone + tablet)
 - **Code Review Checklist:** Include responsive behavior verification
@@ -324,6 +355,7 @@ class AppSpacing {
 
 **5. Efficient Scaling:**
 When adding new features:
+
 ```dart
 class NewFeature extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -340,11 +372,13 @@ class NewFeature extends StatelessWidget {
 ```
 
 **6. Performance Optimization:**
+
 - Load different image sizes based on screen density
 - Adjust grid counts to prevent rendering too many widgets
 - Use lazy loading more aggressively on smaller screens
 
 **7. Maintenance Benefits:**
+
 - Single codebase for all screen sizes
 - Bug fixes apply to all layouts automatically
 - Feature updates reach all users simultaneously
@@ -357,6 +391,7 @@ By implementing responsive design systematically, Team Nova can efficiently scal
 ## ✅ Testing Completed
 
 ### Devices Tested:
+
 - [x] Pixel 4 (Mobile - Portrait)
 - [x] Pixel 4 (Mobile - Landscape)
 - [x] Nexus 9 (Tablet - Portrait)
@@ -364,6 +399,7 @@ By implementing responsive design systematically, Team Nova can efficiently scal
 - [x] iPad Pro (Tablet - Landscape)
 
 ### Verification:
+
 - [x] No overflow errors on any device
 - [x] Layouts adapt correctly at 600px breakpoint
 - [x] Grid columns change appropriately (2/3/4)
@@ -397,18 +433,21 @@ Complete documentation includes:
 ## 🚀 How to Test
 
 1. **Pull this branch:**
+
    ```bash
    git fetch origin
    git checkout responsive-design
    ```
 
 2. **Get dependencies:**
+
    ```bash
    cd openshelf_app
    flutter pub get
    ```
 
 3. **Run on mobile emulator:**
+
    ```bash
    flutter run -d <mobile-device-id>
    ```
@@ -418,6 +457,7 @@ Complete documentation includes:
    - `/responsive-dashboard` - Real-world dashboard
 
 5. **Test on tablet:**
+
    ```bash
    flutter run -d <tablet-device-id>
    ```
@@ -446,6 +486,7 @@ Complete documentation includes:
 ## 🎓 Learning Outcomes
 
 ### Technical Skills Demonstrated:
+
 ✅ MediaQuery for device information
 ✅ LayoutBuilder for constraint-based layouts
 ✅ Responsive sizing (percentage-based)
@@ -456,6 +497,7 @@ Complete documentation includes:
 ✅ Orientation handling
 
 ### Flutter Concepts Mastered:
+
 ✅ MediaQuery class and usage
 ✅ LayoutBuilder widget
 ✅ BoxConstraints
@@ -467,15 +509,15 @@ Complete documentation includes:
 
 ## 🏆 Success Metrics
 
-| Metric | Target | Achieved | Status |
-|--------|--------|----------|--------|
-| Responsive Screens | 2+ | 2 | ✅ 100% |
-| MediaQuery Usage | Yes | Yes | ✅ 100% |
-| LayoutBuilder Usage | Yes | Yes | ✅ 100% |
-| Breakpoints | 1+ | 2 | ✅ 200% |
-| Adaptive Navigation | Yes | Yes | ✅ 100% |
-| Documentation | README | 2 docs | ✅ 200% |
-| Grid Variations | 2+ | 3 | ✅ 150% |
+| Metric              | Target | Achieved | Status  |
+| ------------------- | ------ | -------- | ------- |
+| Responsive Screens  | 2+     | 2        | ✅ 100% |
+| MediaQuery Usage    | Yes    | Yes      | ✅ 100% |
+| LayoutBuilder Usage | Yes    | Yes      | ✅ 100% |
+| Breakpoints         | 1+     | 2        | ✅ 200% |
+| Adaptive Navigation | Yes    | Yes      | ✅ 100% |
+| Documentation       | README | 2 docs   | ✅ 200% |
+| Grid Variations     | 2+     | 3        | ✅ 150% |
 
 ---
 
@@ -508,6 +550,7 @@ Complete documentation includes:
 ## 📞 Questions?
 
 For implementation details, refer to:
+
 - [RESPONSIVE_DESIGN_README.md](RESPONSIVE_DESIGN_README.md)
 - [Screenshot Guide](openshelf_app/screenshots/RESPONSIVE_DESIGN_SCREENSHOT_GUIDE.md)
 
