@@ -67,9 +67,7 @@ class _BookCardState extends State<BookCard> {
     return Card(
       elevation: 6,
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: InkWell(
         onTap: widget.onTap,
         borderRadius: BorderRadius.circular(16),
@@ -93,15 +91,11 @@ class _BookCardState extends State<BookCard> {
                       : null,
                 ),
                 child: widget.coverUrl == null
-                    ? const Icon(
-                        Icons.book,
-                        size: 40,
-                        color: Colors.grey,
-                      )
+                    ? const Icon(Icons.book, size: 40, color: Colors.grey)
                     : null,
               ),
               const SizedBox(width: 12),
-              
+
               // Book Info
               Expanded(
                 child: Column(
@@ -128,11 +122,7 @@ class _BookCardState extends State<BookCard> {
                     const SizedBox(height: 8),
                     Row(
                       children: [
-                        const Icon(
-                          Icons.star,
-                          size: 16,
-                          color: Colors.amber,
-                        ),
+                        const Icon(Icons.star, size: 16, color: Colors.amber),
                         const SizedBox(width: 4),
                         Text(
                           widget.rating.toStringAsFixed(1),
@@ -146,7 +136,7 @@ class _BookCardState extends State<BookCard> {
                   ],
                 ),
               ),
-              
+
               // Favorite Button
               IconButton(
                 icon: Icon(

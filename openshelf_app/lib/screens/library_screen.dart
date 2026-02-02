@@ -59,10 +59,7 @@ class LibraryScreen extends StatelessWidget {
                 children: [
                   const Text(
                     'Your Reading Stats',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 16),
                   Row(
@@ -132,13 +129,10 @@ class LibraryScreen extends StatelessWidget {
                 children: [
                   const Text(
                     'Quick Actions',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 12),
-                  
+
                   // FeatureTile instance 1
                   FeatureTile(
                     title: 'Add New Book',
@@ -152,7 +146,7 @@ class LibraryScreen extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 8),
-                  
+
                   // FeatureTile instance 2
                   FeatureTile(
                     title: 'Reading Goals',
@@ -167,7 +161,7 @@ class LibraryScreen extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 8),
-                  
+
                   // FeatureTile instance 3
                   FeatureTile(
                     title: 'Book Clubs',
@@ -227,11 +221,13 @@ class LibraryScreen extends StatelessWidget {
               initialFavorite: true,
               onTap: () {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Opening: The Midnight Library')),
+                  const SnackBar(
+                    content: Text('Opening: The Midnight Library'),
+                  ),
                 );
               },
             ),
-            
+
             // BookCard instance 2
             BookCard(
               title: 'Atomic Habits',
@@ -243,7 +239,7 @@ class LibraryScreen extends StatelessWidget {
                 );
               },
             ),
-            
+
             // BookCard instance 3
             BookCard(
               title: 'Project Hail Mary',
@@ -266,10 +262,7 @@ class LibraryScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 'Recommended for You',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
             const SizedBox(height: 12),
@@ -282,11 +275,12 @@ class LibraryScreen extends StatelessWidget {
               onTap: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                      content: Text('Opening: The Seven Husbands of Evelyn Hugo')),
+                    content: Text('Opening: The Seven Husbands of Evelyn Hugo'),
+                  ),
                 );
               },
             ),
-            
+
             // BookCard instance 5
             BookCard(
               title: 'Where the Crawdads Sing',
@@ -295,11 +289,12 @@ class LibraryScreen extends StatelessWidget {
               onTap: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                      content: Text('Opening: Where the Crawdads Sing')),
+                    content: Text('Opening: Where the Crawdads Sing'),
+                  ),
                 );
               },
             ),
-            
+
             // BookCard instance 6
             BookCard(
               title: 'The Silent Patient',
@@ -333,7 +328,7 @@ class LibraryScreen extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 12),
-                  
+
                   // CustomButton instance 2
                   CustomButton(
                     label: 'View Reading Statistics',
@@ -341,7 +336,9 @@ class LibraryScreen extends StatelessWidget {
                     color: Colors.blue,
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('View detailed statistics')),
+                        const SnackBar(
+                          content: Text('View detailed statistics'),
+                        ),
                       );
                     },
                   ),

@@ -46,13 +46,10 @@ class ReusableWidgetsDemo extends StatelessWidget {
             // ================================================================
             const Text(
               '1. Custom Buttons',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
-            
+
             CustomButton(
               label: 'Add to Library',
               icon: Icons.add,
@@ -64,7 +61,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
               },
             ),
             const SizedBox(height: 12),
-            
+
             CustomButton(
               label: 'View Details',
               icon: Icons.info_outline,
@@ -74,19 +71,19 @@ class ReusableWidgetsDemo extends StatelessWidget {
               },
             ),
             const SizedBox(height: 12),
-            
+
             CustomButton(
               label: 'Delete',
               icon: Icons.delete_outline,
               color: Colors.red,
               isOutlined: true,
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Delete action')),
-                );
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(const SnackBar(content: Text('Delete action')));
               },
             ),
-            
+
             const SizedBox(height: 24),
             const Divider(),
             const SizedBox(height: 24),
@@ -96,13 +93,10 @@ class ReusableWidgetsDemo extends StatelessWidget {
             // ================================================================
             const Text(
               '2. Info Cards',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
-            
+
             InfoCard(
               title: 'My Profile',
               subtitle: 'View and edit your account details',
@@ -112,7 +106,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
                 Navigator.pushNamed(context, '/profile');
               },
             ),
-            
+
             InfoCard(
               title: 'Reading List',
               subtitle: '15 books currently reading',
@@ -124,7 +118,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
                 );
               },
             ),
-            
+
             InfoCard(
               title: 'Achievements',
               subtitle: 'Unlock badges and rewards',
@@ -138,7 +132,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
                 );
               },
             ),
-            
+
             const SizedBox(height: 24),
             const Divider(),
             const SizedBox(height: 24),
@@ -148,13 +142,10 @@ class ReusableWidgetsDemo extends StatelessWidget {
             // ================================================================
             const Text(
               '3. Book Cards',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
-            
+
             BookCard(
               title: 'The Great Gatsby',
               author: 'F. Scott Fitzgerald',
@@ -165,7 +156,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
                 );
               },
             ),
-            
+
             BookCard(
               title: 'To Kill a Mockingbird',
               author: 'Harper Lee',
@@ -177,7 +168,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
                 );
               },
             ),
-            
+
             BookCard(
               title: '1984',
               author: 'George Orwell',
@@ -188,7 +179,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
                 );
               },
             ),
-            
+
             const SizedBox(height: 24),
             const Divider(),
             const SizedBox(height: 24),
@@ -198,13 +189,10 @@ class ReusableWidgetsDemo extends StatelessWidget {
             // ================================================================
             const Text(
               '4. Feature Tiles',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
-            
+
             FeatureTile(
               title: 'Notifications',
               subtitle: 'Manage your alerts',
@@ -218,7 +206,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
               },
             ),
             const SizedBox(height: 12),
-            
+
             FeatureTile(
               title: 'Settings',
               subtitle: 'App preferences',
@@ -229,7 +217,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
               },
             ),
             const SizedBox(height: 12),
-            
+
             FeatureTile(
               title: 'Help & Support',
               subtitle: 'Get assistance',
@@ -241,7 +229,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
                 );
               },
             ),
-            
+
             const SizedBox(height: 24),
             const Divider(),
             const SizedBox(height: 24),
@@ -251,13 +239,10 @@ class ReusableWidgetsDemo extends StatelessWidget {
             // ================================================================
             const Text(
               '5. Stats Cards',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
-            
+
             Row(
               children: [
                 Expanded(
@@ -284,7 +269,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 12),
-            
+
             Row(
               children: [
                 Expanded(
@@ -308,7 +293,7 @@ class ReusableWidgetsDemo extends StatelessWidget {
                 ),
               ],
             ),
-            
+
             const SizedBox(height: 24),
           ],
         ),
