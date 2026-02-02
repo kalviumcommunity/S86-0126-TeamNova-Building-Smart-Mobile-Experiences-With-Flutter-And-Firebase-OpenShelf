@@ -64,10 +64,7 @@ class _AnimationsDemoScreenState extends State<AnimationsDemoScreen>
     );
 
     _bounceAnimation = Tween<double>(begin: 0, end: -100).animate(
-      CurvedAnimation(
-        parent: _bounceController,
-        curve: Curves.bounceOut,
-      ),
+      CurvedAnimation(parent: _bounceController, curve: Curves.bounceOut),
     );
 
     // Pulse animation with color change
@@ -169,10 +166,7 @@ class _AnimationsDemoScreenState extends State<AnimationsDemoScreen>
                 const Expanded(
                   child: Text(
                     'Animations & Transitions',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
@@ -200,14 +194,22 @@ class _AnimationsDemoScreenState extends State<AnimationsDemoScreen>
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(height: 8),
-                  Text('• Implicit animations: AnimatedContainer, AnimatedOpacity',
-                      style: TextStyle(fontSize: 13)),
-                  Text('• Explicit animations: AnimationController, Tween',
-                      style: TextStyle(fontSize: 13)),
-                  Text('• Curves: easeInOut, bounceOut, elasticInOut',
-                      style: TextStyle(fontSize: 13)),
-                  Text('• Page transitions: SlideTransition, FadeTransition',
-                      style: TextStyle(fontSize: 13)),
+                  Text(
+                    '• Implicit animations: AnimatedContainer, AnimatedOpacity',
+                    style: TextStyle(fontSize: 13),
+                  ),
+                  Text(
+                    '• Explicit animations: AnimationController, Tween',
+                    style: TextStyle(fontSize: 13),
+                  ),
+                  Text(
+                    '• Curves: easeInOut, bounceOut, elasticInOut',
+                    style: TextStyle(fontSize: 13),
+                  ),
+                  Text(
+                    '• Page transitions: SlideTransition, FadeTransition',
+                    style: TextStyle(fontSize: 13),
+                  ),
                 ],
               ),
             ),
@@ -266,7 +268,9 @@ class _AnimationsDemoScreenState extends State<AnimationsDemoScreen>
                   height: _containerToggled ? 100 : 200,
                   decoration: BoxDecoration(
                     color: _containerToggled ? Colors.teal : Colors.orange,
-                    borderRadius: BorderRadius.circular(_containerToggled ? 50 : 10),
+                    borderRadius: BorderRadius.circular(
+                      _containerToggled ? 50 : 10,
+                    ),
                     boxShadow: [
                       BoxShadow(
                         color: (_containerToggled ? Colors.teal : Colors.orange)
@@ -364,11 +368,7 @@ class _AnimationsDemoScreenState extends State<AnimationsDemoScreen>
                         ],
                       ),
                       child: const Center(
-                        child: Icon(
-                          Icons.star,
-                          size: 60,
-                          color: Colors.white,
-                        ),
+                        child: Icon(Icons.star, size: 60, color: Colors.white),
                       ),
                     ),
                   ),
@@ -379,7 +379,9 @@ class _AnimationsDemoScreenState extends State<AnimationsDemoScreen>
                         _opacityToggled = !_opacityToggled;
                       });
                     },
-                    icon: Icon(_opacityToggled ? Icons.visibility_off : Icons.visibility),
+                    icon: Icon(
+                      _opacityToggled ? Icons.visibility_off : Icons.visibility,
+                    ),
                     label: Text(_opacityToggled ? 'Fade Out' : 'Fade In'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepPurple,
@@ -443,7 +445,9 @@ class _AnimationsDemoScreenState extends State<AnimationsDemoScreen>
                 border: Border.all(color: Colors.grey[400]!),
               ),
               child: AnimatedAlign(
-                alignment: _alignToggled ? Alignment.topRight : Alignment.bottomLeft,
+                alignment: _alignToggled
+                    ? Alignment.topRight
+                    : Alignment.bottomLeft,
                 duration: const Duration(milliseconds: 600),
                 curve: Curves.easeInOut,
                 child: Container(
@@ -540,7 +544,9 @@ class _AnimationsDemoScreenState extends State<AnimationsDemoScreen>
                   });
                 },
                 icon: Icon(_paddingToggled ? Icons.compress : Icons.expand),
-                label: Text(_paddingToggled ? 'Decrease Padding' : 'Increase Padding'),
+                label: Text(
+                  _paddingToggled ? 'Decrease Padding' : 'Increase Padding',
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.amber[700],
                   foregroundColor: Colors.white,
@@ -844,17 +850,41 @@ RotationTransition(
               style: TextStyle(fontSize: 13),
             ),
             const SizedBox(height: 12),
-            _buildCurveItem('Curves.linear', 'Constant speed throughout', Colors.grey),
+            _buildCurveItem(
+              'Curves.linear',
+              'Constant speed throughout',
+              Colors.grey,
+            ),
             const SizedBox(height: 8),
-            _buildCurveItem('Curves.easeIn', 'Slow start, fast end', Colors.blue),
+            _buildCurveItem(
+              'Curves.easeIn',
+              'Slow start, fast end',
+              Colors.blue,
+            ),
             const SizedBox(height: 8),
-            _buildCurveItem('Curves.easeOut', 'Fast start, slow end', Colors.green),
+            _buildCurveItem(
+              'Curves.easeOut',
+              'Fast start, slow end',
+              Colors.green,
+            ),
             const SizedBox(height: 8),
-            _buildCurveItem('Curves.easeInOut', 'Slow start and end (recommended)', Colors.orange),
+            _buildCurveItem(
+              'Curves.easeInOut',
+              'Slow start and end (recommended)',
+              Colors.orange,
+            ),
             const SizedBox(height: 8),
-            _buildCurveItem('Curves.bounceOut', 'Bouncy, playful effect', Colors.purple),
+            _buildCurveItem(
+              'Curves.bounceOut',
+              'Bouncy, playful effect',
+              Colors.purple,
+            ),
             const SizedBox(height: 8),
-            _buildCurveItem('Curves.elasticInOut', 'Spring-like motion', Colors.teal),
+            _buildCurveItem(
+              'Curves.elasticInOut',
+              'Spring-like motion',
+              Colors.teal,
+            ),
           ],
         ),
       ),
@@ -1047,10 +1077,7 @@ RotationTransition(
                   ],
                 ),
               ),
-              const Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.deepPurple,
-              ),
+              const Icon(Icons.arrow_forward_ios, color: Colors.deepPurple),
             ],
           ),
         ),

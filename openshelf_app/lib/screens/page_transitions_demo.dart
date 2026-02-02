@@ -39,7 +39,8 @@ class PageTransitionsDemo extends StatelessWidget {
             'Page slides in from the right (default iOS style)',
             Icons.arrow_forward,
             Colors.blue,
-            () => _navigateWithSlideTransition(context, SlideDirection.fromRight),
+            () =>
+                _navigateWithSlideTransition(context, SlideDirection.fromRight),
           ),
           const SizedBox(height: 12),
           _buildTransitionCard(
@@ -48,7 +49,8 @@ class PageTransitionsDemo extends StatelessWidget {
             'Page slides in from the left (Android back style)',
             Icons.arrow_back,
             Colors.blue,
-            () => _navigateWithSlideTransition(context, SlideDirection.fromLeft),
+            () =>
+                _navigateWithSlideTransition(context, SlideDirection.fromLeft),
           ),
           const SizedBox(height: 12),
           _buildTransitionCard(
@@ -57,7 +59,10 @@ class PageTransitionsDemo extends StatelessWidget {
             'Page slides in from the bottom (modal style)',
             Icons.arrow_upward,
             Colors.blue,
-            () => _navigateWithSlideTransition(context, SlideDirection.fromBottom),
+            () => _navigateWithSlideTransition(
+              context,
+              SlideDirection.fromBottom,
+            ),
           ),
           const SizedBox(height: 12),
           _buildTransitionCard(
@@ -124,10 +129,7 @@ class PageTransitionsDemo extends StatelessWidget {
                 const Expanded(
                   child: Text(
                     'Page Transition Animations',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
@@ -153,7 +155,10 @@ class PageTransitionsDemo extends StatelessWidget {
                   Expanded(
                     child: Text(
                       'Each transition uses PageRouteBuilder for custom control',
-                      style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],
@@ -207,12 +212,19 @@ class PageTransitionsDemo extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       description,
-                      style: const TextStyle(fontSize: 12, color: Colors.black54),
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: Colors.black54,
+                      ),
                     ),
                   ],
                 ),
               ),
-              Icon(Icons.arrow_forward_ios, color: color.withOpacity(0.5), size: 18),
+              Icon(
+                Icons.arrow_forward_ios,
+                color: color.withOpacity(0.5),
+                size: 18,
+              ),
             ],
           ),
         ),
@@ -221,7 +233,10 @@ class PageTransitionsDemo extends StatelessWidget {
   }
 
   // Slide Transition
-  void _navigateWithSlideTransition(BuildContext context, SlideDirection direction) {
+  void _navigateWithSlideTransition(
+    BuildContext context,
+    SlideDirection direction,
+  ) {
     Offset begin;
     switch (direction) {
       case SlideDirection.fromRight:
@@ -246,13 +261,9 @@ class PageTransitionsDemo extends StatelessWidget {
             _SampleDestinationPage(transitionType: 'Slide (${direction.name})'),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return SlideTransition(
-            position: Tween<Offset>(
-              begin: begin,
-              end: Offset.zero,
-            ).animate(CurvedAnimation(
-              parent: animation,
-              curve: Curves.easeInOut,
-            )),
+            position: Tween<Offset>(begin: begin, end: Offset.zero).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeInOut),
+            ),
             child: child,
           );
         },
@@ -271,10 +282,7 @@ class PageTransitionsDemo extends StatelessWidget {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(
             opacity: Tween<double>(begin: 0.0, end: 1.0).animate(
-              CurvedAnimation(
-                parent: animation,
-                curve: Curves.easeInOut,
-              ),
+              CurvedAnimation(parent: animation, curve: Curves.easeInOut),
             ),
             child: child,
           );
@@ -294,10 +302,7 @@ class PageTransitionsDemo extends StatelessWidget {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return ScaleTransition(
             scale: Tween<double>(begin: 0.0, end: 1.0).animate(
-              CurvedAnimation(
-                parent: animation,
-                curve: Curves.easeInOut,
-              ),
+              CurvedAnimation(parent: animation, curve: Curves.easeInOut),
             ),
             child: child,
           );
@@ -317,10 +322,7 @@ class PageTransitionsDemo extends StatelessWidget {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return RotationTransition(
             turns: Tween<double>(begin: 0.0, end: 1.0).animate(
-              CurvedAnimation(
-                parent: animation,
-                curve: Curves.easeInOut,
-              ),
+              CurvedAnimation(parent: animation, curve: Curves.easeInOut),
             ),
             child: child,
           );
@@ -340,17 +342,11 @@ class PageTransitionsDemo extends StatelessWidget {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(
             opacity: Tween<double>(begin: 0.0, end: 1.0).animate(
-              CurvedAnimation(
-                parent: animation,
-                curve: Curves.easeInOut,
-              ),
+              CurvedAnimation(parent: animation, curve: Curves.easeInOut),
             ),
             child: ScaleTransition(
               scale: Tween<double>(begin: 0.8, end: 1.0).animate(
-                CurvedAnimation(
-                  parent: animation,
-                  curve: Curves.easeInOut,
-                ),
+                CurvedAnimation(parent: animation, curve: Curves.easeInOut),
               ),
               child: child,
             ),
@@ -370,19 +366,16 @@ class PageTransitionsDemo extends StatelessWidget {
             const _SampleDestinationPage(transitionType: 'Slide + Fade'),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return SlideTransition(
-            position: Tween<Offset>(
-              begin: const Offset(0.3, 0.0),
-              end: Offset.zero,
-            ).animate(CurvedAnimation(
-              parent: animation,
-              curve: Curves.easeInOut,
-            )),
+            position:
+                Tween<Offset>(
+                  begin: const Offset(0.3, 0.0),
+                  end: Offset.zero,
+                ).animate(
+                  CurvedAnimation(parent: animation, curve: Curves.easeInOut),
+                ),
             child: FadeTransition(
               opacity: Tween<double>(begin: 0.0, end: 1.0).animate(
-                CurvedAnimation(
-                  parent: animation,
-                  curve: Curves.easeInOut,
-                ),
+                CurvedAnimation(parent: animation, curve: Curves.easeInOut),
               ),
               child: child,
             ),
@@ -413,10 +406,7 @@ class _SampleDestinationPage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Colors.deepPurple[100]!,
-              Colors.blue[100]!,
-            ],
+            colors: [Colors.deepPurple[100]!, Colors.blue[100]!],
           ),
         ),
         child: Center(
@@ -457,10 +447,7 @@ class _SampleDestinationPage extends StatelessWidget {
                       const SizedBox(height: 12),
                       Text(
                         'You navigated with',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey[600],
-                        ),
+                        style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                       ),
                       const SizedBox(height: 8),
                       Container(
