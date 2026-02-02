@@ -5,9 +5,11 @@ This guide will help you capture the necessary screenshots for your submission.
 ## 📸 Required Screenshots
 
 ### 1. Reusable Widgets Demo Screen
+
 **Route:** `/reusable-widgets-demo`
 
 **What to capture:**
+
 - Full screen showing all 5 widget types
 - Scroll to show:
   - Custom Buttons section (3 variations)
@@ -19,6 +21,7 @@ This guide will help you capture the necessary screenshots for your submission.
 **Filename:** `screenshots/reusable_widgets_demo.png`
 
 **How to navigate:**
+
 1. Run the app
 2. From home/login screen, manually navigate to: `/reusable-widgets-demo`
 3. Or add a temporary button to your demo hub
@@ -26,9 +29,11 @@ This guide will help you capture the necessary screenshots for your submission.
 ---
 
 ### 2. Library Screen - Full View
+
 **Route:** `/library`
 
 **What to capture:**
+
 - Header with stats cards (4 instances)
 - Quick actions with feature tiles
 - Currently reading books
@@ -38,6 +43,7 @@ This guide will help you capture the necessary screenshots for your submission.
 **Filename:** `screenshots/library_screen_full.png`
 
 **Tips:**
+
 - Take multiple screenshots showing different sections
 - Scroll to capture all content
 - Show the floating action button
@@ -45,7 +51,9 @@ This guide will help you capture the necessary screenshots for your submission.
 ---
 
 ### 3. Custom Buttons Variations
+
 **What to capture:**
+
 - Filled button with icon (teal)
 - Filled button with icon (blue)
 - Outlined button (red)
@@ -56,7 +64,9 @@ This guide will help you capture the necessary screenshots for your submission.
 ---
 
 ### 4. Book Cards with Interaction
+
 **What to capture:**
+
 - Multiple book cards showing:
   - Favorited state (red heart)
   - Non-favorited state (gray heart)
@@ -68,7 +78,9 @@ This guide will help you capture the necessary screenshots for your submission.
 ---
 
 ### 5. Stats Cards Grid
+
 **What to capture:**
+
 - 2x2 grid of stats cards showing:
   - Different colors (teal, orange, green, purple)
   - Trend indicators
@@ -79,7 +91,9 @@ This guide will help you capture the necessary screenshots for your submission.
 ---
 
 ### 6. Info Cards
+
 **What to capture:**
+
 - Regular info card (white background)
 - Gradient info card (purple)
 - Different icons and colors
@@ -89,7 +103,9 @@ This guide will help you capture the necessary screenshots for your submission.
 ---
 
 ### 7. Feature Tiles
+
 **What to capture:**
+
 - Feature tiles with badges
 - Feature tiles without badges
 - Different icon colors
@@ -135,23 +151,28 @@ This guide will help you capture the necessary screenshots for your submission.
 ## 📱 How to Capture Screenshots
 
 ### On Android Emulator:
+
 1. Run the app in Android emulator
 2. Navigate to desired screen
 3. Click the camera icon in emulator toolbar
 4. Screenshots saved to: `~/Pictures/` or use the share feature
 
 ### On iOS Simulator:
+
 1. Run the app in iOS simulator
 2. Navigate to desired screen
 3. Press `Cmd + S` to save screenshot
 4. Screenshots saved to: Desktop
 
 ### On Physical Device:
+
 **Android:**
+
 - Press `Power + Volume Down` simultaneously
 - Find in Gallery or Screenshots folder
 
 **iOS:**
+
 - Press `Side Button + Volume Up` simultaneously
 - Find in Photos app
 
@@ -160,6 +181,7 @@ This guide will help you capture the necessary screenshots for your submission.
 ## 📁 Organizing Screenshots
 
 Create this structure:
+
 ```
 openshelf_app/
   screenshots/
@@ -200,6 +222,7 @@ openshelf_app/
    - More control
 
 ### Video Format:
+
 - **Format:** MP4 (most compatible)
 - **Resolution:** 720p or 1080p
 - **Upload to:** Google Drive, Loom, or YouTube (unlisted)
@@ -253,12 +276,15 @@ Update your README with markdown image links:
 
 ```markdown
 ### Reusable Widgets Demo Screen
+
 ![Reusable Widgets Demo](screenshots/reusable-widgets/reusable_widgets_demo.png)
 
 ### Library Screen
+
 ![Library Screen](screenshots/reusable-widgets/library_screen_full.png)
 
 ### Custom Button Variations
+
 ![Custom Buttons](screenshots/reusable-widgets/custom_buttons.png)
 ```
 
@@ -267,6 +293,7 @@ Update your README with markdown image links:
 ## 📤 Submission Preparation
 
 1. **Organize Files:**
+
    ```
    - All screenshots in screenshots/reusable-widgets/
    - Video uploaded to cloud service

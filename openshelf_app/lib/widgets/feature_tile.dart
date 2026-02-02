@@ -61,11 +61,7 @@ class FeatureTile extends StatelessWidget {
                     color: (iconColor ?? Colors.teal).withOpacity(0.2),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Icon(
-                    icon,
-                    size: 28,
-                    color: iconColor ?? Colors.teal,
-                  ),
+                  child: Icon(icon, size: 28, color: iconColor ?? Colors.teal),
                 ),
                 if (badgeCount != null && badgeCount! > 0)
                   Positioned(
@@ -95,7 +91,7 @@ class FeatureTile extends StatelessWidget {
               ],
             ),
             const SizedBox(width: 16),
-            
+
             // Title and subtitle
             Expanded(
               child: Column(
@@ -112,23 +108,16 @@ class FeatureTile extends StatelessWidget {
                     const SizedBox(height: 2),
                     Text(
                       subtitle!,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey[600],
-                      ),
+                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                     ),
                   ],
                 ],
               ),
             ),
-            
+
             // Arrow indicator
             if (onTap != null)
-              Icon(
-                Icons.arrow_forward_ios,
-                size: 16,
-                color: Colors.grey[400],
-              ),
+              Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey[400]),
           ],
         ),
       ),
