@@ -169,9 +169,23 @@ class _DemoHubState extends State<DemoHub> {
                     'Master local state management with setState(). Learn how to build reactive UIs that respond to user interactions and data changes.',
                 icon: Icons.settings_suggest,
                 color: Colors.green,
-                onTap: () => Navigator.pushNamed(context, '/state-management-demo'),
+                onTap: () =>
+                    Navigator.pushNamed(context, '/state-management-demo'),
               ),
+              const SizedBox(height: 16),
 
+              // Demo Card 6: Firestore Read Operations
+              _buildDemoCard(
+                index: 5,
+                title: '🔥 Firestore Read Operations',
+                subtitle: 'Real-Time Data from Cloud Firestore',
+                description:
+                    'Learn to read data from Firestore collections using StreamBuilder and FutureBuilder. Display live data that updates automatically.',
+                icon: Icons.cloud_sync,
+                color: Colors.red,
+                onTap: () =>
+                    Navigator.pushNamed(context, '/firestore-read-demo'),
+              ),
               const SizedBox(height: 32),
 
               // ================================================================
@@ -228,7 +242,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Demo Screens',
-                      value: '5',
+                      value: '6',
                       icon: Icons.widgets,
                       color: Colors.blue,
                     ),
@@ -237,7 +251,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Components',
-                      value: '20+',
+                      value: '25+',
                       icon: Icons.layers,
                       color: Colors.purple,
                     ),
@@ -246,7 +260,7 @@ class _DemoHubState extends State<DemoHub> {
                   Expanded(
                     child: _buildStatCard(
                       label: 'Features',
-                      value: '30+',
+                      value: '35+',
                       icon: Icons.star,
                       color: Colors.amber,
                     ),
