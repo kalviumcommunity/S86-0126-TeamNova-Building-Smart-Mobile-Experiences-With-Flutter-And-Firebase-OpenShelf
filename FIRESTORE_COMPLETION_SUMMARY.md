@@ -12,9 +12,11 @@
 ## 📦 Deliverables
 
 ### 1. Firestore Schema Design ✅
+
 **File:** [FIRESTORE_SCHEMA_README.md](FIRESTORE_SCHEMA_README.md)
 
 **Contents:**
+
 - ✅ Project description and overview
 - ✅ Data requirements list (8 core entities)
 - ✅ Complete schema structure (7 collections, 2 subcollections)
@@ -28,6 +30,7 @@
 - ✅ Next steps and future enhancements
 
 **Stats:**
+
 - 850+ lines of documentation
 - 7 top-level collections
 - 2 subcollections
@@ -38,9 +41,11 @@
 ---
 
 ### 2. Pull Request Description ✅
+
 **File:** [FIRESTORE_SCHEMA_PR_DESCRIPTION.md](FIRESTORE_SCHEMA_PR_DESCRIPTION.md)
 
 **Contents:**
+
 - ✅ PR title: `[Sprint-2] Firestore Database Schema Design – Team Nova`
 - ✅ Schema overview and summary
 - ✅ Collections breakdown
@@ -53,6 +58,7 @@
 - ✅ Submission checklist
 
 **Stats:**
+
 - 600+ lines
 - Ready to copy-paste into GitHub PR
 - All required sections included
@@ -60,9 +66,11 @@
 ---
 
 ### 3. Video Demo Script ✅
+
 **File:** [FIRESTORE_VIDEO_DEMO_SCRIPT.md](FIRESTORE_VIDEO_DEMO_SCRIPT.md)
 
 **Contents:**
+
 - ✅ Timed script (1-2 minutes)
 - ✅ Section-by-section breakdown
 - ✅ Recording tips and best practices
@@ -76,13 +84,13 @@
 
 ### Collections Designed
 
-| # | Collection | Documents | Purpose | Subcollections |
-|---|------------|-----------|---------|----------------|
-| 1 | `users` | User profiles | User authentication and profiles | `userBooks` |
-| 2 | `books` | Book catalog | Centralized book metadata | `reviews` |
-| 3 | `borrowRequests` | Lending transactions | Manage book borrowing | None |
-| 4 | `categories` | Book categories | Categorization and discovery | None |
-| 5 | `notifications` | User alerts | Notification system | None |
+| #   | Collection       | Documents            | Purpose                          | Subcollections |
+| --- | ---------------- | -------------------- | -------------------------------- | -------------- |
+| 1   | `users`          | User profiles        | User authentication and profiles | `userBooks`    |
+| 2   | `books`          | Book catalog         | Centralized book metadata        | `reviews`      |
+| 3   | `borrowRequests` | Lending transactions | Manage book borrowing            | None           |
+| 4   | `categories`     | Book categories      | Categorization and discovery     | None           |
+| 5   | `notifications`  | User alerts          | Notification system              | None           |
 
 **Total Fields Defined:** 60+  
 **Sample Documents Created:** 7  
@@ -124,16 +132,16 @@
 
 ## 📊 By The Numbers
 
-| Metric | Value |
-|--------|-------|
-| **Collections** | 7 |
-| **Subcollections** | 2 |
-| **Total Fields** | 60+ |
-| **Sample Documents** | 7 |
+| Metric                  | Value  |
+| ----------------------- | ------ |
+| **Collections**         | 7      |
+| **Subcollections**      | 2      |
+| **Total Fields**        | 60+    |
+| **Sample Documents**    | 7      |
 | **Documentation Lines** | 1,800+ |
-| **Files Created** | 3 |
-| **Git Commits** | 2 |
-| **Lines Inserted** | 1,787 |
+| **Files Created**       | 3      |
+| **Git Commits**         | 2      |
+| **Lines Inserted**      | 1,787  |
 
 ---
 
@@ -191,18 +199,21 @@ git push origin main
 ## 📝 Submission Steps
 
 ### Step 1: Push to GitHub ⏳
+
 ```bash
 cd "C:\Users\G YASHMIEEN\OneDrive\Desktop\OpenShelf\S86-0126-TeamNova-Building-Smart-Mobile-Experiences-With-Flutter-And-Firebase-OpenShelf"
 git push origin main
 ```
 
 ### Step 2: Record Video Demo ⏳
+
 - Use [FIRESTORE_VIDEO_DEMO_SCRIPT.md](FIRESTORE_VIDEO_DEMO_SCRIPT.md) as guide
 - Record 1-2 minute walkthrough
 - Upload to Loom/Google Drive/YouTube (unlisted)
 - Get shareable link
 
 ### Step 3: Create GitHub Pull Request ⏳
+
 1. Go to GitHub repository
 2. Click "Pull Requests" → "New Pull Request"
 3. Title: `[Sprint-2] Firestore Database Schema Design – TeamNova`
@@ -211,6 +222,7 @@ git push origin main
 6. Create PR
 
 ### Step 4: Final Verification ⏳
+
 - [ ] PR created and visible on GitHub
 - [ ] Video link is publicly accessible (test in incognito)
 - [ ] All files are included in PR
@@ -224,28 +236,31 @@ git push origin main
 Through this task, you have demonstrated:
 
 ### Technical Skills
+
 ✅ NoSQL database design principles  
 ✅ Firestore-specific best practices  
 ✅ Data modeling for scalability  
 ✅ Query optimization strategies  
 ✅ Subcollection usage patterns  
-✅ Denormalization techniques  
+✅ Denormalization techniques
 
 ### Professional Skills
+
 ✅ Technical documentation writing  
 ✅ System design and architecture  
 ✅ Problem-solving and decision-making  
 ✅ Communication and presentation  
-✅ Attention to detail and thoroughness  
+✅ Attention to detail and thoroughness
 
 ### Firestore Concepts Mastered
+
 ✅ Collections vs. Subcollections  
 ✅ Document structure and field types  
 ✅ Timestamp strategies  
 ✅ Query patterns and indexing  
 ✅ Data normalization vs. denormalization  
 ✅ Scalability considerations  
-✅ Security rules planning  
+✅ Security rules planning
 
 ---
 
@@ -299,12 +314,12 @@ When recording your video, emphasize:
 
 ## 📚 Files Reference
 
-| File | Purpose | Lines | Status |
-|------|---------|-------|--------|
-| [FIRESTORE_SCHEMA_README.md](FIRESTORE_SCHEMA_README.md) | Main schema documentation | 850+ | ✅ Complete |
-| [FIRESTORE_SCHEMA_PR_DESCRIPTION.md](FIRESTORE_SCHEMA_PR_DESCRIPTION.md) | Pull request description | 600+ | ✅ Complete |
-| [FIRESTORE_VIDEO_DEMO_SCRIPT.md](FIRESTORE_VIDEO_DEMO_SCRIPT.md) | Video recording guide | 344 | ✅ Complete |
-| [FIRESTORE_COMPLETION_SUMMARY.md](FIRESTORE_COMPLETION_SUMMARY.md) | This file - task summary | 350+ | ✅ Complete |
+| File                                                                     | Purpose                   | Lines | Status      |
+| ------------------------------------------------------------------------ | ------------------------- | ----- | ----------- |
+| [FIRESTORE_SCHEMA_README.md](FIRESTORE_SCHEMA_README.md)                 | Main schema documentation | 850+  | ✅ Complete |
+| [FIRESTORE_SCHEMA_PR_DESCRIPTION.md](FIRESTORE_SCHEMA_PR_DESCRIPTION.md) | Pull request description  | 600+  | ✅ Complete |
+| [FIRESTORE_VIDEO_DEMO_SCRIPT.md](FIRESTORE_VIDEO_DEMO_SCRIPT.md)         | Video recording guide     | 344   | ✅ Complete |
+| [FIRESTORE_COMPLETION_SUMMARY.md](FIRESTORE_COMPLETION_SUMMARY.md)       | This file - task summary  | 350+  | ✅ Complete |
 
 **Total Documentation:** 1,800+ lines across 4 files
 
@@ -320,14 +335,14 @@ You have successfully completed the **Designing Cloud Firestore Database for App
 ✅ Created comprehensive technical documentation  
 ✅ Demonstrated understanding of NoSQL best practices  
 ✅ Applied scalability and performance optimization  
-✅ Prepared professional PR and video materials  
+✅ Prepared professional PR and video materials
 
 ### You're Ready To:
 
 🚀 Push your code to GitHub  
 🎬 Record your video demo  
 📤 Submit your pull request  
-⭐ Move to the next task (CRUD implementation)  
+⭐ Move to the next task (CRUD implementation)
 
 ---
 
@@ -343,6 +358,7 @@ You have successfully completed the **Designing Cloud Firestore Database for App
 ## 📞 Support
 
 If you have questions:
+
 - Review the [FIRESTORE_SCHEMA_README.md](FIRESTORE_SCHEMA_README.md) for technical details
 - Check [FIRESTORE_VIDEO_DEMO_SCRIPT.md](FIRESTORE_VIDEO_DEMO_SCRIPT.md) for recording help
 - Refer to [Firebase Documentation](https://firebase.google.com/docs/firestore)

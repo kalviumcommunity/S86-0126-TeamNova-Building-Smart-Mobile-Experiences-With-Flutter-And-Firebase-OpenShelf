@@ -51,24 +51,29 @@ firestore/
 ### Key Collections
 
 #### 1. Users Collection (`users/{userId}`)
+
 **Purpose:** Store user profiles, preferences, and activity metrics
 
 **Fields (14 total):**
+
 - Identity: `userId`, `email`, `displayName`, `bio`, `avatarUrl`
 - Location: `location`
 - Metrics: `booksOwned`, `booksLent`, `booksBorrowed`, `rating`, `totalReviews`
 - Timestamps: `joinedAt`, `lastActive`, `createdAt`, `updatedAt`
 
 **Subcollection: userBooks**
+
 - Tracks individual book ownership
 - Lending status and availability
 - Personal reading progress
 - Book condition tracking
 
 #### 2. Books Collection (`books/{bookId}`)
+
 **Purpose:** Centralized book catalog with metadata
 
 **Fields (18 total):**
+
 - Core: `bookId`, `title`, `author`, `isbn`, `description`
 - Media: `coverImageUrl`
 - Classification: `genre`, `categories`
@@ -77,14 +82,17 @@ firestore/
 - Audit: `addedBy`, `createdAt`, `updatedAt`
 
 **Subcollection: reviews**
+
 - User ratings and reviews
 - Helpfulness voting
 - Moderation tracking
 
 #### 3. Borrow Requests Collection (`borrowRequests/{requestId}`)
+
 **Purpose:** Manage book lending transactions
 
 **Fields (17 total):**
+
 - Transaction: `requestId`, `bookId`, `bookTitle`
 - Parties: `borrowerId`, `borrowerName`, `lenderId`, `lenderName`
 - Status: `status` (pending, approved, rejected, active, returned, overdue)
@@ -93,9 +101,11 @@ firestore/
 - Audit: `createdAt`, `updatedAt`
 
 #### 4. Categories Collection (`categories/{categoryId}`)
+
 **Purpose:** Book categorization and discovery
 
 **Fields (10 total):**
+
 - Identity: `categoryId`, `name`, `slug`
 - Content: `description`, `iconUrl`
 - Metrics: `bookCount`
@@ -104,9 +114,11 @@ firestore/
 - Audit: `createdAt`
 
 #### 5. Notifications Collection (`notifications/{notificationId}`)
+
 **Purpose:** User notification system
 
 **Fields (11 total):**
+
 - Identity: `notificationId`, `userId`
 - Classification: `type` (borrow_request, return_reminder, review, system)
 - Content: `title`, `message`, `actionUrl`
@@ -121,6 +133,7 @@ firestore/
 ### Entity-Relationship Diagram (Mermaid)
 
 The schema includes a comprehensive ER diagram showing:
+
 - All 7 collections
 - Field definitions with data types
 - Primary and foreign key relationships
@@ -230,6 +243,7 @@ BOOKS (N) ──< (N) CATEGORIES (many-to-many via array)
 **Decision:** Use subcollections instead of arrays within documents.
 
 **Justification:**
+
 - **Scalability:** Users can own hundreds of books; popular books can have thousands of reviews
 - **Performance:** Enables pagination and on-demand loading (load 10 reviews instead of 1000)
 - **Document Size Limits:** Prevents hitting Firestore's 1MB document size limit
@@ -241,6 +255,7 @@ BOOKS (N) ──< (N) CATEGORIES (many-to-many via array)
 **Decision:** Keep borrow requests as a top-level collection instead of under users or books.
 
 **Justification:**
+
 - **Two-Way Queries:** Need to query from both borrower and lender perspectives
 - **Independent Status Tracking:** Easy to find all pending, active, or overdue requests
 - **Notification Integration:** Simpler to trigger notifications for both parties
@@ -252,6 +267,7 @@ BOOKS (N) ──< (N) CATEGORIES (many-to-many via array)
 **Decision:** Store `userName`, `bookTitle`, `borrowerName`, etc., in related documents.
 
 **Justification:**
+
 - **Read Optimization:** NoSQL databases optimize for reads over writes
 - **Performance:** Display borrow requests without multiple document lookups
 - **User Experience:** Faster list rendering (no joins required)
@@ -263,6 +279,7 @@ BOOKS (N) ──< (N) CATEGORIES (many-to-many via array)
 **Decision:** Include both `createdAt` and `updatedAt` timestamps.
 
 **Justification:**
+
 - **Audit Trail:** Track when documents were created and last modified
 - **Sorting:** Enable chronological ordering in queries
 - **Server Timestamps:** Use `FieldValue.serverTimestamp()` to avoid timezone issues
@@ -274,6 +291,7 @@ BOOKS (N) ──< (N) CATEGORIES (many-to-many via array)
 **Decision:** Add `expiresAt` field to notifications.
 
 **Justification:**
+
 - **Database Cleanup:** Automatically delete old notifications via Cloud Functions
 - **User Experience:** Don't overwhelm users with outdated notifications
 - **Storage Costs:** Reduce long-term storage costs
@@ -286,18 +304,21 @@ BOOKS (N) ──< (N) CATEGORIES (many-to-many via array)
 ### How This Schema Scales
 
 #### User Growth (1K → 1M users)
+
 - ✅ Each user document is independent
 - ✅ Firestore automatically shards and distributes data
 - ✅ Subcollections prevent document bloat
 - ✅ Composite indexes enable fast queries at any scale
 
 #### Book Catalog Growth
+
 - ✅ Books collection can scale to millions of documents
 - ✅ Reviews as subcollections prevent size limits
 - ✅ Category filtering remains efficient with indexing
 - ✅ Pagination support for large result sets
 
 #### Transaction Volume
+
 - ✅ Borrow requests scale independently
 - ✅ Status-based queries (pending, active, overdue) remain fast
 - ✅ Batch operations for notifications prevent bottlenecks
@@ -308,25 +329,31 @@ BOOKS (N) ──< (N) CATEGORIES (many-to-many via array)
 **Indexed Queries (Examples):**
 
 1. **Get books in a category, sorted by rating:**
+
    ```dart
    books.where('categories', arrayContains: 'cat_001')
         .orderBy('averageRating', descending: true)
    ```
+
    **Index:** Composite on `categories` + `averageRating`
 
 2. **Get pending borrow requests for a lender:**
+
    ```dart
    borrowRequests.where('lenderId', isEqualTo: 'user_123')
                  .where('status', isEqualTo: 'pending')
    ```
+
    **Index:** Composite on `lenderId` + `status`
 
 3. **Get unread notifications for a user:**
+
    ```dart
    notifications.where('userId', isEqualTo: 'user_123')
                 .where('isRead', isEqualTo: false)
                 .orderBy('createdAt', descending: true)
    ```
+
    **Index:** Composite on `userId` + `isRead` + `createdAt`
 
 4. **Find overdue borrow requests:**
@@ -416,45 +443,55 @@ The OpenShelf Firestore schema was designed with **real-world usage patterns** a
 ### Challenges & Solutions
 
 #### Challenge 1: Normalization vs. Denormalization
+
 **Problem:** Should we store just IDs or full names/titles?
 
 **Solution:**
+
 - Chose denormalization for better read performance
 - Accepted trade-off of potential data inconsistency
 - Plan to use Cloud Functions to update denormalized data when source changes
 - 90% of queries benefit from denormalization, 10% require synchronization
 
 #### Challenge 2: Subcollection Placement
+
 **Problem:** Should borrow requests be under users, books, or top-level?
 
 **Solution:**
+
 - Made it top-level to enable two-way queries
 - Can query by `borrowerId` or `lenderId` with equal efficiency
 - Simplifies notification triggers and status updates
 - Independent collection scales better than nested subcollections
 
 #### Challenge 3: Review Scalability
+
 **Problem:** Popular books could have 10,000+ reviews. How to prevent slow queries?
 
 **Solution:**
+
 - Reviews as subcollection with pagination
 - Sort by helpfulness and date for relevance
 - Load 10-20 reviews per page
 - Aggregate metrics (averageRating, totalReviews) stored in parent book document
 
 #### Challenge 4: Notification Overload
+
 **Problem:** Notifications can grow indefinitely and clutter the database.
 
 **Solution:**
+
 - Added `expiresAt` field for automatic cleanup
 - Plan Cloud Function to delete notifications older than 30 days
 - `isRead` field enables "mark all as read" functionality
 - Priority field enables filtering important notifications
 
 #### Challenge 5: Full-Text Search
+
 **Problem:** Firestore doesn't support full-text search natively.
 
 **Future Solution:**
+
 - Plan to integrate Algolia for advanced search
 - Use Cloud Functions to sync book data to Algolia index
 - Alternative: Build custom search with trigram indexes

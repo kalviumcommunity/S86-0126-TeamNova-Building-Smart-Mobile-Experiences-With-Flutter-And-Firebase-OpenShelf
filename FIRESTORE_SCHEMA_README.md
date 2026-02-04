@@ -107,23 +107,23 @@ firestore/
 
 **Fields:**
 
-| Field Name | Data Type | Description | Example |
-|------------|-----------|-------------|---------|
-| `userId` | string | Unique user identifier (same as doc ID) | "abc123xyz" |
-| `email` | string | User email address | "asha@example.com" |
-| `displayName` | string | User's display name | "Asha Kumar" |
-| `bio` | string | User biography (optional) | "Book lover and avid reader" |
-| `avatarUrl` | string | Profile picture URL | "https://..." |
-| `location` | string | User's city/area | "Bangalore, India" |
-| `booksOwned` | number | Count of books owned | 15 |
-| `booksLent` | number | Count of books currently lent | 3 |
-| `booksBorrowed` | number | Count of books currently borrowed | 2 |
-| `rating` | number | User rating (1-5) | 4.5 |
-| `totalReviews` | number | Number of reviews written | 12 |
-| `joinedAt` | timestamp | Account creation date | Timestamp |
-| `lastActive` | timestamp | Last activity timestamp | Timestamp |
-| `createdAt` | timestamp | Document creation time | Timestamp |
-| `updatedAt` | timestamp | Last update time | Timestamp |
+| Field Name      | Data Type | Description                             | Example                      |
+| --------------- | --------- | --------------------------------------- | ---------------------------- |
+| `userId`        | string    | Unique user identifier (same as doc ID) | "abc123xyz"                  |
+| `email`         | string    | User email address                      | "asha@example.com"           |
+| `displayName`   | string    | User's display name                     | "Asha Kumar"                 |
+| `bio`           | string    | User biography (optional)               | "Book lover and avid reader" |
+| `avatarUrl`     | string    | Profile picture URL                     | "https://..."                |
+| `location`      | string    | User's city/area                        | "Bangalore, India"           |
+| `booksOwned`    | number    | Count of books owned                    | 15                           |
+| `booksLent`     | number    | Count of books currently lent           | 3                            |
+| `booksBorrowed` | number    | Count of books currently borrowed       | 2                            |
+| `rating`        | number    | User rating (1-5)                       | 4.5                          |
+| `totalReviews`  | number    | Number of reviews written               | 12                           |
+| `joinedAt`      | timestamp | Account creation date                   | Timestamp                    |
+| `lastActive`    | timestamp | Last activity timestamp                 | Timestamp                    |
+| `createdAt`     | timestamp | Document creation time                  | Timestamp                    |
+| `updatedAt`     | timestamp | Last update time                        | Timestamp                    |
 
 **Subcollection: userBooks**
 
@@ -131,16 +131,16 @@ firestore/
 
 **Fields:**
 
-| Field Name | Data Type | Description | Example |
-|------------|-----------|-------------|---------|
-| `bookId` | string | Reference to book document | "book_001" |
-| `status` | string | Book status: "available", "lent", "reading", "finished" | "available" |
-| `condition` | string | Book condition: "new", "good", "fair", "poor" | "good" |
-| `isAvailableForLending` | boolean | Whether book can be lent | true |
-| `currentBorrowerId` | string | Current borrower's userId (if lent) | "user_456" |
-| `addedAt` | timestamp | When book was added to library | Timestamp |
-| `readingStatus` | string | "to-read", "reading", "finished" | "finished" |
-| `personalNotes` | string | User's personal notes about the book | "Great thriller!" |
+| Field Name              | Data Type | Description                                             | Example           |
+| ----------------------- | --------- | ------------------------------------------------------- | ----------------- |
+| `bookId`                | string    | Reference to book document                              | "book_001"        |
+| `status`                | string    | Book status: "available", "lent", "reading", "finished" | "available"       |
+| `condition`             | string    | Book condition: "new", "good", "fair", "poor"           | "good"            |
+| `isAvailableForLending` | boolean   | Whether book can be lent                                | true              |
+| `currentBorrowerId`     | string    | Current borrower's userId (if lent)                     | "user_456"        |
+| `addedAt`               | timestamp | When book was added to library                          | Timestamp         |
+| `readingStatus`         | string    | "to-read", "reading", "finished"                        | "finished"        |
+| `personalNotes`         | string    | User's personal notes about the book                    | "Great thriller!" |
 
 ---
 
@@ -152,28 +152,28 @@ firestore/
 
 **Fields:**
 
-| Field Name | Data Type | Description | Example |
-|------------|-----------|-------------|---------|
-| `bookId` | string | Unique book identifier | "book_001" |
-| `title` | string | Book title | "The Alchemist" |
-| `author` | string | Author name | "Paulo Coelho" |
-| `isbn` | string | ISBN number | "978-0062315007" |
-| `description` | string | Book description/summary | "A mystical journey..." |
-| `coverImageUrl` | string | Book cover image URL | "https://..." |
-| `genre` | array | Array of genre strings | ["Fiction", "Philosophy"] |
-| `categories` | array | Category IDs | ["cat_001", "cat_002"] |
-| `publisher` | string | Publisher name | "HarperCollins" |
-| `publishedYear` | number | Publication year | 1988 |
-| `pageCount` | number | Number of pages | 208 |
-| `language` | string | Book language | "English" |
-| `averageRating` | number | Average user rating (1-5) | 4.7 |
-| `totalRatings` | number | Number of ratings | 1250 |
-| `totalReviews` | number | Number of reviews | 340 |
-| `copiesAvailable` | number | Total available copies in system | 45 |
-| `totalCopies` | number | Total copies in system | 78 |
-| `addedBy` | string | User who first added the book | "user_123" |
-| `createdAt` | timestamp | Document creation time | Timestamp |
-| `updatedAt` | timestamp | Last update time | Timestamp |
+| Field Name        | Data Type | Description                      | Example                   |
+| ----------------- | --------- | -------------------------------- | ------------------------- |
+| `bookId`          | string    | Unique book identifier           | "book_001"                |
+| `title`           | string    | Book title                       | "The Alchemist"           |
+| `author`          | string    | Author name                      | "Paulo Coelho"            |
+| `isbn`            | string    | ISBN number                      | "978-0062315007"          |
+| `description`     | string    | Book description/summary         | "A mystical journey..."   |
+| `coverImageUrl`   | string    | Book cover image URL             | "https://..."             |
+| `genre`           | array     | Array of genre strings           | ["Fiction", "Philosophy"] |
+| `categories`      | array     | Category IDs                     | ["cat_001", "cat_002"]    |
+| `publisher`       | string    | Publisher name                   | "HarperCollins"           |
+| `publishedYear`   | number    | Publication year                 | 1988                      |
+| `pageCount`       | number    | Number of pages                  | 208                       |
+| `language`        | string    | Book language                    | "English"                 |
+| `averageRating`   | number    | Average user rating (1-5)        | 4.7                       |
+| `totalRatings`    | number    | Number of ratings                | 1250                      |
+| `totalReviews`    | number    | Number of reviews                | 340                       |
+| `copiesAvailable` | number    | Total available copies in system | 45                        |
+| `totalCopies`     | number    | Total copies in system           | 78                        |
+| `addedBy`         | string    | User who first added the book    | "user_123"                |
+| `createdAt`       | timestamp | Document creation time           | Timestamp                 |
+| `updatedAt`       | timestamp | Last update time                 | Timestamp                 |
 
 **Subcollection: reviews**
 
@@ -181,18 +181,18 @@ firestore/
 
 **Fields:**
 
-| Field Name | Data Type | Description | Example |
-|------------|-----------|-------------|---------|
-| `reviewId` | string | Unique review identifier | "rev_001" |
-| `userId` | string | Reviewer's user ID | "user_123" |
-| `userName` | string | Reviewer's display name | "Asha Kumar" |
-| `userAvatarUrl` | string | Reviewer's avatar | "https://..." |
-| `rating` | number | Rating (1-5 stars) | 5 |
-| `reviewText` | string | Review content | "Amazing book! Highly recommend..." |
-| `helpfulCount` | number | Number of helpful votes | 23 |
-| `reportCount` | number | Number of reports (for moderation) | 0 |
-| `createdAt` | timestamp | Review creation time | Timestamp |
-| `updatedAt` | timestamp | Last update time | Timestamp |
+| Field Name      | Data Type | Description                        | Example                             |
+| --------------- | --------- | ---------------------------------- | ----------------------------------- |
+| `reviewId`      | string    | Unique review identifier           | "rev_001"                           |
+| `userId`        | string    | Reviewer's user ID                 | "user_123"                          |
+| `userName`      | string    | Reviewer's display name            | "Asha Kumar"                        |
+| `userAvatarUrl` | string    | Reviewer's avatar                  | "https://..."                       |
+| `rating`        | number    | Rating (1-5 stars)                 | 5                                   |
+| `reviewText`    | string    | Review content                     | "Amazing book! Highly recommend..." |
+| `helpfulCount`  | number    | Number of helpful votes            | 23                                  |
+| `reportCount`   | number    | Number of reports (for moderation) | 0                                   |
+| `createdAt`     | timestamp | Review creation time               | Timestamp                           |
+| `updatedAt`     | timestamp | Last update time                   | Timestamp                           |
 
 ---
 
@@ -204,25 +204,25 @@ firestore/
 
 **Fields:**
 
-| Field Name | Data Type | Description | Example |
-|------------|-----------|-------------|---------|
-| `requestId` | string | Unique request identifier | "req_001" |
-| `bookId` | string | Reference to book | "book_001" |
-| `bookTitle` | string | Book title (denormalized for quick access) | "The Alchemist" |
-| `borrowerId` | string | User requesting to borrow | "user_456" |
-| `borrowerName` | string | Borrower's name | "Rahul Sharma" |
-| `lenderId` | string | Book owner | "user_123" |
-| `lenderName` | string | Owner's name | "Asha Kumar" |
-| `status` | string | "pending", "approved", "rejected", "active", "returned", "overdue" | "active" |
-| `requestedAt` | timestamp | When request was made | Timestamp |
-| `approvedAt` | timestamp | When request was approved | Timestamp |
-| `borrowDate` | timestamp | Actual borrow date | Timestamp |
-| `dueDate` | timestamp | Expected return date | Timestamp |
-| `returnedAt` | timestamp | Actual return date | Timestamp |
-| `borrowDuration` | number | Duration in days | 14 |
-| `notes` | string | Special instructions | "Handle with care" |
-| `createdAt` | timestamp | Document creation time | Timestamp |
-| `updatedAt` | timestamp | Last update time | Timestamp |
+| Field Name       | Data Type | Description                                                        | Example            |
+| ---------------- | --------- | ------------------------------------------------------------------ | ------------------ |
+| `requestId`      | string    | Unique request identifier                                          | "req_001"          |
+| `bookId`         | string    | Reference to book                                                  | "book_001"         |
+| `bookTitle`      | string    | Book title (denormalized for quick access)                         | "The Alchemist"    |
+| `borrowerId`     | string    | User requesting to borrow                                          | "user_456"         |
+| `borrowerName`   | string    | Borrower's name                                                    | "Rahul Sharma"     |
+| `lenderId`       | string    | Book owner                                                         | "user_123"         |
+| `lenderName`     | string    | Owner's name                                                       | "Asha Kumar"       |
+| `status`         | string    | "pending", "approved", "rejected", "active", "returned", "overdue" | "active"           |
+| `requestedAt`    | timestamp | When request was made                                              | Timestamp          |
+| `approvedAt`     | timestamp | When request was approved                                          | Timestamp          |
+| `borrowDate`     | timestamp | Actual borrow date                                                 | Timestamp          |
+| `dueDate`        | timestamp | Expected return date                                               | Timestamp          |
+| `returnedAt`     | timestamp | Actual return date                                                 | Timestamp          |
+| `borrowDuration` | number    | Duration in days                                                   | 14                 |
+| `notes`          | string    | Special instructions                                               | "Handle with care" |
+| `createdAt`      | timestamp | Document creation time                                             | Timestamp          |
+| `updatedAt`      | timestamp | Last update time                                                   | Timestamp          |
 
 ---
 
@@ -234,18 +234,18 @@ firestore/
 
 **Fields:**
 
-| Field Name | Data Type | Description | Example |
-|------------|-----------|-------------|---------|
-| `categoryId` | string | Unique category identifier | "cat_001" |
-| `name` | string | Category name | "Science Fiction" |
-| `slug` | string | URL-friendly slug | "science-fiction" |
-| `description` | string | Category description | "Futuristic and imaginative..." |
-| `iconUrl` | string | Category icon/image | "https://..." |
-| `bookCount` | number | Number of books in category | 234 |
-| `color` | string | UI color code | "#4CAF50" |
-| `order` | number | Display order | 1 |
-| `isActive` | boolean | Whether category is active | true |
-| `createdAt` | timestamp | Document creation time | Timestamp |
+| Field Name    | Data Type | Description                 | Example                         |
+| ------------- | --------- | --------------------------- | ------------------------------- |
+| `categoryId`  | string    | Unique category identifier  | "cat_001"                       |
+| `name`        | string    | Category name               | "Science Fiction"               |
+| `slug`        | string    | URL-friendly slug           | "science-fiction"               |
+| `description` | string    | Category description        | "Futuristic and imaginative..." |
+| `iconUrl`     | string    | Category icon/image         | "https://..."                   |
+| `bookCount`   | number    | Number of books in category | 234                             |
+| `color`       | string    | UI color code               | "#4CAF50"                       |
+| `order`       | number    | Display order               | 1                               |
+| `isActive`    | boolean   | Whether category is active  | true                            |
+| `createdAt`   | timestamp | Document creation time      | Timestamp                       |
 
 ---
 
@@ -257,19 +257,19 @@ firestore/
 
 **Fields:**
 
-| Field Name | Data Type | Description | Example |
-|------------|-----------|-------------|---------|
-| `notificationId` | string | Unique notification identifier | "notif_001" |
-| `userId` | string | Recipient user ID | "user_123" |
-| `type` | string | "borrow_request", "return_reminder", "review", "system" | "borrow_request" |
-| `title` | string | Notification title | "New Borrow Request" |
-| `message` | string | Notification message | "Rahul wants to borrow..." |
-| `actionUrl` | string | Deep link or action | "/requests/req_001" |
-| `relatedId` | string | Related document ID | "req_001" |
-| `isRead` | boolean | Whether notification was read | false |
-| `priority` | string | "low", "medium", "high" | "medium" |
-| `createdAt` | timestamp | Notification creation time | Timestamp |
-| `expiresAt` | timestamp | Expiration time | Timestamp |
+| Field Name       | Data Type | Description                                             | Example                    |
+| ---------------- | --------- | ------------------------------------------------------- | -------------------------- |
+| `notificationId` | string    | Unique notification identifier                          | "notif_001"                |
+| `userId`         | string    | Recipient user ID                                       | "user_123"                 |
+| `type`           | string    | "borrow_request", "return_reminder", "review", "system" | "borrow_request"           |
+| `title`          | string    | Notification title                                      | "New Borrow Request"       |
+| `message`        | string    | Notification message                                    | "Rahul wants to borrow..." |
+| `actionUrl`      | string    | Deep link or action                                     | "/requests/req_001"        |
+| `relatedId`      | string    | Related document ID                                     | "req_001"                  |
+| `isRead`         | boolean   | Whether notification was read                           | false                      |
+| `priority`       | string    | "low", "medium", "high"                                 | "medium"                   |
+| `createdAt`      | timestamp | Notification creation time                              | Timestamp                  |
+| `expiresAt`      | timestamp | Expiration time                                         | Timestamp                  |
 
 ---
 
@@ -605,6 +605,7 @@ erDiagram
 **Decision:** Use subcollections instead of embedding data in parent documents.
 
 **Rationale:**
+
 - **Scalability:** A user can own hundreds of books, and a popular book can have thousands of reviews. Firestore documents have a 1MB size limit.
 - **Performance:** Loading all reviews or user books at once would be inefficient. Subcollections allow pagination and on-demand loading.
 - **Real-time Updates:** Subcollections can be queried independently with real-time listeners.
@@ -615,6 +616,7 @@ erDiagram
 **Decision:** Keep borrow requests as a top-level collection rather than a subcollection under users or books.
 
 **Rationale:**
+
 - **Two-Way Relationships:** Borrow requests involve both a borrower and a lender. A top-level collection makes it easier to query from both perspectives.
 - **Independent Queries:** We can query all pending requests, all overdue books, or filter by borrower/lender without complex queries.
 - **Notification Integration:** Easier to trigger notifications and track transaction history.
@@ -624,6 +626,7 @@ erDiagram
 **Decision:** Store `userName`, `bookTitle`, `borrowerName`, etc., in documents where they're needed.
 
 **Rationale:**
+
 - **Read Optimization:** NoSQL databases optimize for reads. Storing denormalized data reduces the need for multiple document lookups.
 - **Performance:** Displaying a list of borrow requests with book titles and user names requires no joins.
 - **Trade-off:** We accept potential data inconsistency (if a user changes their name) for better read performance. We can implement Cloud Functions to update denormalized data when needed.
@@ -633,6 +636,7 @@ erDiagram
 **Decision:** Use a dedicated categories collection instead of just storing genre arrays in books.
 
 **Rationale:**
+
 - **Centralized Management:** Categories can be managed, updated, and displayed consistently.
 - **Metadata:** Categories can have additional properties (icons, colors, descriptions).
 - **UI Consistency:** Category colors and icons provide a better user experience.
@@ -643,6 +647,7 @@ erDiagram
 **Decision:** Store notifications in a top-level collection filtered by `userId`.
 
 **Rationale:**
+
 - **Query Efficiency:** Firestore queries are fast when filtering on indexed fields like `userId`.
 - **Scalability:** Easier to implement pagination and mark as read/unread.
 - **Cleanup:** Easier to delete old notifications with Cloud Functions based on `expiresAt`.
@@ -653,6 +658,7 @@ erDiagram
 **Decision:** Use Firestore server timestamps (`FieldValue.serverTimestamp()`) for all time-based fields.
 
 **Rationale:**
+
 - **Consistency:** Server timestamps eliminate timezone issues and client clock errors.
 - **Sorting:** Reliable for sorting and ordering queries.
 - **Audit Trail:** `createdAt` and `updatedAt` provide a complete audit trail.
@@ -662,6 +668,7 @@ erDiagram
 **Decision:** Use lowerCamelCase for all field names.
 
 **Rationale:**
+
 - **Dart/Flutter Alignment:** Matches Dart naming conventions for seamless serialization.
 - **Consistency:** Industry standard for JSON and NoSQL databases.
 - **Readability:** Clear and easy to understand.
@@ -700,34 +707,42 @@ erDiagram
 ### Common Queries
 
 1. **Get all books in a category**
+
    ```
    books
      .where('categories', 'array-contains', 'cat_001')
      .orderBy('averageRating', 'desc')
    ```
+
    **Index Required:** Composite on `categories` and `averageRating`
 
 2. **Get user's available books**
+
    ```
    users/{userId}/userBooks
      .where('isAvailableForLending', '==', true)
    ```
+
    **Index:** Single field on `isAvailableForLending`
 
 3. **Get pending borrow requests for a lender**
+
    ```
    borrowRequests
      .where('lenderId', '==', 'abc123xyz')
      .where('status', '==', 'pending')
    ```
+
    **Index:** Composite on `lenderId` and `status`
 
 4. **Get overdue borrow requests**
+
    ```
    borrowRequests
      .where('status', '==', 'active')
      .where('dueDate', '<', today)
    ```
+
    **Index:** Composite on `status` and `dueDate`
 
 5. **Get unread notifications for a user**
