@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 /// ============================================================================
 /// HOME SCREEN - FIRST NAVIGATION DESTINATION
@@ -35,13 +36,24 @@ class _HomeScreenState extends State<HomeScreen> {
     final arguments = ModalRoute.of(context)?.settings.arguments as String?;
     _userName = arguments ?? 'Guest';
 
+    final currentUser = FirebaseAuth.instance.currentUser;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Screen'),
+        title: Text('Welcome, ${currentUser?.email ?? _userName}'),
         centerTitle: true,
         elevation: 8,
         backgroundColor: Colors.blue[600],
         foregroundColor: Colors.white,
+        actions: [
+          IconButton(
+            tooltip: 'Logout',
+            icon: const Icon(Icons.logout),
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

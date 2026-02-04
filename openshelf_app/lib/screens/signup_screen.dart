@@ -131,7 +131,7 @@ class _SignupScreenState extends State<SignupScreen>
             behavior: SnackBarBehavior.floating,
           ),
         );
-        Navigator.pushReplacementNamed(context, '/login');
+        Navigator.pushReplacementNamed(context, '/welcome');
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
