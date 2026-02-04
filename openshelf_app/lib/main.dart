@@ -26,6 +26,7 @@ import 'screens/responsive_dashboard.dart';
 import 'screens/asset_demo_screen.dart';
 import 'screens/animations_demo_screen.dart';
 import 'screens/page_transitions_demo.dart';
+import 'screens/firestore_read_demo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -71,6 +72,7 @@ class MyApp extends StatelessWidget {
         '/asset-demo': (context) => const AssetDemoScreen(),
         '/animations-demo': (context) => const AnimationsDemoScreen(),
         '/page-transitions': (context) => const PageTransitionsDemo(),
+        '/firestore-read-demo': (context) => const FirestoreReadDemo(),
       },
     );
   }
