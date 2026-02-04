@@ -78,12 +78,32 @@ StreamBuilder<User?>(
   stream: FirebaseAuth.instance.authStateChanges(),
   builder: (context, snapshot) {
     if (snapshot.connectionState == ConnectionState.waiting) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      return const SplashScreen(); // Optional: nicer loading UX
     }
     final user = snapshot.data;
     return user != null ? const WelcomeScreen() : const LoginScreen();
   },
 )
+
+### Persistent Sessions (Auto-login)
+
+Firebase Auth persists user sessions by storing secure tokens on the device. The `authStateChanges()` stream will emit the current user when the app starts if a valid session exists. Use the StreamBuilder pattern above to automatically route users:
+
+- While Firebase is checking: show a `SplashScreen` or loading indicator.
+- If `snapshot.hasData` → user is signed in → show the app's `Home`/`Welcome` screen.
+- If `snapshot.data == null` → no session → show `Login`/`Signup`.
+
+Testing persistent login:
+
+1. Run the app and sign in with an account.
+2. Close the app completely (force quit) and re-open it.
+3. The app should show the `WelcomeScreen`/`HomeScreen` without requiring login.
+4. Sign out using the app's logout button; the app should immediately show the `LoginScreen`.
+
+Notes:
+- No manual local storage is required; Firebase manages token refresh and persistence.
+- If tokens become invalid (password changed, account deleted), `authStateChanges()` will emit `null` and the app will redirect to login.
+
 ```
 
 Usage in UI screens:

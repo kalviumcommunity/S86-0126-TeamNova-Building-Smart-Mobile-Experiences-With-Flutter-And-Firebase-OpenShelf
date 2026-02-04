@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'login_screen.dart';
 import 'welcome_screen.dart';
+import 'splash_screen.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
@@ -13,9 +14,7 @@ class AuthGate extends StatelessWidget {
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
-          );
+          return const SplashScreen();
         }
 
         final user = snapshot.data;
