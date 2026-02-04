@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 import 'screens/welcome_screen.dart';
+import 'screens/auth_gate.dart';
 import 'screens/responsive_home.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginScreen(),
+      home: const AuthGate(),
       routes: {
         '/welcome': (context) => const WelcomeScreen(),
         '/responsive': (context) => const ResponsiveHome(),
