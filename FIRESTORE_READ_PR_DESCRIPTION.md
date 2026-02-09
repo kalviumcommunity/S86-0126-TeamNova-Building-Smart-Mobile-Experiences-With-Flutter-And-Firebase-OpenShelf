@@ -37,26 +37,31 @@ This PR implements comprehensive **Cloud Firestore read operations** for the Ope
 **Read Operations Implemented:**
 
 **a) All Books (Real-Time Stream)**
+
 ```dart
 Stream<QuerySnapshot> getBooksStream() {
   return books.orderBy('createdAt', descending: true).snapshots();
 }
 ```
+
 - Used with: `StreamBuilder`
 - Updates: Automatic when data changes
 - Use case: Main books list
 
 **b) Single Book (One-Time Read)**
+
 ```dart
 Future<DocumentSnapshot> getBookById(String bookId) async {
   return await books.doc(bookId).get();
 }
 ```
+
 - Used with: `FutureBuilder`
 - Updates: On demand
 - Use case: Book details page
 
 **c) Available Books Only (Filtered Query)**
+
 ```dart
 Stream<QuerySnapshot> getAvailableBooksStream() {
   return books
@@ -65,11 +70,13 @@ Stream<QuerySnapshot> getAvailableBooksStream() {
       .snapshots();
 }
 ```
+
 - Used with: `StreamBuilder`
 - Filter: `available == true`
 - Use case: Browse available books
 
 **d) Search by Title**
+
 ```dart
 Future<QuerySnapshot> searchBooksByTitle(String searchTerm) async {
   return await books
@@ -78,6 +85,7 @@ Future<QuerySnapshot> searchBooksByTitle(String searchTerm) async {
       .get();
 }
 ```
+
 - Used with: `FutureBuilder`
 - Feature: Partial text match
 - Use case: Search functionality
@@ -87,6 +95,7 @@ Future<QuerySnapshot> searchBooksByTitle(String searchTerm) async {
 ### 2. Document Structure
 
 **Books Collection Schema:**
+
 ```json
 {
   "title": "The Alchemist",
@@ -179,6 +188,7 @@ StreamBuilder<QuerySnapshot>(
 ```
 
 **Key Points:**
+
 - ✅ Handles loading, error, and empty states
 - ✅ Null-safe data access with `??` operator
 - ✅ Automatic UI updates when Firestore changes
@@ -224,6 +234,7 @@ FutureBuilder<DocumentSnapshot>(
 ```
 
 **Key Points:**
+
 - ✅ One-time read (not real-time)
 - ✅ Checks document existence
 - ✅ Safe type casting
@@ -291,6 +302,7 @@ StreamBuilder<QuerySnapshot>(
 ```
 
 **Key Points:**
+
 - ✅ Firestore-level filtering (efficient)
 - ✅ Real-time updates on filtered data
 - ✅ Visual filter indicator
@@ -325,6 +337,7 @@ String _formatTimestamp(Timestamp? timestamp) {
 ```
 
 **Key Points:**
+
 - ✅ Try-catch in service methods
 - ✅ Default values with `??` operator
 - ✅ Safe list conversion
@@ -335,9 +348,11 @@ String _formatTimestamp(Timestamp? timestamp) {
 ## 📸 Screenshots
 
 ### 1. Firestore Console - Books Collection
+
 ![Firestore Console showing books collection with sample data](screenshots/firestore_console.png)
 
 **What's shown:**
+
 - Books collection with 5+ sample documents
 - Fields: title, author, isbn, available, createdAt
 - Document IDs
@@ -345,9 +360,11 @@ String _formatTimestamp(Timestamp? timestamp) {
 ---
 
 ### 2. Flutter App - All Books Tab (Empty State)
+
 ![Empty state showing no books message](screenshots/empty_state.png)
 
 **What's shown:**
+
 - Empty books icon
 - "No books found" message
 - "Add Sample Book" button
@@ -356,9 +373,11 @@ String _formatTimestamp(Timestamp? timestamp) {
 ---
 
 ### 3. Flutter App - All Books Tab (Populated)
+
 ![Books list with stats dashboard](screenshots/all_books.png)
 
 **What's shown:**
+
 - Stats header (Total: 8, Available: 5, Unavailable: 3)
 - Books list with titles, authors, and availability icons
 - Color-coded indicators (green ✓, red ✗)
@@ -367,9 +386,11 @@ String _formatTimestamp(Timestamp? timestamp) {
 ---
 
 ### 4. Flutter App - Available Books Tab
+
 ![Filtered view showing only available books](screenshots/available_books.png)
 
 **What's shown:**
+
 - Green filter banner "Showing 5 available books"
 - Only books with `available: true`
 - All green checkmark icons
@@ -378,9 +399,11 @@ String _formatTimestamp(Timestamp? timestamp) {
 ---
 
 ### 5. Flutter App - Single Document Tab
+
 ![Detailed document view with all fields](screenshots/single_document.png)
 
 **What's shown:**
+
 - Document ID
 - All book fields displayed
 - Raw JSON data
@@ -389,9 +412,11 @@ String _formatTimestamp(Timestamp? timestamp) {
 ---
 
 ### 6. Real-Time Update Demo
+
 ![Before and after Firestore modification](screenshots/realtime_update.png)
 
 **What's shown:**
+
 - Before: Book with green ✓ (available: true)
 - Firebase Console: Changing available to false
 - After: Same book with red ✗ (available: false)
@@ -406,25 +431,31 @@ String _formatTimestamp(Timestamp? timestamp) {
 I implemented **three different read methods** to demonstrate comprehensive Firestore capabilities:
 
 #### 1. Real-Time Streams (Primary)
+
 ```dart
 Stream<QuerySnapshot> getBooksStream()
 ```
+
 - **Used with:** `StreamBuilder`
 - **Purpose:** Live updates for books list
 - **Benefit:** Automatic UI refresh when data changes
 
 #### 2. One-Time Reads (Secondary)
+
 ```dart
 Future<DocumentSnapshot> getBookById(String bookId)
 ```
+
 - **Used with:** `FutureBuilder`
 - **Purpose:** Single document details
 - **Benefit:** Efficient when real-time isn't needed
 
 #### 3. Filtered Queries (Hybrid)
+
 ```dart
 Stream<QuerySnapshot> getAvailableBooksStream()
 ```
+
 - **Used with:** `StreamBuilder`
 - **Purpose:** Real-time filtered results
 - **Benefit:** Live updates + efficient queries
@@ -436,7 +467,9 @@ Stream<QuerySnapshot> getAvailableBooksStream()
 Real-time streams provide **significant advantages** for modern mobile applications:
 
 #### 1. Automatic UI Updates
+
 **Traditional Approach:**
+
 ```dart
 // User must manually refresh
 ElevatedButton(
@@ -449,6 +482,7 @@ ElevatedButton(
 ```
 
 **Streams Approach:**
+
 ```dart
 // Automatic updates, no user action needed
 StreamBuilder<QuerySnapshot>(
@@ -469,12 +503,14 @@ StreamBuilder<QuerySnapshot>(
 **Scenario:** Book sharing platform with multiple users
 
 **Without Streams:**
+
 - User A adds a book
 - User B doesn't see it until they manually refresh
 - User B might try to add the same book
 - Confusion and data conflicts
 
 **With Streams:**
+
 - User A adds a book
 - User B sees it appear **instantly** (< 1 second)
 - No confusion, no duplicate entries
@@ -502,6 +538,7 @@ await updateBookAvailability(bookId, false);
 #### 4. Reduced Code Complexity
 
 **Without Streams (Manual Polling):**
+
 ```dart
 // Poll every 5 seconds
 Timer.periodic(Duration(seconds: 5), (timer) async {
@@ -517,6 +554,7 @@ Timer.periodic(Duration(seconds: 5), (timer) async {
 ```
 
 **With Streams:**
+
 ```dart
 // Simple, efficient
 StreamBuilder<QuerySnapshot>(
@@ -536,12 +574,14 @@ StreamBuilder<QuerySnapshot>(
 #### 5. Offline Support
 
 Firestore streams work **offline**:
+
 - Data cached locally
 - UI updates immediately with cached data
 - Changes synced when connection restored
 - Seamless user experience
 
 **Example:**
+
 ```dart
 // Works offline!
 StreamBuilder(
@@ -560,6 +600,7 @@ StreamBuilder(
 #### Challenge 1: Null Safety
 
 **Problem:**
+
 ```dart
 // This crashed the app
 Text(data['title']) // ❌ RuntimeError: null is not a String
@@ -568,6 +609,7 @@ Text(data['title']) // ❌ RuntimeError: null is not a String
 **Root Cause:** Firestore documents might not have all fields.
 
 **Solution:**
+
 ```dart
 // Provide fallback values
 Text(data['title'] ?? 'Untitled') // ✅ Safe with default
@@ -582,6 +624,7 @@ Text(data['title'] ?? 'Untitled') // ✅ Safe with default
 **Problem:** Blank screen when no books exist - users thought app was broken.
 
 **Solution:** Designed comprehensive empty state
+
 ```dart
 if (snapshot.data!.docs.isEmpty) {
   return Center(
@@ -608,6 +651,7 @@ if (snapshot.data!.docs.isEmpty) {
 **Problem:** UI showed nothing during initial Firestore fetch.
 
 **Solution:** Show loading indicator
+
 ```dart
 if (snapshot.connectionState == ConnectionState.waiting) {
   return const Center(
@@ -630,6 +674,7 @@ if (snapshot.connectionState == ConnectionState.waiting) {
 **Problem:** Data changes in Firebase Console didn't reflect in app.
 
 **Root Cause:** Used `.get()` instead of `.snapshots()`
+
 ```dart
 // Wrong - one-time read
 Future<QuerySnapshot> getBooks() async {
@@ -638,6 +683,7 @@ Future<QuerySnapshot> getBooks() async {
 ```
 
 **Solution:** Use `.snapshots()` for streams
+
 ```dart
 // Correct - real-time stream
 Stream<QuerySnapshot> getBooksStream() {
@@ -654,6 +700,7 @@ Stream<QuerySnapshot> getBooksStream() {
 **Problem:** Network errors crashed the app.
 
 **Solution:** Comprehensive error handling
+
 ```dart
 // Service layer
 try {
@@ -720,6 +767,7 @@ if (snapshot.hasError) {
 ## ✅ Task Requirements Checklist
 
 ### Core Requirements
+
 - [x] Added `cloud_firestore` dependency (already present)
 - [x] Implemented collection read operations
 - [x] Implemented single document reads
@@ -730,6 +778,7 @@ if (snapshot.hasError) {
 - [x] Null safety and error handling implemented
 
 ### Advanced Features
+
 - [x] Filtered queries (available books only)
 - [x] Search functionality (by title)
 - [x] Multiple read patterns demonstrated
@@ -741,6 +790,7 @@ if (snapshot.hasError) {
 - [x] Empty states with helpful messages
 
 ### Documentation
+
 - [x] Comprehensive README with code snippets
 - [x] Screenshots guide with 6 required images
 - [x] Reflection answers (which method, why streams, challenges)
@@ -754,25 +804,30 @@ if (snapshot.hasError) {
 ### What to Show (1-2 minutes)
 
 **Opening (10 seconds)**
+
 > "Hi, I'm [Name] from Team Nova. I've implemented Firestore read operations with real-time updates in OpenShelf."
 
 **Firebase Console (15 seconds)**
+
 - Show Firestore Database → books collection
 - Display sample documents
 - Highlight fields
 
 **Flutter App - Tabs (25 seconds)**
+
 - Navigate to Firestore Read Demo
 - Show All Books tab with stats
 - Switch to Available Books (filtered)
 - Switch to Single Doc (detailed view)
 
 **Add Book (10 seconds)**
+
 - Tap "Add Sample Book"
 - Show book appearing instantly
 - Highlight "No refresh needed!"
 
 **Real-Time Demo (30 seconds) - CRITICAL**
+
 - Keep Flutter app visible on screen
 - Open Firebase Console in browser
 - Modify a book's `available` field
@@ -780,6 +835,7 @@ if (snapshot.hasError) {
 - Emphasize "See? The icon changed without clicking anything!"
 
 **Closing (10 seconds)**
+
 > "This demonstrates StreamBuilder for live updates. The UI automatically reflects Firestore changes in real-time."
 
 ---
@@ -787,6 +843,7 @@ if (snapshot.hasError) {
 ## 🚀 Testing Instructions
 
 ### Step 1: Setup
+
 ```bash
 cd openshelf_app
 flutter pub get
@@ -794,15 +851,18 @@ flutter run
 ```
 
 ### Step 2: Navigate
+
 1. Open app
 2. Go to Demo Hub
 3. Tap "🔥 Firestore Read Operations"
 
 ### Step 3: Add Data
+
 - Tap floating "Add Sample Book" button
 - Add 5-10 books
 
 ### Step 4: Test Real-Time
+
 1. Keep app running
 2. Open Firebase Console → Firestore → books
 3. Click a book document
@@ -810,6 +870,7 @@ flutter run
 5. **Watch app icon change automatically** ✅ → 🚫
 
 ### Step 5: Test Filtering
+
 - Switch to "Available" tab
 - Only books with `available: true` shown
 - Toggle availability and watch books appear/disappear
@@ -832,7 +893,7 @@ flutter run
 ✅ **Production-Ready:** Null safety, error handling, loading states  
 ✅ **Great UX:** Empty states, stats dashboard, interactive features  
 ✅ **Clean Architecture:** Service layer separation, reusable code  
-✅ **Comprehensive Demo:** Three tabs showcasing different scenarios  
+✅ **Comprehensive Demo:** Three tabs showcasing different scenarios
 
 ---
 
@@ -848,6 +909,7 @@ flutter run
 ## 📞 Reviewer Notes
 
 **To test real-time updates:**
+
 1. Run the app on a device/emulator
 2. Keep it visible on screen
 3. Open Firebase Console in browser
