@@ -3,11 +3,13 @@
 ## 🔥 Essential Query Patterns
 
 ### 1. Equality Filter
+
 ```dart
 .where('available', isEqualTo: true)
 ```
 
 ### 2. Comparison Filters
+
 ```dart
 .where('price', isGreaterThan: 10)
 .where('price', isLessThan: 100)
@@ -16,11 +18,13 @@
 ```
 
 ### 3. Array Contains
+
 ```dart
 .where('tags', arrayContains: 'featured')
 ```
 
 ### 4. Sorting
+
 ```dart
 .orderBy('createdAt', descending: true)  // Newest first
 .orderBy('title')                        // A-Z
@@ -28,11 +32,13 @@
 ```
 
 ### 5. Limit Results
+
 ```dart
 .limit(20)  // First 20 results
 ```
 
 ### 6. Combined Query
+
 ```dart
 books
   .where('available', isEqualTo: true)
@@ -58,17 +64,17 @@ StreamBuilder<QuerySnapshot>(
     if (snapshot.connectionState == ConnectionState.waiting) {
       return CircularProgressIndicator();
     }
-    
+
     // 2. Error
     if (snapshot.hasError) {
       return Text('Error: ${snapshot.error}');
     }
-    
+
     // 3. Empty
     if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
       return Text('No data');
     }
-    
+
     // 4. Display data
     final items = snapshot.data!.docs;
     return ListView.builder(
@@ -90,6 +96,7 @@ StreamBuilder<QuerySnapshot>(
 ## ⚠️ Common Mistakes
 
 ### ❌ DON'T
+
 ```dart
 // Multiple inequalities
 .where('price', isGreaterThan: 10)
@@ -101,6 +108,7 @@ StreamBuilder<QuerySnapshot>(
 ```
 
 ### ✅ DO
+
 ```dart
 // One inequality only
 .where('price', isGreaterThan: 10)
@@ -115,29 +123,31 @@ StreamBuilder<QuerySnapshot>(
 
 ## 🎯 Query Selection Guide
 
-| Need | Use |
-|------|-----|
-| Exact match | `isEqualTo` |
-| Minimum value | `isGreaterThanOrEqualTo` |
-| Maximum value | `isLessThanOrEqualTo` |
-| Range | Two `where` on same field |
-| Check array | `arrayContains` |
-| Sort results | `orderBy` |
-| Limit results | `limit` |
-| Real-time | `.snapshots()` |
-| One-time | `.get()` |
+| Need          | Use                       |
+| ------------- | ------------------------- |
+| Exact match   | `isEqualTo`               |
+| Minimum value | `isGreaterThanOrEqualTo`  |
+| Maximum value | `isLessThanOrEqualTo`     |
+| Range         | Two `where` on same field |
+| Check array   | `arrayContains`           |
+| Sort results  | `orderBy`                 |
+| Limit results | `limit`                   |
+| Real-time     | `.snapshots()`            |
+| One-time      | `.get()`                  |
 
 ---
 
 ## 📊 Performance Rules
 
 ✅ **GOOD** - Server-side filtering
+
 ```dart
 books.where('available', isEqualTo: true).get()
 // Fetches: 50 documents
 ```
 
 ❌ **BAD** - Client-side filtering
+
 ```dart
 books.get()  // Fetches: 500 documents
 // Then filter in Dart code
@@ -150,12 +160,14 @@ books.get()  // Fetches: 500 documents
 ## 🔍 Index Quick Fix
 
 **See this error?**
+
 ```
 The query requires an index. You can create it here:
 https://console.firebase.google.com/...
 ```
 
 **Fix:**
+
 1. Click the link
 2. Click "Create Index"
 3. Wait 2-3 minutes
@@ -166,6 +178,7 @@ https://console.firebase.google.com/...
 ## 🚀 Quick Start
 
 1. Add to `firestore_service.dart`:
+
 ```dart
 Stream<QuerySnapshot> getItems() {
   return FirebaseFirestore.instance
@@ -178,6 +191,7 @@ Stream<QuerySnapshot> getItems() {
 ```
 
 2. Use in UI:
+
 ```dart
 StreamBuilder<QuerySnapshot>(
   stream: _service.getItems(),

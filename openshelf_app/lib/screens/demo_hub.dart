@@ -228,6 +228,20 @@ class _DemoHubState extends State<DemoHub> {
                 onTap: () =>
                     Navigator.pushNamed(context, '/firestore-queries-demo'),
               ),
+              const SizedBox(height: 16),
+
+              // Demo Card 10: Firebase Storage Upload
+              _buildDemoCard(
+                index: 9,
+                title: '☁️ Firebase Storage Upload',
+                subtitle: 'Upload, Store & Retrieve Media Files',
+                description:
+                    'Learn to handle image and file uploads with Firebase Storage. Pick images from gallery or camera, upload securely, get download URLs, and display uploaded media in your app.',
+                icon: Icons.cloud_upload,
+                color: Colors.orange,
+                onTap: () =>
+                    Navigator.pushNamed(context, '/firebase-storage-demo'),
+              ),
               const SizedBox(height: 32),
 
               // ================================================================
