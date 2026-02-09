@@ -12,9 +12,11 @@
 ## 📦 What's Been Delivered
 
 ### 1. Enhanced FirestoreService ✅
+
 **File:** `openshelf_app/lib/services/firestore_service.dart`
 
 **Features Implemented:**
+
 - ✅ Real-time collection streams (`getBooksStream()`)
 - ✅ Single document reads (`getBookById()`)
 - ✅ Filtered queries (`getAvailableBooksStream()`)
@@ -29,25 +31,26 @@
 ---
 
 ### 2. Firestore Read Demo Screen ✅
+
 **File:** `openshelf_app/lib/screens/firestore_read_demo.dart` (600+ lines)
 
 **Features:**
+
 - ✅ **Tab 1: All Books** - StreamBuilder with full collection
   - Real-time updates
   - Stats dashboard (Total, Available, Unavailable)
   - Interactive book cards
-  
 - ✅ **Tab 2: Available Books** - Filtered query demonstration
   - Shows only `available: true` books
   - Filter indicator banner
   - Real-time filtered updates
-  
 - ✅ **Tab 3: Single Document** - FutureBuilder demonstration
   - Detailed document view
   - All fields displayed
   - Raw JSON viewer
 
 **UI Features:**
+
 - ✅ Loading states with spinners
 - ✅ Error states with retry buttons
 - ✅ Empty states with helpful messages
@@ -62,6 +65,7 @@
 ### 3. Comprehensive Documentation ✅
 
 **File 1:** `FIRESTORE_READ_README.md` (650+ lines)
+
 - ✅ Project overview
 - ✅ Code snippets (StreamBuilder, FutureBuilder, filtered queries)
 - ✅ Screenshots guide (6 required images)
@@ -71,6 +75,7 @@
 - ✅ Video demo checklist
 
 **File 2:** `FIRESTORE_READ_PR_DESCRIPTION.md` (500+ lines)
+
 - ✅ PR title and description
 - ✅ Collections/documents read
 - ✅ All code examples
@@ -84,29 +89,30 @@
 
 ## 📊 Implementation Statistics
 
-| Category | Count |
-|----------|-------|
-| **Read Operations** | |
-| Stream methods | 4 |
-| Future methods | 4 |
-| Utility methods | 4 |
-| **UI Implementation** | |
-| Demo screens | 1 (3 tabs) |
-| State handlers | 12+ |
-| Interactive features | 3 |
-| **Code** | |
-| New Dart files | 1 |
-| Modified Dart files | 3 |
-| Total lines added | 2,525 |
-| **Documentation** | |
-| README files | 2 |
-| Total doc lines | 1,150+ |
+| Category              | Count      |
+| --------------------- | ---------- |
+| **Read Operations**   |            |
+| Stream methods        | 4          |
+| Future methods        | 4          |
+| Utility methods       | 4          |
+| **UI Implementation** |            |
+| Demo screens          | 1 (3 tabs) |
+| State handlers        | 12+        |
+| Interactive features  | 3          |
+| **Code**              |            |
+| New Dart files        | 1          |
+| Modified Dart files   | 3          |
+| Total lines added     | 2,525      |
+| **Documentation**     |            |
+| README files          | 2          |
+| Total doc lines       | 1,150+     |
 
 ---
 
 ## 🔥 Key Features Implemented
 
 ### Real-Time Data Synchronization
+
 ```dart
 // Automatic UI updates when Firestore changes
 StreamBuilder<QuerySnapshot>(
@@ -118,6 +124,7 @@ StreamBuilder<QuerySnapshot>(
 ```
 
 **Benefits:**
+
 - No manual refresh needed
 - Multi-user collaboration support
 - Live availability status
@@ -128,31 +135,37 @@ StreamBuilder<QuerySnapshot>(
 ### Three Read Patterns Demonstrated
 
 **1. Real-Time Streams (Primary)**
+
 ```dart
 Stream<QuerySnapshot> getBooksStream() {
   return books.orderBy('createdAt', descending: true).snapshots();
 }
 ```
+
 - Use case: Main books list
 - Updates: Automatic
 - Builder: StreamBuilder
 
 **2. One-Time Reads (Secondary)**
+
 ```dart
 Future<DocumentSnapshot> getBookById(String bookId) async {
   return await books.doc(bookId).get();
 }
 ```
+
 - Use case: Document details
 - Updates: On demand
 - Builder: FutureBuilder
 
 **3. Filtered Queries (Hybrid)**
+
 ```dart
 Stream<QuerySnapshot> getAvailableBooksStream() {
   return books.where('available', isEqualTo: true).snapshots();
 }
 ```
+
 - Use case: Available books only
 - Updates: Real-time filtered
 - Builder: StreamBuilder
@@ -162,6 +175,7 @@ Stream<QuerySnapshot> getAvailableBooksStream() {
 ### Comprehensive State Handling
 
 **Loading State:**
+
 ```dart
 if (snapshot.connectionState == ConnectionState.waiting) {
   return CircularProgressIndicator();
@@ -169,6 +183,7 @@ if (snapshot.connectionState == ConnectionState.waiting) {
 ```
 
 **Error State:**
+
 ```dart
 if (snapshot.hasError) {
   return Column([
@@ -180,6 +195,7 @@ if (snapshot.hasError) {
 ```
 
 **Empty State:**
+
 ```dart
 if (snapshot.data!.docs.isEmpty) {
   return Column([
@@ -191,6 +207,7 @@ if (snapshot.data!.docs.isEmpty) {
 ```
 
 **Data State:**
+
 ```dart
 final books = snapshot.data!.docs;
 return ListView.builder(...);
@@ -201,6 +218,7 @@ return ListView.builder(...);
 ## ✅ Task Requirements Checklist
 
 ### Core Requirements
+
 - [x] Added cloud_firestore dependency (already present)
 - [x] Implemented Firestore read operations
 - [x] Read data from collection
@@ -211,6 +229,7 @@ return ListView.builder(...);
 - [x] UI updates automatically when Firestore changes
 
 ### Advanced Features
+
 - [x] Filtered queries (available books)
 - [x] Search functionality (by title)
 - [x] Multiple read patterns
@@ -223,6 +242,7 @@ return ListView.builder(...);
 - [x] Empty states
 
 ### Documentation
+
 - [x] README with code snippets
 - [x] Screenshots guide (6 images)
 - [x] Reflection (which method, why streams, challenges)
@@ -266,6 +286,7 @@ Create these 6 screenshots for submission:
 ### Critical Part: Real-Time Update Demo
 
 **Setup:**
+
 1. Keep Flutter app visible on screen (left side)
 2. Open Firebase Console in browser (right side)
 3. Click on a book document
@@ -288,7 +309,7 @@ This demonstrates the power of StreamBuilder!
    - Added StreamBuilder and FutureBuilder examples
    - Implemented three-tab interface
    - Added documentation (1,150+ lines)
-   
+
    Files changed: 6
    Lines added: 2,525
    Lines deleted: 16
@@ -301,23 +322,27 @@ This demonstrates the power of StreamBuilder!
 ## 📝 Next Steps for Submission
 
 ### Step 1: Push to GitHub
+
 ```bash
 git push origin Sprint-2-Firestore-Database-Schema-Design
 ```
 
 ### Step 2: Create Screenshots
+
 1. Run the app: `flutter run`
 2. Navigate to Firestore Read Demo
 3. Capture all 6 required screenshots
 4. Store in `screenshots/` folder
 
 ### Step 3: Record Video Demo
+
 1. Follow the video demo checklist above
 2. Record 1-2 minute walkthrough
 3. **Must show real-time update!**
 4. Upload to Loom/Google Drive/YouTube (unlisted)
 
 ### Step 4: Create Pull Request
+
 1. Go to GitHub repository
 2. Create new PR from your branch
 3. Title: `[Sprint-2] Firestore Read Operations – TeamNova`
@@ -325,6 +350,7 @@ git push origin Sprint-2-Firestore-Database-Schema-Design
 5. Add video link
 
 ### Step 5: Final Verification
+
 - [ ] PR created and visible
 - [ ] Video link is publicly accessible
 - [ ] All files included
@@ -338,32 +364,38 @@ git push origin Sprint-2-Firestore-Database-Schema-Design
 ### Technical Skills Mastered
 
 ✅ **StreamBuilder Usage**
+
 - Real-time data streams
 - Automatic UI updates
 - ConnectionState handling
 
 ✅ **FutureBuilder Usage**
+
 - One-time async operations
 - Single document reads
 - Future vs Stream differences
 
 ✅ **Firestore Queries**
+
 - Collection snapshots
 - Document reads
 - Filtered queries with `.where()`
 - Ordered results with `.orderBy()`
 
 ✅ **Null Safety**
+
 - `??` operator for defaults
 - Null-aware type casting
 - Safe list conversions
 
 ✅ **Error Handling**
+
 - Try-catch in service layer
 - Error state UI
 - Retry mechanisms
 
 ✅ **State Management**
+
 - Loading states
 - Error states
 - Empty states
@@ -373,15 +405,15 @@ git push origin Sprint-2-Firestore-Database-Schema-Design
 
 ### Why Streams Are Superior
 
-| Feature | Without Streams | With Streams |
-|---------|----------------|--------------|
-| **Updates** | Manual refresh | Automatic |
-| **Code Complexity** | High (polling logic) | Low (5 lines) |
-| **User Action** | Pull to refresh | None needed |
-| **Multi-User** | Delayed updates | Real-time sync |
-| **Offline** | Doesn't work | Works with cache |
-| **Battery** | Polling drains | Efficient |
-| **Network** | Wasteful | Optimized |
+| Feature             | Without Streams      | With Streams     |
+| ------------------- | -------------------- | ---------------- |
+| **Updates**         | Manual refresh       | Automatic        |
+| **Code Complexity** | High (polling logic) | Low (5 lines)    |
+| **User Action**     | Pull to refresh      | None needed      |
+| **Multi-User**      | Delayed updates      | Real-time sync   |
+| **Offline**         | Doesn't work         | Works with cache |
+| **Battery**         | Polling drains       | Efficient        |
+| **Network**         | Wasteful             | Optimized        |
 
 ---
 
@@ -399,6 +431,7 @@ git push origin Sprint-2-Firestore-Database-Schema-Design
 ## 📚 Code Examples Summary
 
 ### StreamBuilder Template
+
 ```dart
 StreamBuilder<QuerySnapshot>(
   stream: firestore.collection('books').snapshots(),
@@ -412,7 +445,7 @@ StreamBuilder<QuerySnapshot>(
     if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
       return Text('No data');
     }
-    
+
     final items = snapshot.data!.docs;
     return ListView.builder(...);
   },
@@ -420,6 +453,7 @@ StreamBuilder<QuerySnapshot>(
 ```
 
 ### FutureBuilder Template
+
 ```dart
 FutureBuilder<DocumentSnapshot>(
   future: firestore.collection('books').doc(id).get(),
@@ -433,7 +467,7 @@ FutureBuilder<DocumentSnapshot>(
     if (!snapshot.hasData || !snapshot.data!.exists) {
       return Text('Not found');
     }
-    
+
     final data = snapshot.data!.data() as Map<String, dynamic>;
     return Column([...]);
   },
@@ -441,6 +475,7 @@ FutureBuilder<DocumentSnapshot>(
 ```
 
 ### Filtered Query Template
+
 ```dart
 Stream<QuerySnapshot> getAvailableItems() {
   return firestore
@@ -493,11 +528,13 @@ Stream<QuerySnapshot> getAvailableItems() {
 **Critical Test:** Verify automatic updates
 
 ### Setup
+
 1. Run app on emulator/device
 2. Navigate to Firestore Read Demo
 3. Keep app visible on screen
 
 ### Test Procedure
+
 1. Open Firebase Console → Firestore → books
 2. Click any book document
 3. Change `available` field:
@@ -506,7 +543,9 @@ Stream<QuerySnapshot> getAvailableItems() {
 4. Click "Update"
 
 ### Expected Result
+
 **Within 1-2 seconds:**
+
 - App icon should change automatically
 - ✓ (green) ↔ ✗ (red)
 - **No user action required**
@@ -530,18 +569,20 @@ Stream<QuerySnapshot> getAvailableItems() {
 You've successfully implemented comprehensive Firestore read operations with real-time updates!
 
 ### Achievements Unlocked:
+
 ✅ Real-time data synchronization  
 ✅ StreamBuilder mastery  
 ✅ FutureBuilder usage  
 ✅ Filtered queries  
 ✅ Production-ready error handling  
-✅ Professional UI/UX  
+✅ Professional UI/UX
 
 ---
 
 **Task Status:** ✅ **COMPLETE AND READY FOR SUBMISSION**
 
 **Next Actions:**
+
 1. Push to GitHub
 2. Create screenshots
 3. Record video demo

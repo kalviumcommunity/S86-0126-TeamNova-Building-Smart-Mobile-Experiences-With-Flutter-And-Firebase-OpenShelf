@@ -186,6 +186,20 @@ class _DemoHubState extends State<DemoHub> {
                 onTap: () =>
                     Navigator.pushNamed(context, '/firestore-read-demo'),
               ),
+              const SizedBox(height: 16),
+
+              // Demo Card 7: Firestore Write Operations
+              _buildDemoCard(
+                index: 6,
+                title: '✍️ Firestore Write Operations',
+                subtitle: 'Add, Update & Delete Firestore Data',
+                description:
+                    'Master writing data to Firestore with add(), update(), and delete() operations. Includes form validation and error handling.',
+                icon: Icons.edit,
+                color: Colors.deepOrange,
+                onTap: () =>
+                    Navigator.pushNamed(context, '/firestore-write-demo'),
+              ),
               const SizedBox(height: 32),
 
               // ================================================================
