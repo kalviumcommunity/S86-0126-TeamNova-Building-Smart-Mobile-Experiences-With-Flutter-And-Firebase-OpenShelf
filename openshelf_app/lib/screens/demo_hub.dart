@@ -200,6 +200,20 @@ class _DemoHubState extends State<DemoHub> {
                 onTap: () =>
                     Navigator.pushNamed(context, '/firestore-write-demo'),
               ),
+              const SizedBox(height: 16),
+
+              // Demo Card 8: Real-Time Sync
+              _buildDemoCard(
+                index: 7,
+                title: '📡 Real-Time Firestore Sync',
+                subtitle: 'Live Data Updates with Snapshot Listeners',
+                description:
+                    'Experience instant UI updates using Firestore snapshot listeners. See real-time task management, notifications, and live dashboards in action.',
+                icon: Icons.sync,
+                color: Colors.teal,
+                onTap: () =>
+                    Navigator.pushNamed(context, '/realtime-sync-demo'),
+              ),
               const SizedBox(height: 32),
 
               // ================================================================
