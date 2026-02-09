@@ -214,6 +214,20 @@ class _DemoHubState extends State<DemoHub> {
                 onTap: () =>
                     Navigator.pushNamed(context, '/realtime-sync-demo'),
               ),
+              const SizedBox(height: 16),
+
+              // Demo Card 9: Firestore Queries & Filtering
+              _buildDemoCard(
+                index: 8,
+                title: '🔍 Firestore Queries & Filtering',
+                subtitle: 'WHERE, ORDER BY, LIMIT - Advanced Queries',
+                description:
+                    'Master Firestore queries with filters, sorting, and pagination. See how to fetch only the data you need with WHERE conditions, ORDER BY sorting, and LIMIT for performance.',
+                icon: Icons.filter_list,
+                color: Colors.deepPurple,
+                onTap: () =>
+                    Navigator.pushNamed(context, '/firestore-queries-demo'),
+              ),
               const SizedBox(height: 32),
 
               // ================================================================

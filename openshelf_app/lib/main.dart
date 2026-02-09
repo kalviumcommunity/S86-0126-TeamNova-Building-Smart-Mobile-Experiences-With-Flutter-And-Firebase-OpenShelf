@@ -29,6 +29,7 @@ import 'screens/page_transitions_demo.dart';
 import 'screens/firestore_read_demo.dart';
 import 'screens/firestore_write_demo.dart';
 import 'screens/realtime_sync_demo.dart';
+import 'screens/firestore_queries_demo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -77,6 +78,7 @@ class MyApp extends StatelessWidget {
         '/firestore-read-demo': (context) => const FirestoreReadDemo(),
         '/firestore-write-demo': (context) => const FirestoreWriteDemo(),
         '/realtime-sync-demo': (context) => const RealtimeSyncDemo(),
+        '/firestore-queries-demo': (context) => const FirestoreQueriesDemo(),
       },
     );
   }

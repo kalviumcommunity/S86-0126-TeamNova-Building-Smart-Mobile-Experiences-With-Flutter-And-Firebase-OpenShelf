@@ -120,6 +120,189 @@ class FirestoreService {
   }
 
   // ============================================================================
+  // ADVANCED QUERY OPERATIONS - FILTERS, SORTING, PAGINATION
+  // ============================================================================
+
+  // ------------------ EQUALITY FILTERS ------------------
+
+  /// Get books where field equals a specific value
+  /// Example: Get books in stock
+  Stream<QuerySnapshot> getBooksWhereEqual(String field, dynamic value) {
+    return books.where(field, isEqualTo: value).snapshots();
+  }
+
+  /// Get books in stock (available)
+  Stream<QuerySnapshot> getBooksInStock() {
+    return books.where('available', isEqualTo: true).snapshots();
+  }
+
+  /// Get books by specific genre (array contains)
+  Stream<QuerySnapshot> getBooksByGenre(String genre) {
+    return books.where('genre', arrayContains: genre).snapshots();
+  }
+
+  // ------------------ COMPARISON FILTERS ------------------
+
+  /// Get books with price greater than specified amount
+  Stream<QuerySnapshot> getBooksAbovePrice(double price) {
+    return books.where('price', isGreaterThan: price).snapshots();
+  }
+
+  /// Get books with price less than specified amount
+  Stream<QuerySnapshot> getBooksBelowPrice(double price) {
+    return books.where('price', isLessThan: price).snapshots();
+  }
+
+  /// Get books with rating greater than or equal to threshold
+  Stream<QuerySnapshot> getBooksByMinRating(double minRating) {
+    return books
+        .where('averageRating', isGreaterThanOrEqualTo: minRating)
+        .snapshots();
+  }
+
+  /// Get highly rated books (rating >= 4.0)
+  Stream<QuerySnapshot> getHighlyRatedBooks() {
+    return books
+        .where('averageRating', isGreaterThanOrEqualTo: 4.0)
+        .orderBy('averageRating', descending: true)
+        .snapshots();
+  }
+
+  // ------------------ SORTING (ORDER BY) ------------------
+
+  /// Get all books sorted by creation date (newest first)
+  Stream<QuerySnapshot> getBooksSortedByNewest() {
+    return books.orderBy('createdAt', descending: true).snapshots();
+  }
+
+  /// Get all books sorted by title (alphabetically)
+  Stream<QuerySnapshot> getBooksSortedByTitle() {
+    return books.orderBy('title').snapshots();
+  }
+
+  /// Get all books sorted by rating (highest first)
+  Stream<QuerySnapshot> getBooksSortedByRating() {
+    return books.orderBy('averageRating', descending: true).snapshots();
+  }
+
+  /// Get all books sorted by price (lowest first)
+  Stream<QuerySnapshot> getBooksSortedByPriceLowToHigh() {
+    return books.orderBy('price').snapshots();
+  }
+
+  /// Get all books sorted by price (highest first)
+  Stream<QuerySnapshot> getBooksSortedByPriceHighToLow() {
+    return books.orderBy('price', descending: true).snapshots();
+  }
+
+  // ------------------ COMBINED FILTERS + SORTING ------------------
+
+  /// Get available books sorted by rating
+  Stream<QuerySnapshot> getAvailableBooksByRating() {
+    return books
+        .where('available', isEqualTo: true)
+        .orderBy('averageRating', descending: true)
+        .snapshots();
+  }
+
+  /// Get books in a price range
+  Stream<QuerySnapshot> getBooksInPriceRange(double minPrice, double maxPrice) {
+    return books
+        .where('price', isGreaterThanOrEqualTo: minPrice)
+        .where('price', isLessThanOrEqualTo: maxPrice)
+        .orderBy('price')
+        .snapshots();
+  }
+
+  /// Get available books in a specific genre sorted by rating
+  Stream<QuerySnapshot> getAvailableBooksByGenreAndRating(String genre) {
+    return books
+        .where('available', isEqualTo: true)
+        .where('genre', arrayContains: genre)
+        .orderBy('averageRating', descending: true)
+        .snapshots();
+  }
+
+  // ------------------ PAGINATION & LIMITING ------------------
+
+  /// Get limited number of books (for initial load)
+  Stream<QuerySnapshot> getTopBooks(int limit) {
+    return books
+        .orderBy('averageRating', descending: true)
+        .limit(limit)
+        .snapshots();
+  }
+
+  /// Get recent books with limit
+  Stream<QuerySnapshot> getRecentBooks(int limit) {
+    return books
+        .orderBy('createdAt', descending: true)
+        .limit(limit)
+        .snapshots();
+  }
+
+  /// Get top N books in a genre
+  Stream<QuerySnapshot> getTopBooksInGenre(String genre, int limit) {
+    return books
+        .where('genre', arrayContains: genre)
+        .orderBy('averageRating', descending: true)
+        .limit(limit)
+        .snapshots();
+  }
+
+  // ------------------ MULTIPLE CONDITIONS ------------------
+
+  /// Get available, highly-rated books (compound query)
+  Stream<QuerySnapshot> getPremiumBooks() {
+    return books
+        .where('available', isEqualTo: true)
+        .where('averageRating', isGreaterThanOrEqualTo: 4.5)
+        .orderBy('averageRating', descending: true)
+        .snapshots();
+  }
+
+  /// Get books with minimum copies available
+  Stream<QuerySnapshot> getBooksWithStock(int minCopies) {
+    return books
+        .where('copiesAvailable', isGreaterThanOrEqualTo: minCopies)
+        .orderBy('copiesAvailable', descending: true)
+        .snapshots();
+  }
+
+  // ------------------ REAL-TIME FILTERED SEARCHES ------------------
+
+  /// Get books matching multiple criteria (status + category + rating)
+  Stream<QuerySnapshot> getFilteredBooks({
+    bool? available,
+    String? genre,
+    double? minRating,
+    int? limit,
+  }) {
+    Query query = books;
+
+    if (available != null) {
+      query = query.where('available', isEqualTo: available);
+    }
+
+    if (genre != null) {
+      query = query.where('genre', arrayContains: genre);
+    }
+
+    if (minRating != null) {
+      query = query.where('averageRating', isGreaterThanOrEqualTo: minRating);
+      query = query.orderBy('averageRating', descending: true);
+    } else {
+      query = query.orderBy('createdAt', descending: true);
+    }
+
+    if (limit != null) {
+      query = query.limit(limit);
+    }
+
+    return query.snapshots();
+  }
+
+  // ============================================================================
   // WRITE OPERATIONS (from previous implementation)
   // ============================================================================
 
