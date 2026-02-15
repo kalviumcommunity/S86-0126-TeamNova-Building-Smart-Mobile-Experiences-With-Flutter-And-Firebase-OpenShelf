@@ -41,6 +41,8 @@ import 'screens/error_handling_demo_screen.dart';
 import 'screens/device_info_screen.dart';
 import 'screens/testing_checklist_screen.dart';
 import 'screens/release_build_screen.dart';
+import 'screens/play_store_deployment_screen.dart';
+import 'screens/learning_reflection_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -107,6 +109,10 @@ class MyApp extends StatelessWidget {
             '/device-info': (context) => const DeviceInfoScreen(),
             '/testing-checklist': (context) => const TestingChecklistScreen(),
             '/release-build': (context) => const ReleaseBuildScreen(),
+            '/play-store-deployment': (context) =>
+                const PlayStoreDeploymentScreen(),
+            '/learning-reflection': (context) =>
+                const LearningReflectionScreen(),
           },
         );
       },
