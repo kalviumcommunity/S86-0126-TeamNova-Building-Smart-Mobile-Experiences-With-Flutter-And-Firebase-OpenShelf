@@ -10,7 +10,8 @@ class ErrorHandlingDemoScreen extends StatefulWidget {
   const ErrorHandlingDemoScreen({super.key});
 
   @override
-  State<ErrorHandlingDemoScreen> createState() => _ErrorHandlingDemoScreenState();
+  State<ErrorHandlingDemoScreen> createState() =>
+      _ErrorHandlingDemoScreenState();
 }
 
 class _ErrorHandlingDemoScreenState extends State<ErrorHandlingDemoScreen> {
@@ -19,9 +20,7 @@ class _ErrorHandlingDemoScreenState extends State<ErrorHandlingDemoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Error Handling & States'),
-      ),
+      appBar: AppBar(title: const Text('Error Handling & States')),
       body: Column(
         children: [
           _buildTabBar(),
@@ -114,26 +113,17 @@ class _LoadingStatesTab extends StatelessWidget {
         _buildSection(
           context,
           'Custom Size & Color',
-          LoadingWidget(
-            message: 'Please wait',
-            size: 60,
-            color: Colors.green,
-          ),
+          LoadingWidget(message: 'Please wait', size: 60, color: Colors.green),
         ),
         _buildSection(
           context,
           'Inline Loading',
-          const Center(
-            child: InlineLoadingWidget(message: 'Processing...'),
-          ),
+          const Center(child: InlineLoadingWidget(message: 'Processing...')),
         ),
         _buildSection(
           context,
           'Skeleton Loader',
-          const SizedBox(
-            height: 300,
-            child: SkeletonLoader(itemCount: 3),
-          ),
+          const SizedBox(height: 300, child: SkeletonLoader(itemCount: 3)),
         ),
       ],
     );
@@ -145,9 +135,9 @@ class _LoadingStatesTab extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
         Container(
@@ -194,7 +184,8 @@ class _ErrorStatesTab extends StatelessWidget {
           'Permission Error',
           PermissionErrorWidget(
             permissionType: 'camera',
-            onRequestPermission: () => _showSnackbar(context, 'Requesting permission...'),
+            onRequestPermission: () =>
+                _showSnackbar(context, 'Requesting permission...'),
           ),
         ),
         _buildSection(
@@ -231,9 +222,9 @@ class _ErrorStatesTab extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
         Container(
@@ -250,9 +241,9 @@ class _ErrorStatesTab extends StatelessWidget {
   }
 
   void _showSnackbar(BuildContext context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message)),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
   }
 }
 
@@ -315,9 +306,9 @@ class _EmptyStatesTab extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 12),
         Container(
@@ -334,9 +325,9 @@ class _EmptyStatesTab extends StatelessWidget {
   }
 
   void _showSnackbar(BuildContext context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message)),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
   }
 }
 
@@ -356,13 +347,13 @@ class _FutureBuilderTabState extends State<_FutureBuilderTab> {
 
   Future<List<String>> _simulateFetch() async {
     await Future.delayed(const Duration(seconds: 2));
-    
+
     if (_scenario == 'error') {
       throw Exception('Network error occurred');
     } else if (_scenario == 'empty') {
       return [];
     }
-    
+
     return ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
   }
 
@@ -405,7 +396,9 @@ class _FutureBuilderTabState extends State<_FutureBuilderTab> {
               // Error State
               if (snapshot.hasError) {
                 return AppErrorWidget(
-                  message: ErrorHandlerService.getUserFriendlyMessage(snapshot.error),
+                  message: ErrorHandlerService.getUserFriendlyMessage(
+                    snapshot.error,
+                  ),
                   details: 'Please check your connection and try again',
                   onRetry: () => setState(() => _retryCount++),
                 );
@@ -482,7 +475,7 @@ class _StreamBuilderTabState extends State<_StreamBuilderTab> {
 
   void _emitData() async {
     await Future.delayed(const Duration(seconds: 1));
-    
+
     if (_scenario == 'error') {
       _controller.addError('Stream error occurred');
     } else if (_scenario == 'empty') {

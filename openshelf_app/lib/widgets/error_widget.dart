@@ -26,17 +26,13 @@ class AppErrorWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              size: 64,
-              color: Theme.of(context).colorScheme.error,
-            ),
+            Icon(icon, size: 64, color: Theme.of(context).colorScheme.error),
             const SizedBox(height: 16),
             Text(
               message ?? 'Oops! Something went wrong',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             if (details != null) ...[
@@ -44,8 +40,10 @@ class AppErrorWidget extends StatelessWidget {
               Text(
                 details!,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
-                    ),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.7),
+                ),
                 textAlign: TextAlign.center,
               ),
             ],
@@ -74,10 +72,7 @@ class AppErrorWidget extends StatelessWidget {
 class NetworkErrorWidget extends StatelessWidget {
   final VoidCallback? onRetry;
 
-  const NetworkErrorWidget({
-    super.key,
-    this.onRetry,
-  });
+  const NetworkErrorWidget({super.key, this.onRetry});
 
   @override
   Widget build(BuildContext context) {
@@ -120,11 +115,7 @@ class InlineErrorWidget extends StatelessWidget {
   final String message;
   final VoidCallback? onDismiss;
 
-  const InlineErrorWidget({
-    super.key,
-    required this.message,
-    this.onDismiss,
-  });
+  const InlineErrorWidget({super.key, required this.message, this.onDismiss});
 
   @override
   Widget build(BuildContext context) {
@@ -149,8 +140,8 @@ class InlineErrorWidget extends StatelessWidget {
             child: Text(
               message,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: Theme.of(context).colorScheme.onErrorContainer,
-                  ),
+                color: Theme.of(context).colorScheme.onErrorContainer,
+              ),
             ),
           ),
           if (onDismiss != null) ...[

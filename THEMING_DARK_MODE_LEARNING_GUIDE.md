@@ -17,6 +17,7 @@ In this lesson, you'll learn how to enable dark mode, create custom light/dark t
 ✅ Helps apps feel polished and production-ready
 
 ### Real-World Impact
+
 - **Battery Savings**: Up to 60% power reduction on OLED screens in dark mode
 - **Eye Strain**: Reduces blue light exposure in low-light environments
 - **User Satisfaction**: 70% of users prefer dark mode in evening hours
@@ -39,11 +40,11 @@ MaterialApp(
 
 ### ThemeMode Options
 
-| Mode | Description | Use Case |
-|------|-------------|----------|
+| Mode               | Description             | Use Case                                |
+| ------------------ | ----------------------- | --------------------------------------- |
 | `ThemeMode.system` | Follows device settings | Default (respects user's OS preference) |
-| `ThemeMode.light` | Force light mode | Always use light theme |
-| `ThemeMode.dark` | Force dark mode | Always use dark theme |
+| `ThemeMode.light`  | Force light mode        | Always use light theme                  |
+| `ThemeMode.dark`   | Force dark mode         | Always use dark theme                   |
 
 **In OpenShelf**: See [main.dart](openshelf_app/lib/main.dart#L60-L67)
 
@@ -68,6 +69,7 @@ final lightTheme = ThemeData(
 **In OpenShelf**: See [app_theme_light.dart](openshelf_app/lib/theme/app_theme_light.dart)
 
 Our implementation includes:
+
 - Material 3 color scheme
 - Custom AppBar styling
 - Card theme with rounded corners
@@ -93,6 +95,7 @@ final darkTheme = ThemeData(
 **In OpenShelf**: See [app_theme_dark.dart](openshelf_app/lib/theme/app_theme_dark.dart)
 
 Our implementation features:
+
 - **True OLED Black** (#121212) for battery savings
 - Deep Purple Accent for primary color
 - Optimized contrast ratios
@@ -100,7 +103,9 @@ Our implementation features:
 - Material 3 dark mode guidelines
 
 ### 🎨 Design Tip
+
 Use `ColorScheme.fromSeed()` for Material 3 dynamic colors:
+
 ```dart
 colorScheme: ColorScheme.fromSeed(
   seedColor: Colors.deepPurple,
@@ -128,6 +133,7 @@ class ThemeState with ChangeNotifier {
 **In OpenShelf**: See [theme_provider.dart](openshelf_app/lib/providers/theme_provider.dart)
 
 Our `ThemeProvider` includes:
+
 - Three theme modes (Light, Dark, System)
 - Persistent storage with SharedPreferences
 - Helper methods for each mode
@@ -173,6 +179,7 @@ Switch(
 ### Advanced Theme Selector
 
 Our demo screen includes:
+
 - **Radio Button Selector**: Choose between Light/Dark/System
 - **Quick Toggle**: Switch between Light and Dark instantly
 - **Visual Preview**: See colors before switching
@@ -235,6 +242,7 @@ MaterialApp(
 **In OpenShelf**: We use `useMaterial3: true` throughout
 
 Dynamic color adapts to:
+
 - User wallpaper
 - Device system palette
 - Material You design principles
@@ -267,16 +275,17 @@ DynamicColorBuilder(
 
 ## 8. Common Issues & Fixes
 
-| Issue | Cause | Fix |
-|-------|-------|-----|
-| Theme doesn't update | Missing `notifyListeners()` or Provider rebuild | Use `watch()`, ensure provider wraps MaterialApp |
-| UI flickers on toggle | Heavy rebuilds | Move theme state to root, avoid rebuilding whole app |
-| Dark theme looks inconsistent | Some widgets have fixed colors | Use theme-based colors instead of hard-coded |
-| Persistence fails | Wrong SharedPreferences usage | Ensure async init before runApp |
+| Issue                         | Cause                                           | Fix                                                  |
+| ----------------------------- | ----------------------------------------------- | ---------------------------------------------------- |
+| Theme doesn't update          | Missing `notifyListeners()` or Provider rebuild | Use `watch()`, ensure provider wraps MaterialApp     |
+| UI flickers on toggle         | Heavy rebuilds                                  | Move theme state to root, avoid rebuilding whole app |
+| Dark theme looks inconsistent | Some widgets have fixed colors                  | Use theme-based colors instead of hard-coded         |
+| Persistence fails             | Wrong SharedPreferences usage                   | Ensure async init before runApp                      |
 
 ### 🐛 Debugging Tips
 
 **Check Provider Setup**:
+
 ```dart
 // ✅ Correct
 ChangeNotifierProvider(
@@ -291,6 +300,7 @@ MaterialApp(
 ```
 
 **Use Correct Listeners**:
+
 ```dart
 // ✅ For reading and listening
 context.watch<ThemeProvider>()
@@ -345,6 +355,7 @@ lib/
 ## 10. Additional Resources
 
 ### Official Documentation
+
 - [Flutter Theming Docs](https://docs.flutter.dev/ui/themes) - Complete theming guide
 - [Material 3 Guide](https://m3.material.io/) - Design system documentation
 - [Dynamic Color Package](https://pub.dev/packages/dynamic_color) - Material You support
@@ -352,12 +363,14 @@ lib/
 - [Provider Package](https://pub.dev/packages/provider) - State management
 
 ### OpenShelf Documentation
+
 - [Complete README](THEMING_DARK_MODE_README.md) - Full implementation guide
 - [Quick Start](THEMING_DARK_MODE_QUICK_START.md) - Get started in 5 minutes
 - [PR Description](THEMING_DARK_MODE_PR_DESCRIPTION.md) - Technical details
 - [Completion Summary](THEMING_DARK_MODE_COMPLETION_SUMMARY.md) - What was built
 
 ### Video Tutorials
+
 - [Flutter Theming Tutorial](https://www.youtube.com/results?search_query=flutter+theming)
 - [Dark Mode Implementation](https://www.youtube.com/results?search_query=flutter+dark+mode)
 - [Provider State Management](https://www.youtube.com/results?search_query=flutter+provider)
@@ -369,6 +382,7 @@ lib/
 ### Try This Now!
 
 1. **Run the app**:
+
    ```bash
    flutter run
    ```
@@ -435,16 +449,19 @@ Test your understanding:
 ## 🚀 Next Steps
 
 ### Beginner
+
 - Implement basic theme toggle
 - Customize brand colors
 - Add theme to settings screen
 
 ### Intermediate
+
 - Add multiple color schemes
 - Implement theme animations
 - Create custom component themes
 
 ### Advanced
+
 - Material You dynamic colors
 - Theme export/import
 - Custom theme builder UI

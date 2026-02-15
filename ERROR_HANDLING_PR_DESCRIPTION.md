@@ -7,11 +7,13 @@ Implements a comprehensive error handling system with reusable loading, error, a
 ## 🎯 Motivation
 
 Professional apps must gracefully handle three essential UI states:
+
 - **Loading** - When data is being fetched
 - **Error** - When something fails
 - **Empty** - When there's no content
 
 This prevents:
+
 - ❌ Frozen/unresponsive UI
 - ❌ Technical error messages confusing users
 - ❌ Blank screens with no guidance
@@ -22,11 +24,11 @@ This prevents:
 ### New Files Added
 
 #### Widgets (3 files)
+
 - `lib/widgets/loading_widget.dart`
   - LoadingWidget - Full-screen loader
   - InlineLoadingWidget - Inline loader
   - SkeletonLoader - Shimmer effect
-  
 - `lib/widgets/error_widget.dart`
   - AppErrorWidget - Generic error
   - NetworkErrorWidget - Network errors
@@ -41,6 +43,7 @@ This prevents:
   - NoConnectionWidget - Offline state
 
 #### Services (1 file)
+
 - `lib/services/error_handler_service.dart`
   - Centralized error handling
   - User-friendly error messages
@@ -49,6 +52,7 @@ This prevents:
   - Error type classification
 
 #### Demo Screen (1 file)
+
 - `lib/screens/error_handling_demo_screen.dart`
   - 5 comprehensive tabs
   - Interactive examples
@@ -59,6 +63,7 @@ This prevents:
 ### Modified Files
 
 #### App Configuration
+
 - `lib/main.dart`
   - Added import for demo screen
   - Added route `/error-handling-demo`
@@ -114,6 +119,7 @@ This prevents:
 ## 🎨 Visual Changes
 
 ### Before
+
 ```dart
 // ❌ Poor UX
 if (loading) {
@@ -126,6 +132,7 @@ return ListView(...);
 ```
 
 ### After
+
 ```dart
 // ✅ Great UX
 if (loading) {
@@ -146,6 +153,7 @@ return ListView(...);
 ## 🧪 Testing
 
 ### Manual Testing
+
 - [ ] All loading widgets display correctly
 - [ ] All error widgets display correctly
 - [ ] All empty state widgets display correctly
@@ -158,6 +166,7 @@ return ListView(...);
 - [ ] Skeleton loader animates smoothly
 
 ### Error Scenarios Tested
+
 - [ ] Network timeout
 - [ ] Firebase permission denied
 - [ ] Invalid authentication
@@ -169,6 +178,7 @@ return ListView(...);
 ## 📊 Error Messages Covered
 
 ### Firebase Auth
+
 - user-not-found → "No account found with this email"
 - wrong-password → "Incorrect password. Please try again"
 - email-already-in-use → "An account already exists"
@@ -176,12 +186,14 @@ return ListView(...);
 - And 10+ more...
 
 ### Firebase/Firestore
+
 - permission-denied → "You don't have permission"
 - not-found → "Resource was not found"
 - unavailable → "Service temporarily unavailable"
 - And 10+ more...
 
 ### Network
+
 - SocketException → "No internet connection"
 - Timeout → "Request timed out"
 - Connection failed → "Network error occurred"
@@ -191,6 +203,7 @@ return ListView(...);
 ### For Existing Screens
 
 **Before:**
+
 ```dart
 FutureBuilder(
   future: getData(),
@@ -204,6 +217,7 @@ FutureBuilder(
 ```
 
 **After:**
+
 ```dart
 import 'package:openshelf_app/widgets/loading_widget.dart';
 import 'package:openshelf_app/widgets/error_widget.dart';
@@ -216,18 +230,18 @@ FutureBuilder(
     if (snapshot.connectionState == ConnectionState.waiting) {
       return const LoadingWidget(message: 'Loading...');
     }
-    
+
     if (snapshot.hasError) {
       return AppErrorWidget(
         message: ErrorHandlerService.getUserFriendlyMessage(snapshot.error),
         onRetry: () => setState(() {}),
       );
     }
-    
+
     if (snapshot.data?.isEmpty ?? true) {
       return EmptyListWidget(itemName: 'item');
     }
-    
+
     return ListView(...);
   },
 )
@@ -236,6 +250,7 @@ FutureBuilder(
 ## 📝 Documentation
 
 Added comprehensive documentation:
+
 - `ERROR_HANDLING_README.md` - Complete guide
 - `ERROR_HANDLING_QUICK_START.md` - 5-minute quick start
 - `ERROR_HANDLING_PR_DESCRIPTION.md` - This file
@@ -245,6 +260,7 @@ Added comprehensive documentation:
 ## 🎓 Learning Objectives Covered
 
 This PR demonstrates:
+
 - ✅ Proper error handling patterns
 - ✅ User-centric error messages
 - ✅ FutureBuilder best practices
@@ -257,18 +273,22 @@ This PR demonstrates:
 ## 📸 Screenshots
 
 ### Loading States
+
 ![Loading Widget](placeholder)
 ![Skeleton Loader](placeholder)
 
 ### Error States
+
 ![Error Widget](placeholder)
 ![Network Error](placeholder)
 
 ### Empty States
+
 ![Empty List](placeholder)
 ![Empty Search](placeholder)
 
 ### Demo Screen
+
 ![Demo Overview](placeholder)
 
 ## ✅ Checklist
@@ -295,6 +315,7 @@ This PR demonstrates:
 ## 💡 Usage Tips
 
 ### Always use ErrorHandlerService
+
 ```dart
 try {
   await operation();
@@ -305,6 +326,7 @@ try {
 ```
 
 ### Always provide retry for errors
+
 ```dart
 AppErrorWidget(
   message: 'Failed',
@@ -313,6 +335,7 @@ AppErrorWidget(
 ```
 
 ### Always make empty states helpful
+
 ```dart
 EmptyListWidget(
   itemName: 'book',
@@ -323,6 +346,7 @@ EmptyListWidget(
 ## 🔗 Related Issues
 
 Addresses:
+
 - User confusion from technical errors
 - Blank screens during loading
 - No guidance on empty states
@@ -331,6 +355,7 @@ Addresses:
 ## 📞 Questions?
 
 See documentation:
+
 - [ERROR_HANDLING_README.md](ERROR_HANDLING_README.md)
 - [ERROR_HANDLING_QUICK_START.md](ERROR_HANDLING_QUICK_START.md)
 - Demo screen at `/error-handling-demo`

@@ -7,6 +7,7 @@ This implementation brings modern theming capabilities to the OpenShelf app, inc
 ## ✅ What Was Implemented
 
 ### 1. **Theme Configuration Files**
+
 - **Light Theme** ([app_theme_light.dart](openshelf_app/lib/theme/app_theme_light.dart))
   - Clean, modern light mode design
   - Material 3 color scheme
@@ -20,6 +21,7 @@ This implementation brings modern theming capabilities to the OpenShelf app, inc
   - Consistent with Material 3 dark mode guidelines
 
 ### 2. **Theme State Management**
+
 - **ThemeProvider** ([theme_provider.dart](openshelf_app/lib/providers/theme_provider.dart))
   - Manages app-wide theme state using Provider
   - Supports three theme modes: Light, Dark, System
@@ -27,6 +29,7 @@ This implementation brings modern theming capabilities to the OpenShelf app, inc
   - Provides helper methods for theme switching
 
 ### 3. **Interactive Demo Screen**
+
 - **ThemingDemoScreen** ([theming_demo_screen.dart](openshelf_app/lib/screens/theming_demo_screen.dart))
   - Live theme mode selector (Light/Dark/System)
   - Quick toggle switch for instant switching
@@ -35,6 +38,7 @@ This implementation brings modern theming capabilities to the OpenShelf app, inc
   - Sample UI elements showcase
 
 ### 4. **App Integration**
+
 - Updated [main.dart](openshelf_app/lib/main.dart) to:
   - Wrap app with ChangeNotifierProvider
   - Apply light and dark themes
@@ -42,6 +46,7 @@ This implementation brings modern theming capabilities to the OpenShelf app, inc
   - Add route for theming demo screen
 
 ### 5. **Dependencies**
+
 - Added to [pubspec.yaml](openshelf_app/pubspec.yaml):
   - `provider: ^6.1.1` - State management
   - `shared_preferences: ^2.2.2` - Theme persistence
@@ -49,21 +54,25 @@ This implementation brings modern theming capabilities to the OpenShelf app, inc
 ## 🎯 Key Features
 
 ### Theme Modes
+
 1. **Light Mode** - Bright, clear UI perfect for daytime
 2. **Dark Mode** - Eye-friendly, battery-saving OLED design
 3. **System Mode** - Automatically follows device settings
 
 ### Theme Persistence
+
 - User's theme preference is saved locally
 - Preference loads automatically on app restart
 - Seamless experience across sessions
 
 ### Dynamic Switching
+
 - Instant theme updates without app restart
 - Smooth transitions between themes
 - No UI flicker or rebuild issues
 
 ### Material 3 Support
+
 - Uses `useMaterial3: true`
 - Dynamic color schemes from seed colors
 - Modern, consistent design language
@@ -87,11 +96,13 @@ openshelf_app/
 ## 🚀 How to Use
 
 ### Accessing the Theme Demo
+
 ```dart
 Navigator.pushNamed(context, '/theming-demo');
 ```
 
 ### Changing Theme Programmatically
+
 ```dart
 // Get the provider
 final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
@@ -106,6 +117,7 @@ await themeProvider.toggleTheme(true); // Enable dark mode
 ```
 
 ### Using Theme Colors in Widgets
+
 ```dart
 // Always use theme colors instead of hardcoded values
 Container(
@@ -122,6 +134,7 @@ Container(
 ## 🎨 Theme Customization
 
 ### Modifying Colors
+
 Edit `app_theme_light.dart` or `app_theme_dark.dart`:
 
 ```dart
@@ -132,6 +145,7 @@ colorScheme: ColorScheme.fromSeed(
 ```
 
 ### Adding Custom Theme Properties
+
 ```dart
 // In theme file
 textTheme: const TextTheme(
@@ -153,24 +167,29 @@ textTheme: const TextTheme(
 ## 🐛 Common Issues & Solutions
 
 ### Theme doesn't update
+
 - Ensure Provider wraps MaterialApp
 - Use `context.watch<ThemeProvider>()` for reactive updates
 
 ### Colors look inconsistent
+
 - Always use `Theme.of(context)` instead of hardcoded colors
 - Check custom widgets for fixed color values
 
 ### Persistence not working
+
 - Verify SharedPreferences initialization
 - Check async handling in ThemeProvider
 
 ### UI flickers on toggle
+
 - Provider should wrap MaterialApp, not individual screens
 - Avoid unnecessary rebuilds
 
 ## 🎓 Learning Outcomes
 
 By implementing this feature, you've learned:
+
 - How to create custom themes in Flutter
 - State management with Provider
 - Persistent storage with SharedPreferences
@@ -182,18 +201,21 @@ By implementing this feature, you've learned:
 ## 📊 Benefits
 
 ### User Experience
+
 - ✅ Reduced eye strain in low light
 - ✅ Better visibility in bright environments
 - ✅ Personalized visual experience
 - ✅ Follows system preferences
 
 ### Technical
+
 - ✅ Battery savings on OLED screens
 - ✅ Consistent brand identity
 - ✅ Modern Material 3 design
 - ✅ Accessibility improvements
 
 ### Development
+
 - ✅ Centralized theme management
 - ✅ Easy color scheme updates
 - ✅ Reusable theme system
@@ -230,6 +252,7 @@ By implementing this feature, you've learned:
 ## 🏆 Submission Ready
 
 This implementation is **production-ready** and demonstrates:
+
 - Modern Flutter development practices
 - Proper state management
 - User-centric design

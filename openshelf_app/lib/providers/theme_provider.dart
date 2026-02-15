@@ -31,7 +31,7 @@ class ThemeProvider with ChangeNotifier {
     try {
       final prefs = await SharedPreferences.getInstance();
       final savedThemeIndex = prefs.getInt(_themePreferenceKey);
-      
+
       if (savedThemeIndex != null) {
         _themeMode = ThemeMode.values[savedThemeIndex];
       }
@@ -56,7 +56,7 @@ class ThemeProvider with ChangeNotifier {
   /// Set theme mode and persist the preference
   Future<void> setThemeMode(ThemeMode mode) async {
     if (_themeMode == mode) return;
-    
+
     _themeMode = mode;
     notifyListeners();
     await _saveThemePreference(mode);

@@ -39,9 +39,9 @@ class EmptyStateWidget extends StatelessWidget {
             const SizedBox(height: 24),
             Text(
               title ?? 'Nothing here yet',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             if (message != null) ...[
@@ -49,8 +49,10 @@ class EmptyStateWidget extends StatelessWidget {
               Text(
                 message!,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
-                    ),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.7),
+                ),
                 textAlign: TextAlign.center,
               ),
             ],
@@ -80,11 +82,7 @@ class EmptyListWidget extends StatelessWidget {
   final String itemName;
   final VoidCallback? onAdd;
 
-  const EmptyListWidget({
-    super.key,
-    required this.itemName,
-    this.onAdd,
-  });
+  const EmptyListWidget({super.key, required this.itemName, this.onAdd});
 
   @override
   Widget build(BuildContext context) {
@@ -103,11 +101,7 @@ class EmptySearchWidget extends StatelessWidget {
   final String? searchTerm;
   final VoidCallback? onClearSearch;
 
-  const EmptySearchWidget({
-    super.key,
-    this.searchTerm,
-    this.onClearSearch,
-  });
+  const EmptySearchWidget({super.key, this.searchTerm, this.onClearSearch});
 
   @override
   Widget build(BuildContext context) {
@@ -127,10 +121,7 @@ class EmptySearchWidget extends StatelessWidget {
 class EmptyFavoritesWidget extends StatelessWidget {
   final VoidCallback? onBrowse;
 
-  const EmptyFavoritesWidget({
-    super.key,
-    this.onBrowse,
-  });
+  const EmptyFavoritesWidget({super.key, this.onBrowse});
 
   @override
   Widget build(BuildContext context) {
@@ -148,10 +139,7 @@ class EmptyFavoritesWidget extends StatelessWidget {
 class NoConnectionWidget extends StatelessWidget {
   final VoidCallback? onRetry;
 
-  const NoConnectionWidget({
-    super.key,
-    this.onRetry,
-  });
+  const NoConnectionWidget({super.key, this.onRetry});
 
   @override
   Widget build(BuildContext context) {

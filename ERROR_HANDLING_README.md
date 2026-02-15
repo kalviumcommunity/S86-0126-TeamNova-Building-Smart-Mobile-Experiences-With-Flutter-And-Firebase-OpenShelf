@@ -9,17 +9,20 @@ This implementation provides a comprehensive system for handling the three essen
 ### 1. **Reusable State Widgets**
 
 #### Loading Widgets ([loading_widget.dart](openshelf_app/lib/widgets/loading_widget.dart))
+
 - **LoadingWidget** - Full-screen centered loading indicator with optional message
 - **InlineLoadingWidget** - Compact loading indicator for inline use
 - **SkeletonLoader** - Animated shimmer loading effect for lists
 
 #### Error Widgets ([error_widget.dart](openshelf_app/lib/widgets/error_widget.dart))
+
 - **AppErrorWidget** - Generic error display with retry button
 - **NetworkErrorWidget** - Specialized widget for network errors
 - **PermissionErrorWidget** - Permission denied error display
 - **InlineErrorWidget** - Compact error message for forms
 
 #### Empty State Widgets ([empty_state_widget.dart](openshelf_app/lib/widgets/empty_state_widget.dart))
+
 - **EmptyStateWidget** - Generic empty state with customizable icon and message
 - **EmptyListWidget** - Empty list with "Add first item" prompt
 - **EmptySearchWidget** - No search results display
@@ -27,6 +30,7 @@ This implementation provides a comprehensive system for handling the three essen
 - **NoConnectionWidget** - Offline state display
 
 ### 2. **Error Handler Service** ([error_handler_service.dart](openshelf_app/lib/services/error_handler_service.dart))
+
 - Centralized error handling logic
 - Converts technical Firebase errors to user-friendly messages
 - Firebase Auth error handling
@@ -37,6 +41,7 @@ This implementation provides a comprehensive system for handling the three essen
 - Error type classification
 
 ### 3. **Interactive Demo Screen** ([error_handling_demo_screen.dart](openshelf_app/lib/screens/error_handling_demo_screen.dart))
+
 - **5 comprehensive tabs:**
   1. Loading States - All loading widget variations
   2. Error States - All error widget types
@@ -45,6 +50,7 @@ This implementation provides a comprehensive system for handling the three essen
   5. StreamBuilder - Real-time data handling example
 
 ### 4. **App Integration**
+
 - Updated [main.dart](openshelf_app/lib/main.dart) with route
 - All widgets theme-aware
 - Material 3 compatible
@@ -52,7 +58,9 @@ This implementation provides a comprehensive system for handling the three essen
 ## 🎯 Key Features
 
 ### Loading State Handling
+
 ✅ **Multiple Loading Styles**
+
 - Centered circular progress indicator
 - Loading with custom message
 - Custom size and color options
@@ -60,19 +68,23 @@ This implementation provides a comprehensive system for handling the three essen
 - Skeleton/shimmer loading for lists
 
 ✅ **Best Practices**
+
 - Shows user what's happening
 - Prevents UI freezing
 - Disables interactions during loading
 - Uses appropriate loader for context
 
 ### Error State Handling
+
 ✅ **User-Friendly Error Messages**
+
 - Converts technical errors to readable text
 - No stack traces shown to users
 - Context-specific error messages
 - Helpful retry actions
 
 ✅ **Error Types Covered**
+
 - Network/connection errors
 - Firebase Auth errors
 - Firestore/Storage errors
@@ -81,19 +93,23 @@ This implementation provides a comprehensive system for handling the three essen
 - Generic errors with fallback
 
 ✅ **Developer Features**
+
 - Comprehensive error logging
 - Stack trace capture (dev only)
 - Error type classification
 - Retry-able error detection
 
 ### Empty State Handling
+
 ✅ **Helpful Empty States**
+
 - Clear messaging
 - Call-to-action buttons
 - Relevant icons
 - Contextual suggestions
 
 ✅ **Common Scenarios**
+
 - Empty lists/collections
 - No search results
 - No favorites/bookmarks
@@ -119,11 +135,13 @@ openshelf_app/
 ## 🚀 How to Use
 
 ### Accessing the Demo
+
 ```dart
 Navigator.pushNamed(context, '/error-handling-demo');
 ```
 
 ### Using Loading Widget
+
 ```dart
 // Basic loading
 const LoadingWidget()
@@ -146,6 +164,7 @@ const SkeletonLoader(itemCount: 5)
 ```
 
 ### Using Error Widget
+
 ```dart
 // Generic error
 AppErrorWidget(
@@ -174,6 +193,7 @@ InlineErrorWidget(
 ```
 
 ### Using Empty State Widget
+
 ```dart
 // Generic empty state
 EmptyStateWidget(
@@ -203,21 +223,22 @@ EmptyFavoritesWidget(
 ```
 
 ### Using Error Handler Service
+
 ```dart
 try {
   await firestoreService.fetchBooks();
 } catch (error, stackTrace) {
   // Get user-friendly message
   final message = ErrorHandlerService.getUserFriendlyMessage(error);
-  
+
   // Log error (dev only)
   ErrorHandlerService.logError(error, stackTrace);
-  
+
   // Check error type
   if (ErrorHandlerService.isNetworkError(error)) {
     // Show network error UI
   }
-  
+
   // Show error to user
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(content: Text(message)),
@@ -226,6 +247,7 @@ try {
 ```
 
 ### FutureBuilder Pattern
+
 ```dart
 FutureBuilder<List<Book>>(
   future: bookService.fetchBooks(),
@@ -263,6 +285,7 @@ FutureBuilder<List<Book>>(
 ```
 
 ### StreamBuilder Pattern
+
 ```dart
 StreamBuilder<List<Book>>(
   stream: bookService.booksStream(),
@@ -301,6 +324,7 @@ StreamBuilder<List<Book>>(
 ## 💡 Best Practices Implemented
 
 ### 1. **Never Show Technical Errors to Users**
+
 ```dart
 // ❌ BAD
 Text(error.toString()) // Shows "SocketException: Failed host lookup..."
@@ -310,6 +334,7 @@ Text(ErrorHandlerService.getUserFriendlyMessage(error)) // "No internet connecti
 ```
 
 ### 2. **Always Provide Retry Actions**
+
 ```dart
 // ✅ Error widgets include retry buttons
 AppErrorWidget(
@@ -319,6 +344,7 @@ AppErrorWidget(
 ```
 
 ### 3. **Use Appropriate Loaders**
+
 ```dart
 // ✅ Full-screen for major operations
 const LoadingWidget(message: 'Loading library...')
@@ -331,6 +357,7 @@ const SkeletonLoader(itemCount: 5)
 ```
 
 ### 4. **Make Empty States Helpful**
+
 ```dart
 // ❌ BAD - just says "empty"
 const Text('No data')
@@ -343,6 +370,7 @@ EmptyListWidget(
 ```
 
 ### 5. **Handle All Connection States**
+
 ```dart
 FutureBuilder(
   builder: (context, snapshot) {
@@ -362,18 +390,19 @@ FutureBuilder(
 
 ## 🐛 Common Issues & Solutions
 
-| Issue | Cause | Solution |
-|-------|-------|----------|
-| App feels frozen | No loader | Use `LoadingWidget` in async operations |
-| Users confused on error | Technical error shown | Use `ErrorHandlerService.getUserFriendlyMessage()` |
-| Blank screens | Missing empty state | Add `EmptyStateWidget` |
-| Never-ending loader | Future not completing | Debug async logic, add timeout |
-| Error shows stack trace | Using `error.toString()` | Use error handler service |
-| No retry option | Missing onRetry callback | Always provide retry for recoverable errors |
+| Issue                   | Cause                    | Solution                                           |
+| ----------------------- | ------------------------ | -------------------------------------------------- |
+| App feels frozen        | No loader                | Use `LoadingWidget` in async operations            |
+| Users confused on error | Technical error shown    | Use `ErrorHandlerService.getUserFriendlyMessage()` |
+| Blank screens           | Missing empty state      | Add `EmptyStateWidget`                             |
+| Never-ending loader     | Future not completing    | Debug async logic, add timeout                     |
+| Error shows stack trace | Using `error.toString()` | Use error handler service                          |
+| No retry option         | Missing onRetry callback | Always provide retry for recoverable errors        |
 
 ## 🎓 Error Categories Handled
 
 ### Firebase Auth Errors
+
 - user-not-found
 - wrong-password
 - email-already-in-use
@@ -385,6 +414,7 @@ FutureBuilder(
 - network-request-failed
 
 ### Firebase Errors
+
 - permission-denied
 - not-found
 - already-exists
@@ -396,6 +426,7 @@ FutureBuilder(
 - deadline-exceeded
 
 ### Network Errors
+
 - SocketException
 - Timeout errors
 - Connection errors
@@ -404,6 +435,7 @@ FutureBuilder(
 ## 📊 Benefits
 
 ### User Experience
+
 - ✅ Never confused about app state
 - ✅ Clear feedback on what's happening
 - ✅ Easy error recovery with retry
@@ -411,6 +443,7 @@ FutureBuilder(
 - ✅ No technical jargon
 
 ### Developer Experience
+
 - ✅ Centralized error handling
 - ✅ Reusable widgets
 - ✅ Comprehensive error logging
@@ -418,6 +451,7 @@ FutureBuilder(
 - ✅ Easy to test
 
 ### App Quality
+
 - ✅ Professional appearance
 - ✅ Consistent error handling
 - ✅ Better perceived performance
@@ -427,6 +461,7 @@ FutureBuilder(
 ## 🔧 Customization
 
 ### Customize Loading Widget
+
 ```dart
 LoadingWidget(
   message: 'Custom message',
@@ -436,6 +471,7 @@ LoadingWidget(
 ```
 
 ### Customize Error Messages
+
 ```dart
 // Extend ErrorHandlerService
 static String getCustomMessage(dynamic error) {
@@ -447,6 +483,7 @@ static String getCustomMessage(dynamic error) {
 ```
 
 ### Create Custom Empty States
+
 ```dart
 EmptyStateWidget(
   icon: Icons.custom_icon,
@@ -481,6 +518,7 @@ EmptyStateWidget(
 ## 🏆 Submission Ready
 
 This implementation is **production-ready** and demonstrates:
+
 - Professional error handling
 - User-centric design
 - Clean, reusable architecture

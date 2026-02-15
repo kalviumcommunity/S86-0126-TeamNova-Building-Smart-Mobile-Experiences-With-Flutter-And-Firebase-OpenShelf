@@ -40,6 +40,7 @@ import 'screens/theming_demo_screen.dart';
 import 'screens/error_handling_demo_screen.dart';
 import 'screens/device_info_screen.dart';
 import 'screens/testing_checklist_screen.dart';
+import 'screens/release_build_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -73,8 +74,10 @@ class MyApp extends StatelessWidget {
             '/signup': (context) => const SignupScreen(),
             '/demo-hub': (context) => const DemoHub(),
             '/widget-tree-demo': (context) => const WidgetTreeDemo(),
-            '/stateless-stateful-demo': (context) => const StatelessStatefulDemo(),
-            '/hot-reload-devtools-demo': (context) => const HotReloadDevtoolsDemo(),
+            '/stateless-stateful-demo': (context) =>
+                const StatelessStatefulDemo(),
+            '/hot-reload-devtools-demo': (context) =>
+                const HotReloadDevtoolsDemo(),
             '/navigation-hub': (context) => const NavigationHub(),
             '/home': (context) => const HomeScreen(),
             '/profile': (context) => const ProfileScreen(),
@@ -86,7 +89,8 @@ class MyApp extends StatelessWidget {
             '/state-management-demo': (context) => const StateManagementDemo(),
             '/reusable-widgets-demo': (context) => const ReusableWidgetsDemo(),
             '/library': (context) => const LibraryScreen(),
-            '/responsive-design-demo': (context) => const ResponsiveDesignDemo(),
+            '/responsive-design-demo': (context) =>
+                const ResponsiveDesignDemo(),
             '/responsive-dashboard': (context) => const ResponsiveDashboard(),
             '/asset-demo': (context) => const AssetDemoScreen(),
             '/animations-demo': (context) => const AnimationsDemoScreen(),
@@ -94,12 +98,15 @@ class MyApp extends StatelessWidget {
             '/firestore-read-demo': (context) => const FirestoreReadDemo(),
             '/firestore-write-demo': (context) => const FirestoreWriteDemo(),
             '/realtime-sync-demo': (context) => const RealtimeSyncDemo(),
-            '/firestore-queries-demo': (context) => const FirestoreQueriesDemo(),
+            '/firestore-queries-demo': (context) =>
+                const FirestoreQueriesDemo(),
             '/firebase-storage-demo': (context) => const FirebaseStorageDemo(),
             '/theming-demo': (context) => const ThemingDemoScreen(),
-            '/error-handling-demo': (context) => const ErrorHandlingDemoScreen(),
+            '/error-handling-demo': (context) =>
+                const ErrorHandlingDemoScreen(),
             '/device-info': (context) => const DeviceInfoScreen(),
             '/testing-checklist': (context) => const TestingChecklistScreen(),
+            '/release-build': (context) => const ReleaseBuildScreen(),
           },
         );
       },

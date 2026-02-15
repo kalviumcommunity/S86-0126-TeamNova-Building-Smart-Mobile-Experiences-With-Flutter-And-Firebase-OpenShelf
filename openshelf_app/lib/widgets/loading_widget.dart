@@ -7,12 +7,7 @@ class LoadingWidget extends StatelessWidget {
   final double? size;
   final Color? color;
 
-  const LoadingWidget({
-    super.key,
-    this.message,
-    this.size,
-    this.color,
-  });
+  const LoadingWidget({super.key, this.message, this.size, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +30,8 @@ class LoadingWidget extends StatelessWidget {
             Text(
               message!,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
-                  ),
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+              ),
               textAlign: TextAlign.center,
             ),
           ],
@@ -51,11 +46,7 @@ class InlineLoadingWidget extends StatelessWidget {
   final String? message;
   final double size;
 
-  const InlineLoadingWidget({
-    super.key,
-    this.message,
-    this.size = 20,
-  });
+  const InlineLoadingWidget({super.key, this.message, this.size = 20});
 
   @override
   Widget build(BuildContext context) {
@@ -74,10 +65,7 @@ class InlineLoadingWidget extends StatelessWidget {
         ),
         if (message != null) ...[
           const SizedBox(width: 12),
-          Text(
-            message!,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
+          Text(message!, style: Theme.of(context).textTheme.bodySmall),
         ],
       ],
     );
@@ -89,11 +77,7 @@ class SkeletonLoader extends StatefulWidget {
   final int itemCount;
   final double height;
 
-  const SkeletonLoader({
-    super.key,
-    this.itemCount = 5,
-    this.height = 80,
-  });
+  const SkeletonLoader({super.key, this.itemCount = 5, this.height = 80});
 
   @override
   State<SkeletonLoader> createState() => _SkeletonLoaderState();
@@ -150,11 +134,7 @@ class _SkeletonLoaderState extends State<SkeletonLoader>
                           width: 100,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [
-                                baseColor,
-                                highlightColor,
-                                baseColor,
-                              ],
+                              colors: [baseColor, highlightColor, baseColor],
                             ),
                           ),
                         ),

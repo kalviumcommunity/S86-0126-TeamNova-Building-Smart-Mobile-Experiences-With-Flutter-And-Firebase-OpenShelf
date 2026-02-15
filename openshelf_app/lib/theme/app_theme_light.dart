@@ -7,17 +7,17 @@ class AppThemeLight {
     return ThemeData(
       brightness: Brightness.light,
       useMaterial3: true,
-      
+
       // Color Scheme
       colorScheme: ColorScheme.fromSeed(
         seedColor: Colors.deepPurple,
         brightness: Brightness.light,
       ),
-      
+
       // Primary Colors
       primaryColor: Colors.deepPurple,
       scaffoldBackgroundColor: Colors.white,
-      
+
       // AppBar Theme
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.deepPurple,
@@ -26,16 +26,14 @@ class AppThemeLight {
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.white),
       ),
-      
+
       // Card Theme
       cardTheme: CardTheme(
         elevation: 2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         color: Colors.white,
       ),
-      
+
       // Elevated Button Theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -43,19 +41,15 @@ class AppThemeLight {
           foregroundColor: Colors.white,
           elevation: 2,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
       ),
-      
+
       // Text Button Theme
       textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          foregroundColor: Colors.deepPurple,
-        ),
+        style: TextButton.styleFrom(foregroundColor: Colors.deepPurple),
       ),
-      
+
       // Input Decoration Theme
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -77,19 +71,16 @@ class AppThemeLight {
           borderSide: const BorderSide(color: Colors.red),
         ),
       ),
-      
+
       // Icon Theme
-      iconTheme: const IconThemeData(
-        color: Colors.deepPurple,
-        size: 24,
-      ),
-      
+      iconTheme: const IconThemeData(color: Colors.deepPurple, size: 24),
+
       // Floating Action Button Theme
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.white,
       ),
-      
+
       // Bottom Navigation Bar Theme
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: Colors.white,
@@ -97,13 +88,10 @@ class AppThemeLight {
         unselectedItemColor: Colors.grey[600],
         elevation: 8,
       ),
-      
+
       // Divider Theme
-      dividerTheme: DividerThemeData(
-        color: Colors.grey[300],
-        thickness: 1,
-      ),
-      
+      dividerTheme: DividerThemeData(color: Colors.grey[300], thickness: 1),
+
       // Switch Theme
       switchTheme: SwitchThemeData(
         thumbColor: WidgetStateProperty.resolveWith((states) {

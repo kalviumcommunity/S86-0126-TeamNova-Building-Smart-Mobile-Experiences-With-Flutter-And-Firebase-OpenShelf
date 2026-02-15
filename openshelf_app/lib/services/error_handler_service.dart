@@ -37,7 +37,7 @@ class ErrorHandlerService {
     if (kDebugMode) {
       debugPrint('Unhandled error: $error');
     }
-    
+
     return 'Something went wrong. Please try again.';
   }
 
@@ -105,13 +105,11 @@ class ErrorHandlerService {
       return '📡';
     }
 
-    if (errorString.contains('permission') ||
-        errorString.contains('denied')) {
+    if (errorString.contains('permission') || errorString.contains('denied')) {
       return '🔒';
     }
 
-    if (errorString.contains('not-found') ||
-        errorString.contains('404')) {
+    if (errorString.contains('not-found') || errorString.contains('404')) {
       return '🔍';
     }
 
@@ -134,7 +132,7 @@ class ErrorHandlerService {
   /// Check if error is network related
   static bool isNetworkError(dynamic error) {
     if (error == null) return false;
-    
+
     final errorString = error.toString().toLowerCase();
     return errorString.contains('network') ||
         errorString.contains('connection') ||
@@ -145,7 +143,7 @@ class ErrorHandlerService {
   /// Check if error is permission related
   static bool isPermissionError(dynamic error) {
     if (error == null) return false;
-    
+
     final errorString = error.toString().toLowerCase();
     return errorString.contains('permission') ||
         errorString.contains('denied') ||
@@ -154,21 +152,14 @@ class ErrorHandlerService {
 
   /// Get retry-able status
   static bool isRetryable(dynamic error) {
-    return isNetworkError(error) || 
-           error.toString().contains('timeout') ||
-           error.toString().contains('unavailable');
+    return isNetworkError(error) ||
+        error.toString().contains('timeout') ||
+        error.toString().contains('unavailable');
   }
 }
 
 /// Error state enum for UI
-enum ErrorType {
-  network,
-  permission,
-  notFound,
-  server,
-  validation,
-  unknown,
-}
+enum ErrorType { network, permission, notFound, server, validation, unknown }
 
 /// Error state class for structured error handling
 class AppError {

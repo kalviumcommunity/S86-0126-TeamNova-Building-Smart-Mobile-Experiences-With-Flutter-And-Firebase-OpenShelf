@@ -5,12 +5,14 @@ Get professional error handling working in your app in under 5 minutes!
 ## 🚀 Instant Setup
 
 ### 1. Run the Demo
+
 ```bash
 flutter run
 # Navigate to /error-handling-demo
 ```
 
 ### 2. Explore 5 Tabs
+
 - **Loading** - See all loading widget styles
 - **Errors** - See all error displays
 - **Empty** - See all empty state widgets
@@ -20,12 +22,14 @@ flutter run
 ## ⚡ Quick Usage Examples
 
 ### Show Loading
+
 ```dart
 // During async operation
 const LoadingWidget(message: 'Loading...')
 ```
 
 ### Show Error
+
 ```dart
 // When error occurs
 AppErrorWidget(
@@ -35,6 +39,7 @@ AppErrorWidget(
 ```
 
 ### Show Empty State
+
 ```dart
 // When no data
 EmptyListWidget(
@@ -46,6 +51,7 @@ EmptyListWidget(
 ## 📱 Common Patterns
 
 ### Pattern 1: FutureBuilder
+
 ```dart
 FutureBuilder<List<Item>>(
   future: fetchItems(),
@@ -53,19 +59,19 @@ FutureBuilder<List<Item>>(
     if (snapshot.connectionState == ConnectionState.waiting) {
       return const LoadingWidget(message: 'Loading...');
     }
-    
+
     if (snapshot.hasError) {
       return AppErrorWidget(
         message: ErrorHandlerService.getUserFriendlyMessage(snapshot.error),
         onRetry: () => setState(() {}),
       );
     }
-    
+
     final items = snapshot.data ?? [];
     if (items.isEmpty) {
       return EmptyListWidget(itemName: 'item');
     }
-    
+
     return ListView.builder(
       itemCount: items.length,
       itemBuilder: (context, index) => ItemCard(items[index]),
@@ -75,6 +81,7 @@ FutureBuilder<List<Item>>(
 ```
 
 ### Pattern 2: StreamBuilder
+
 ```dart
 StreamBuilder<List<Item>>(
   stream: itemsStream(),
@@ -82,27 +89,28 @@ StreamBuilder<List<Item>>(
     if (snapshot.connectionState == ConnectionState.waiting) {
       return const LoadingWidget();
     }
-    
+
     if (snapshot.hasError) {
       return NetworkErrorWidget(onRetry: reconnect);
     }
-    
+
     if (!snapshot.hasData || snapshot.data!.isEmpty) {
       return EmptyStateWidget(title: 'No items');
     }
-    
+
     return ListView(children: snapshot.data!.map((item) => ItemCard(item)).toList());
   },
 )
 ```
 
 ### Pattern 3: Error Handling
+
 ```dart
 try {
   await someOperation();
 } catch (error, stackTrace) {
   ErrorHandlerService.logError(error, stackTrace);
-  
+
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Text(ErrorHandlerService.getUserFriendlyMessage(error)),
@@ -114,6 +122,7 @@ try {
 ## 🎨 Widget Gallery
 
 ### Loading Widgets
+
 ```dart
 // Basic
 const LoadingWidget()
@@ -129,6 +138,7 @@ const SkeletonLoader(itemCount: 5)
 ```
 
 ### Error Widgets
+
 ```dart
 // Generic error
 AppErrorWidget(onRetry: retry)
@@ -144,6 +154,7 @@ InlineErrorWidget(message: 'Invalid input')
 ```
 
 ### Empty State Widgets
+
 ```dart
 // Generic
 EmptyStateWidget(title: 'Nothing here')
@@ -164,6 +175,7 @@ NoConnectionWidget(onRetry: retry)
 ## 🔧 Quick Customization
 
 ### Change Loading Color
+
 ```dart
 LoadingWidget(
   message: 'Loading...',
@@ -173,6 +185,7 @@ LoadingWidget(
 ```
 
 ### Customize Error Message
+
 ```dart
 AppErrorWidget(
   icon: Icons.cloud_off,
@@ -183,6 +196,7 @@ AppErrorWidget(
 ```
 
 ### Custom Empty State
+
 ```dart
 EmptyStateWidget(
   icon: Icons.bookmark_border,
@@ -196,6 +210,7 @@ EmptyStateWidget(
 ## 🐛 Troubleshooting
 
 ### Error shows technical message?
+
 ```dart
 // ❌ Don't do this
 Text(error.toString())
@@ -205,6 +220,7 @@ Text(ErrorHandlerService.getUserFriendlyMessage(error))
 ```
 
 ### Loading never ends?
+
 ```dart
 // Check your Future/Stream completes
 // Add timeout if needed
@@ -212,6 +228,7 @@ future.timeout(Duration(seconds: 30))
 ```
 
 ### Empty state not showing?
+
 ```dart
 // Make sure to check for empty data
 if (items.isEmpty) {
@@ -228,6 +245,7 @@ if (items.isEmpty) {
 ## ✅ What You Get
 
 ✨ **Out of the Box:**
+
 - 3 loading widget types
 - 5 error widget types
 - 5 empty state widgets

@@ -41,9 +41,12 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
           'Brand': androidInfo.brand,
           'Android Version': androidInfo.version.release,
           'SDK Level': androidInfo.version.sdkInt.toString(),
-          'Is Physical Device': androidInfo.isPhysicalDevice ? 'Yes' : 'No (Emulator)',
+          'Is Physical Device': androidInfo.isPhysicalDevice
+              ? 'Yes'
+              : 'No (Emulator)',
           'Supported ABIs': androidInfo.supportedAbIs.join(', '),
-          'Display': '${androidInfo.displayMetrics.widthPx}x${androidInfo.displayMetrics.heightPx}',
+          'Display':
+              '${androidInfo.displayMetrics.widthPx}x${androidInfo.displayMetrics.heightPx}',
           'Screen Density': '${androidInfo.displayMetrics.density}',
         };
       } else if (Platform.isIOS) {
@@ -54,7 +57,9 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
           'Model': iosInfo.model,
           'System Name': iosInfo.systemName,
           'System Version': iosInfo.systemVersion,
-          'Is Physical Device': iosInfo.isPhysicalDevice ? 'Yes' : 'No (Simulator)',
+          'Is Physical Device': iosInfo.isPhysicalDevice
+              ? 'Yes'
+              : 'No (Simulator)',
           'Identifier': iosInfo.identifierForVendor ?? 'N/A',
           'Localized Model': iosInfo.localizedModel,
         };
@@ -103,31 +108,41 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
                 ),
                 if (_packageInfo != null) ...[
                   const SizedBox(height: 16),
-                  _buildInfoCard(
-                    'App Information',
-                    Icons.apps,
-                    {
-                      'App Name': _packageInfo!.appName,
-                      'Package Name': _packageInfo!.packageName,
-                      'Version': _packageInfo!.version,
-                      'Build Number': _packageInfo!.buildNumber,
-                    },
-                  ),
+                  _buildInfoCard('App Information', Icons.apps, {
+                    'App Name': _packageInfo!.appName,
+                    'Package Name': _packageInfo!.packageName,
+                    'Version': _packageInfo!.version,
+                    'Build Number': _packageInfo!.buildNumber,
+                  }),
                 ],
                 const SizedBox(height: 16),
                 _buildInfoCard(
                   'Screen Information',
                   Icons.screen_lock_portrait,
                   {
-                    'Width': MediaQuery.of(context).size.width.toStringAsFixed(2),
-                    'Height': MediaQuery.of(context).size.height.toStringAsFixed(2),
-                    'Pixel Ratio': MediaQuery.of(context).devicePixelRatio.toString(),
-                    'Text Scale': MediaQuery.of(context).textScaleFactor.toStringAsFixed(2),
-                    'Orientation': MediaQuery.of(context).orientation == Orientation.portrait
+                    'Width': MediaQuery.of(
+                      context,
+                    ).size.width.toStringAsFixed(2),
+                    'Height': MediaQuery.of(
+                      context,
+                    ).size.height.toStringAsFixed(2),
+                    'Pixel Ratio': MediaQuery.of(
+                      context,
+                    ).devicePixelRatio.toString(),
+                    'Text Scale': MediaQuery.of(
+                      context,
+                    ).textScaleFactor.toStringAsFixed(2),
+                    'Orientation':
+                        MediaQuery.of(context).orientation ==
+                            Orientation.portrait
                         ? 'Portrait'
                         : 'Landscape',
-                    'Padding Top': MediaQuery.of(context).padding.top.toString(),
-                    'Padding Bottom': MediaQuery.of(context).padding.bottom.toString(),
+                    'Padding Top': MediaQuery.of(
+                      context,
+                    ).padding.top.toString(),
+                    'Padding Bottom': MediaQuery.of(
+                      context,
+                    ).padding.bottom.toString(),
                   },
                 ),
                 const SizedBox(height: 16),
@@ -137,7 +152,11 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
     );
   }
 
-  Widget _buildInfoCard(String title, IconData icon, Map<String, dynamic> data) {
+  Widget _buildInfoCard(
+    String title,
+    IconData icon,
+    Map<String, dynamic> data,
+  ) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -150,37 +169,41 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
                 const SizedBox(width: 12),
                 Text(
                   title,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ],
             ),
             const Divider(height: 24),
-            ...data.entries.map((entry) => Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Text(
-                          entry.key,
-                          style: const TextStyle(fontWeight: FontWeight.w600),
+            ...data.entries.map(
+              (entry) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Text(
+                        entry.key,
+                        style: const TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Text(
+                        entry.value.toString(),
+                        style: TextStyle(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onSurface.withOpacity(0.7),
                         ),
                       ),
-                      Expanded(
-                        flex: 3,
-                        child: Text(
-                          entry.value.toString(),
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -197,13 +220,16 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
           children: [
             Row(
               children: [
-                Icon(Icons.tips_and_updates, color: Theme.of(context).colorScheme.primary),
+                Icon(
+                  Icons.tips_and_updates,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
                 const SizedBox(width: 12),
                 Text(
                   'Testing Tips',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
@@ -232,10 +258,7 @@ class _DeviceInfoScreenState extends State<DeviceInfoScreen> {
           ),
           const SizedBox(width: 8),
           Expanded(
-            child: Text(
-              text,
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
+            child: Text(text, style: Theme.of(context).textTheme.bodySmall),
           ),
         ],
       ),

@@ -25,31 +25,49 @@ class _TestingChecklistScreenState extends State<TestingChecklistScreen> {
         ChecklistItem('Configure Android Studio emulator', 'setup_emulator'),
         ChecklistItem('Set up iOS Simulator (Mac only)', 'setup_ios_sim'),
         ChecklistItem('Run "flutter doctor" and fix issues', 'setup_doctor'),
-        ChecklistItem('Verify device detection with "flutter devices"', 'setup_devices'),
+        ChecklistItem(
+          'Verify device detection with "flutter devices"',
+          'setup_devices',
+        ),
       ],
     ),
     ChecklistCategory(
       title: 'Emulator Testing',
       icon: Icons.computer,
       items: [
-        ChecklistItem('Test app launch on Android emulator', 'emu_launch_android'),
+        ChecklistItem(
+          'Test app launch on Android emulator',
+          'emu_launch_android',
+        ),
         ChecklistItem('Test app launch on iOS Simulator', 'emu_launch_ios'),
         ChecklistItem('Verify all screens render correctly', 'emu_screens'),
         ChecklistItem('Test navigation between screens', 'emu_navigation'),
         ChecklistItem('Check hot reload functionality', 'emu_hot_reload'),
         ChecklistItem('Test different screen sizes', 'emu_screen_sizes'),
         ChecklistItem('Rotate device (portrait/landscape)', 'emu_rotation'),
-        ChecklistItem('Test with different Android API levels', 'emu_api_levels'),
+        ChecklistItem(
+          'Test with different Android API levels',
+          'emu_api_levels',
+        ),
       ],
     ),
     ChecklistCategory(
       title: 'Physical Device Testing',
       icon: Icons.smartphone,
       items: [
-        ChecklistItem('Connect device via USB and verify detection', 'dev_connect'),
-        ChecklistItem('Install and launch app on physical device', 'dev_install'),
+        ChecklistItem(
+          'Connect device via USB and verify detection',
+          'dev_connect',
+        ),
+        ChecklistItem(
+          'Install and launch app on physical device',
+          'dev_install',
+        ),
         ChecklistItem('Test actual touch interactions', 'dev_touch'),
-        ChecklistItem('Verify performance (no lag/stuttering)', 'dev_performance'),
+        ChecklistItem(
+          'Verify performance (no lag/stuttering)',
+          'dev_performance',
+        ),
         ChecklistItem('Test app in real lighting conditions', 'dev_lighting'),
         ChecklistItem('Verify battery usage is reasonable', 'dev_battery'),
         ChecklistItem('Test on different device models', 'dev_models'),
@@ -62,7 +80,10 @@ class _TestingChecklistScreenState extends State<TestingChecklistScreen> {
         ChecklistItem('Test camera permission request', 'perm_camera'),
         ChecklistItem('Test storage permission request', 'perm_storage'),
         ChecklistItem('Handle permission denial gracefully', 'perm_denial'),
-        ChecklistItem('Test permission revocation while app running', 'perm_revoke'),
+        ChecklistItem(
+          'Test permission revocation while app running',
+          'perm_revoke',
+        ),
         ChecklistItem('Verify Firebase permissions', 'perm_firebase'),
       ],
     ),
@@ -88,7 +109,10 @@ class _TestingChecklistScreenState extends State<TestingChecklistScreen> {
         ChecklistItem('Test loading states', 'ui_loading'),
         ChecklistItem('Test error messages display correctly', 'ui_errors'),
         ChecklistItem('Test empty states', 'ui_empty'),
-        ChecklistItem('Verify responsive design on different sizes', 'ui_responsive'),
+        ChecklistItem(
+          'Verify responsive design on different sizes',
+          'ui_responsive',
+        ),
         ChecklistItem('Test animations and transitions', 'ui_animations'),
         ChecklistItem('Check text readability and contrast', 'ui_contrast'),
       ],
@@ -130,7 +154,8 @@ class _TestingChecklistScreenState extends State<TestingChecklistScreen> {
     setState(() {
       for (var category in _categories) {
         for (var item in category.items) {
-          _checkedItems[item.key] = _prefs.getBool('checklist_${item.key}') ?? false;
+          _checkedItems[item.key] =
+              _prefs.getBool('checklist_${item.key}') ?? false;
         }
       }
       _isLoading = false;
@@ -149,7 +174,9 @@ class _TestingChecklistScreenState extends State<TestingChecklistScreen> {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Reset Checklist'),
-        content: const Text('Are you sure you want to reset all checklist items?'),
+        content: const Text(
+          'Are you sure you want to reset all checklist items?',
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
@@ -192,9 +219,7 @@ class _TestingChecklistScreenState extends State<TestingChecklistScreen> {
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
     return Scaffold(
@@ -215,7 +240,8 @@ class _TestingChecklistScreenState extends State<TestingChecklistScreen> {
             child: ListView.builder(
               padding: const EdgeInsets.all(16),
               itemCount: _categories.length,
-              itemBuilder: (context, index) => _buildCategory(_categories[index]),
+              itemBuilder: (context, index) =>
+                  _buildCategory(_categories[index]),
             ),
           ),
         ],
@@ -247,16 +273,16 @@ class _TestingChecklistScreenState extends State<TestingChecklistScreen> {
             children: [
               Text(
                 'Overall Progress',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
                 '$completed / $total',
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
               ),
             ],
           ),
@@ -284,7 +310,10 @@ class _TestingChecklistScreenState extends State<TestingChecklistScreen> {
     return Card(
       margin: const EdgeInsets.only(bottom: 16),
       child: ExpansionTile(
-        leading: Icon(category.icon, color: Theme.of(context).colorScheme.primary),
+        leading: Icon(
+          category.icon,
+          color: Theme.of(context).colorScheme.primary,
+        ),
         title: Text(
           category.title,
           style: const TextStyle(fontWeight: FontWeight.bold),

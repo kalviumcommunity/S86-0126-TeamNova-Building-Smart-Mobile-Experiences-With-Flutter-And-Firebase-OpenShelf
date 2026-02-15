@@ -5,23 +5,27 @@ Get theming working in your OpenShelf app in under 5 minutes!
 ## 🚀 Installation
 
 ### 1. Install Dependencies
+
 ```bash
 flutter pub get
 ```
 
 The following dependencies are already added:
+
 - `provider: ^6.1.1`
 - `shared_preferences: ^2.2.2`
 
 ## ⚡ Test It Right Now
 
 ### Option 1: Use the Demo Screen
+
 ```dart
 // Navigate to the theming demo
 Navigator.pushNamed(context, '/theming-demo');
 ```
 
 ### Option 2: Add Quick Toggle Anywhere
+
 ```dart
 import 'package:provider/provider.dart';
 import 'package:openshelf_app/providers/theme_provider.dart';
@@ -39,16 +43,19 @@ Switch(
 ## 📱 See It in Action
 
 ### 1. Run the app
+
 ```bash
 flutter run
 ```
 
 ### 2. Navigate to Theme Demo
+
 - Open the demo hub
 - Select "Dark Mode & Theming"
 - Try different theme modes!
 
 ### 3. Test Persistence
+
 - Change the theme
 - Close and reopen the app
 - Theme preference is saved! ✨
@@ -56,6 +63,7 @@ flutter run
 ## 🎨 Common Use Cases
 
 ### Add Theme Toggle to AppBar
+
 ```dart
 AppBar(
   title: const Text('My Screen'),
@@ -74,6 +82,7 @@ AppBar(
 ```
 
 ### Add Theme Selector to Settings
+
 ```dart
 ListTile(
   leading: const Icon(Icons.palette),
@@ -84,6 +93,7 @@ ListTile(
 ```
 
 ### Check Current Theme
+
 ```dart
 final themeProvider = Provider.of<ThemeProvider>(context);
 final bool isDark = themeProvider.isDarkMode(context);
@@ -98,7 +108,9 @@ if (isDark) {
 ## 🎯 Quick Customization
 
 ### Change App Colors
+
 Edit `lib/theme/app_theme_light.dart`:
+
 ```dart
 colorScheme: ColorScheme.fromSeed(
   seedColor: Colors.blue, // Your brand color here!
@@ -107,6 +119,7 @@ colorScheme: ColorScheme.fromSeed(
 ```
 
 Edit `lib/theme/app_theme_dark.dart`:
+
 ```dart
 colorScheme: ColorScheme.fromSeed(
   seedColor: Colors.blue, // Match your brand
@@ -115,6 +128,7 @@ colorScheme: ColorScheme.fromSeed(
 ```
 
 ### Use Theme Colors
+
 ```dart
 // ✅ DO THIS
 Container(
@@ -130,7 +144,9 @@ Container(
 ## 🐛 Troubleshooting
 
 ### Theme not changing?
+
 Make sure you're using `Provider.of()` or `context.watch()`:
+
 ```dart
 // ✅ Correct
 Consumer<ThemeProvider>(
@@ -144,7 +160,9 @@ final themeProvider = ThemeProvider();
 ```
 
 ### Theme not persisting?
+
 Check that SharedPreferences is working:
+
 ```dart
 // The provider handles this automatically
 // Just make sure you're using the Provider's methods:
@@ -160,6 +178,7 @@ await context.read<ThemeProvider>().useDarkTheme();
 ## ✅ What You Get
 
 ✨ **Out of the Box:**
+
 - Light theme
 - Dark theme (OLED optimized)
 - System theme (follows device)

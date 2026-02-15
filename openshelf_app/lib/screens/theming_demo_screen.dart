@@ -61,16 +61,16 @@ class ThemingDemoScreen extends StatelessWidget {
       children: [
         Text(
           'Dark Mode & Theming',
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),
         Text(
           'Customize your visual experience with light, dark, or system theme',
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context).textTheme.bodySmall?.color,
-              ),
+            color: Theme.of(context).textTheme.bodySmall?.color,
+          ),
         ),
       ],
     );
@@ -180,10 +180,7 @@ class ThemingDemoScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Theme Preview',
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
+        Text('Theme Preview', style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(height: 12),
         Row(
           children: [
@@ -203,8 +200,9 @@ class ThemingDemoScreen extends StatelessWidget {
                       Text(
                         'Primary',
                         style: TextStyle(
-                          color:
-                              Theme.of(context).colorScheme.onPrimaryContainer,
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onPrimaryContainer,
                         ),
                       ),
                     ],
@@ -223,16 +221,17 @@ class ThemingDemoScreen extends StatelessWidget {
                       Icon(
                         Icons.favorite,
                         size: 32,
-                        color:
-                            Theme.of(context).colorScheme.onSecondaryContainer,
+                        color: Theme.of(
+                          context,
+                        ).colorScheme.onSecondaryContainer,
                       ),
                       const SizedBox(height: 8),
                       Text(
                         'Secondary',
                         style: TextStyle(
-                          color: Theme.of(context)
-                              .colorScheme
-                              .onSecondaryContainer,
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onSecondaryContainer,
                         ),
                       ),
                     ],
@@ -249,20 +248,38 @@ class ThemingDemoScreen extends StatelessWidget {
   Widget _buildBenefitsSection(BuildContext context, bool isDark) {
     final benefits = isDark
         ? [
-            _Benefit(Icons.battery_charging_full, 'Battery Saving',
-                'OLED screens use less power'),
-            _Benefit(Icons.remove_red_eye, 'Reduced Eye Strain',
-                'Better for low-light environments'),
-            _Benefit(Icons.nights_stay, 'Better Sleep',
-                'Less blue light before bedtime'),
+            _Benefit(
+              Icons.battery_charging_full,
+              'Battery Saving',
+              'OLED screens use less power',
+            ),
+            _Benefit(
+              Icons.remove_red_eye,
+              'Reduced Eye Strain',
+              'Better for low-light environments',
+            ),
+            _Benefit(
+              Icons.nights_stay,
+              'Better Sleep',
+              'Less blue light before bedtime',
+            ),
           ]
         : [
-            _Benefit(Icons.wb_sunny, 'Clear Visibility',
-                'Perfect for bright environments'),
-            _Benefit(Icons.article, 'Better Readability',
-                'Easier to read in daylight'),
-            _Benefit(Icons.energy_savings_leaf, 'Universal Compatibility',
-                'Works well on all screen types'),
+            _Benefit(
+              Icons.wb_sunny,
+              'Clear Visibility',
+              'Perfect for bright environments',
+            ),
+            _Benefit(
+              Icons.article,
+              'Better Readability',
+              'Easier to read in daylight',
+            ),
+            _Benefit(
+              Icons.energy_savings_leaf,
+              'Universal Compatibility',
+              'Works well on all screen types',
+            ),
           ];
 
     return Card(
@@ -276,34 +293,36 @@ class ThemingDemoScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 12),
-            ...benefits.map((benefit) => Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  child: Row(
-                    children: [
-                      Icon(
-                        benefit.icon,
-                        size: 20,
-                        color: Theme.of(context).colorScheme.primary,
+            ...benefits.map(
+              (benefit) => Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Row(
+                  children: [
+                    Icon(
+                      benefit.icon,
+                      size: 20,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            benefit.title,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            benefit.description,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              benefit.title,
-                              style: const TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              benefit.description,
-                              style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
