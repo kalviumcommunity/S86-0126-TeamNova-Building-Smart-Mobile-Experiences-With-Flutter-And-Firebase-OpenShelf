@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
+
+import 'providers/theme_provider.dart';
+import 'theme/app_theme_light.dart';
+import 'theme/app_theme_dark.dart';
 
 import 'screens/welcome_screen.dart';
 import 'screens/auth_gate.dart';
@@ -31,11 +36,23 @@ import 'screens/firestore_write_demo.dart';
 import 'screens/realtime_sync_demo.dart';
 import 'screens/firestore_queries_demo.dart';
 import 'screens/firebase_storage_demo.dart';
+import 'screens/theming_demo_screen.dart';
+import 'screens/error_handling_demo_screen.dart';
+import 'screens/device_info_screen.dart';
+import 'screens/testing_checklist_screen.dart';
+import 'screens/release_build_screen.dart';
+import 'screens/play_store_deployment_screen.dart';
+import 'screens/learning_reflection_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -43,44 +60,61 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'OpenShelf',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const AuthGate(),
-      routes: {
-        '/welcome': (context) => const WelcomeScreen(),
-        '/responsive': (context) => const ResponsiveHome(),
-        '/login': (context) => const LoginScreen(),
-        '/signup': (context) => const SignupScreen(),
-        '/demo-hub': (context) => const DemoHub(),
-        '/widget-tree-demo': (context) => const WidgetTreeDemo(),
-        '/stateless-stateful-demo': (context) => const StatelessStatefulDemo(),
-        '/hot-reload-devtools-demo': (context) => const HotReloadDevtoolsDemo(),
-        '/navigation-hub': (context) => const NavigationHub(),
-        '/home': (context) => const HomeScreen(),
-        '/profile': (context) => const ProfileScreen(),
-        '/settings': (context) => const SettingsScreen(),
-        '/about': (context) => const AboutScreen(),
-        '/responsive-layout': (context) => ResponsiveLayout(),
-        '/scrollable-views': (context) => const ScrollableViews(),
-        '/user-input-form': (context) => const UserInputForm(),
-        '/state-management-demo': (context) => const StateManagementDemo(),
-        '/reusable-widgets-demo': (context) => const ReusableWidgetsDemo(),
-        '/library': (context) => const LibraryScreen(),
-        '/responsive-design-demo': (context) => const ResponsiveDesignDemo(),
-        '/responsive-dashboard': (context) => const ResponsiveDashboard(),
-        '/asset-demo': (context) => const AssetDemoScreen(),
-        '/animations-demo': (context) => const AnimationsDemoScreen(),
-        '/page-transitions': (context) => const PageTransitionsDemo(),
-        '/firestore-read-demo': (context) => const FirestoreReadDemo(),
-        '/firestore-write-demo': (context) => const FirestoreWriteDemo(),
-        '/realtime-sync-demo': (context) => const RealtimeSyncDemo(),
-        '/firestore-queries-demo': (context) => const FirestoreQueriesDemo(),
-        '/firebase-storage-demo': (context) => const FirebaseStorageDemo(),
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp(
+          title: 'OpenShelf',
+          debugShowCheckedModeBanner: false,
+          theme: AppThemeLight.theme,
+          darkTheme: AppThemeDark.theme,
+          themeMode: themeProvider.themeMode,
+          home: const AuthGate(),
+          routes: {
+            '/welcome': (context) => const WelcomeScreen(),
+            '/responsive': (context) => const ResponsiveHome(),
+            '/login': (context) => const LoginScreen(),
+            '/signup': (context) => const SignupScreen(),
+            '/demo-hub': (context) => const DemoHub(),
+            '/widget-tree-demo': (context) => const WidgetTreeDemo(),
+            '/stateless-stateful-demo': (context) =>
+                const StatelessStatefulDemo(),
+            '/hot-reload-devtools-demo': (context) =>
+                const HotReloadDevtoolsDemo(),
+            '/navigation-hub': (context) => const NavigationHub(),
+            '/home': (context) => const HomeScreen(),
+            '/profile': (context) => const ProfileScreen(),
+            '/settings': (context) => const SettingsScreen(),
+            '/about': (context) => const AboutScreen(),
+            '/responsive-layout': (context) => ResponsiveLayout(),
+            '/scrollable-views': (context) => const ScrollableViews(),
+            '/user-input-form': (context) => const UserInputForm(),
+            '/state-management-demo': (context) => const StateManagementDemo(),
+            '/reusable-widgets-demo': (context) => const ReusableWidgetsDemo(),
+            '/library': (context) => const LibraryScreen(),
+            '/responsive-design-demo': (context) =>
+                const ResponsiveDesignDemo(),
+            '/responsive-dashboard': (context) => const ResponsiveDashboard(),
+            '/asset-demo': (context) => const AssetDemoScreen(),
+            '/animations-demo': (context) => const AnimationsDemoScreen(),
+            '/page-transitions': (context) => const PageTransitionsDemo(),
+            '/firestore-read-demo': (context) => const FirestoreReadDemo(),
+            '/firestore-write-demo': (context) => const FirestoreWriteDemo(),
+            '/realtime-sync-demo': (context) => const RealtimeSyncDemo(),
+            '/firestore-queries-demo': (context) =>
+                const FirestoreQueriesDemo(),
+            '/firebase-storage-demo': (context) => const FirebaseStorageDemo(),
+            '/theming-demo': (context) => const ThemingDemoScreen(),
+            '/error-handling-demo': (context) =>
+                const ErrorHandlingDemoScreen(),
+            '/device-info': (context) => const DeviceInfoScreen(),
+            '/testing-checklist': (context) => const TestingChecklistScreen(),
+            '/release-build': (context) => const ReleaseBuildScreen(),
+            '/play-store-deployment': (context) =>
+                const PlayStoreDeploymentScreen(),
+            '/learning-reflection': (context) =>
+                const LearningReflectionScreen(),
+          },
+        );
       },
     );
   }
