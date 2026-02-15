@@ -1,0 +1,27 @@
+# Android Keystore Configuration Template
+# Copy this file to 'key.properties' and fill in your actual values
+# NEVER commit the actual key.properties file to version control!
+
+# The password used to protect the keystore file
+storePassword=YOUR_STORE_PASSWORD_HERE
+
+# The password used to protect the key entry
+keyPassword=YOUR_KEY_PASSWORD_HERE
+
+# The alias of the key to use
+keyAlias=upload
+
+# The path to the keystore file (relative to android/app/)
+storeFile=app-release-key.jks
+
+# SETUP INSTRUCTIONS:
+# 1. Generate your keystore:
+#    keytool -genkey -v -keystore android/app/app-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+#
+# 2. Copy this template:
+#    cp android/key.properties.template android/key.properties
+#
+# 3. Edit android/key.properties with your actual passwords
+#
+# 4. Keep your keystore file and passwords SECURE and BACKED UP!
+#    If you lose them, you cannot update your app on Google Play
