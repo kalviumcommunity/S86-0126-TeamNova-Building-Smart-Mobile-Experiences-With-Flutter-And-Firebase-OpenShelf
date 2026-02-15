@@ -37,6 +37,7 @@ import 'screens/realtime_sync_demo.dart';
 import 'screens/firestore_queries_demo.dart';
 import 'screens/firebase_storage_demo.dart';
 import 'screens/theming_demo_screen.dart';
+import 'screens/error_handling_demo_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -94,6 +95,7 @@ class MyApp extends StatelessWidget {
             '/firestore-queries-demo': (context) => const FirestoreQueriesDemo(),
             '/firebase-storage-demo': (context) => const FirebaseStorageDemo(),
             '/theming-demo': (context) => const ThemingDemoScreen(),
+            '/error-handling-demo': (context) => const ErrorHandlingDemoScreen(),
           },
         );
       },
