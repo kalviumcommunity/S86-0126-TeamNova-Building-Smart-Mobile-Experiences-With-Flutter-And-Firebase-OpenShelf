@@ -8,9 +8,11 @@
 **Screen**: VS Code showing project structure
 
 **Narration**:
+
 > "Hi! I'm demonstrating Cloud Functions integration in the OpenShelf app. I've implemented 5 serverless functions - 2 callable from Flutter and 3 event-triggered by Firestore."
 
 **Show**:
+
 - Briefly navigate to `functions` folder
 - Show `index.js` file
 
@@ -19,9 +21,11 @@
 **Screen**: VS Code - `functions/index.js`
 
 **Narration**:
+
 > "Here's the sayHello callable function that returns a personalized greeting. And here's onUserCreated that automatically initializes new user profiles."
 
 **Show**:
+
 - Scroll to `sayHello` function (lines 30-45)
 - Scroll to `onUserCreated` function (lines 100-130)
 - Don't linger too long - just show they exist
@@ -31,15 +35,18 @@
 **Screen**: Terminal
 
 **Narration**:
+
 > "Let me deploy these functions to Firebase using the Firebase CLI."
 
 **Type**:
+
 ```bash
 cd openshelf_app
 firebase deploy --only functions
 ```
 
 **Show**:
+
 - Command running
 - Success messages appearing
 - ✔ marks for each function deployed
@@ -50,9 +57,11 @@ firebase deploy --only functions
 **Screen**: Running app - Cloud Functions Demo screen
 
 **Narration**:
+
 > "Now let's test the callable functions from the app. I'll enter my name and call the sayHello function."
 
 **Actions**:
+
 1. Navigate to Cloud Functions Demo screen
 2. Type your name in the field (e.g., "Alex")
 3. Click "Call sayHello()" button
@@ -60,18 +69,20 @@ firebase deploy --only functions
 5. Show response message appearing
 
 **Narration continues**:
+
 > "Great! The function executed successfully and returned a personalized greeting."
 
-**Then**:
-6. Scroll down to book recommendation section
-7. Fill in:
-   - Title: "Clean Code"
-   - Author: "Robert C. Martin"
-   - Genre: "Programming"
+**Then**: 6. Scroll down to book recommendation section 7. Fill in:
+
+- Title: "Clean Code"
+- Author: "Robert C. Martin"
+- Genre: "Programming"
+
 8. Click "Add Recommendation"
 9. Show success message with book ID
 
 **Narration**:
+
 > "The second function validated the input, added metadata, and stored the book in Firestore."
 
 ## 🎬 Scene 5: Firebase Console Logs (25 seconds)
@@ -79,9 +90,11 @@ firebase deploy --only functions
 **Screen**: Firebase Console - Functions → Logs
 
 **Narration**:
+
 > "Let's verify execution in the Firebase Console logs."
 
 **Show**:
+
 1. Firebase Console open to Functions section
 2. Click on "Logs" tab
 3. Show recent log entries for:
@@ -90,6 +103,7 @@ firebase deploy --only functions
 4. Point out timestamps and function names
 
 **Narration**:
+
 > "Here we can see both functions executed successfully with all their parameters and responses logged."
 
 ## 🎬 Scene 6: Event Trigger Demo (Optional - 10 seconds)
@@ -97,9 +111,11 @@ firebase deploy --only functions
 **Screen**: Firebase Console - Firestore
 
 **Narration**:
+
 > "The event-triggered functions run automatically when Firestore data changes."
 
 **Show**:
+
 - Firestore console
 - Briefly show users collection or notifications collection
 - Mention that onUserCreated added a welcome notification
@@ -109,6 +125,7 @@ firebase deploy --only functions
 **Screen**: Back to VS Code or Firebase Console
 
 **Narration**:
+
 > "This demonstrates how Cloud Functions provide serverless backend capabilities for validation, automation, and data processing - all without managing servers. Thanks for watching!"
 
 ---
@@ -116,6 +133,7 @@ firebase deploy --only functions
 ## 📝 Recording Tips
 
 ### Before Recording
+
 - [ ] Deploy all functions
 - [ ] Test app to ensure functions work
 - [ ] Clear terminal history
@@ -125,6 +143,7 @@ firebase deploy --only functions
 - [ ] Clear any existing demo data
 
 ### During Recording
+
 - Speak clearly and at moderate pace
 - Don't worry about minor mistakes - keep going
 - If you mess up badly, just start that scene over
@@ -132,17 +151,20 @@ firebase deploy --only functions
 - Keep cursor movements smooth and deliberate
 
 ### Recording Tools
+
 - **Windows**: OBS Studio, ShareX, Xbox Game Bar (Win+G)
 - **Mac**: QuickTime, Screen Recording
 - **Cross-platform**: Loom, Zoom
 
 ### Video Settings
+
 - Resolution: 1080p (1920x1080) or 720p minimum
 - Format: MP4 or WebM
 - Frame rate: 30fps minimum
 - Audio: Clear, no background noise
 
 ### After Recording
+
 - [ ] Review video for clarity
 - [ ] Check audio quality
 - [ ] Trim any dead space at start/end
@@ -154,6 +176,7 @@ firebase deploy --only functions
 ## 🎯 What to Emphasize
 
 ### Key Points to Mention
+
 1. **Serverless** - No server management required
 2. **Two types** - Callable (user-initiated) and Event-triggered (automatic)
 3. **Validation** - Functions validate input before processing
@@ -161,6 +184,7 @@ firebase deploy --only functions
 5. **Logs** - Real-time monitoring in Firebase Console
 
 ### What Makes a Good Demo
+
 - ✅ Clear narration explaining each step
 - ✅ Smooth transitions between scenes
 - ✅ Actually showing code executing (not just screenshots)
@@ -168,6 +192,7 @@ firebase deploy --only functions
 - ✅ Showing Firebase Console verification
 
 ### What to Avoid
+
 - ❌ Long pauses or dead air
 - ❌ Reading code line-by-line
 - ❌ Going too fast through important parts
